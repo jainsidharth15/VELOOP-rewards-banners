@@ -1,0 +1,522 @@
+.banner {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+
+  padding: 42px 52px;
+
+  background:
+    radial-gradient(
+      circle at 78% 48%,
+      rgba(83, 101, 210, 0.2),
+      transparent 37%
+    ),
+    linear-gradient(
+      135deg,
+      #0f1427 0%,
+      #171c35 55%,
+      #1b203d 100%
+    );
+}
+
+
+/* =========================
+   LEFT CONTENT
+========================= */
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: flex-start;
+
+  position: relative;
+  z-index: 5;
+}
+
+.label {
+  margin-bottom: 16px;
+
+  color: #6fb8ff;
+
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+.content h2 {
+  margin: 0;
+
+  color: #f7f8fc;
+
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+
+  line-height: 0.98;
+
+  letter-spacing: -0.045em;
+}
+
+.content h2 strong {
+  color: #f1c75f;
+}
+
+.content p {
+  max-width: 500px;
+
+  margin: 20px 0 28px;
+
+  color: #b9c0d3;
+
+  line-height: 1.65;
+}
+
+
+/* =========================
+   RIGHT VISUAL
+========================= */
+
+.visual {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 310px;
+}
+
+.redemptionFlow {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  width: 100%;
+  max-width: 520px;
+}
+
+
+/* =========================
+   BALANCE CARD
+========================= */
+
+.balanceCard {
+  width: 100%;
+  max-width: 390px;
+
+  padding: 18px 20px;
+
+  border: 1px solid rgba(241, 199, 95, 0.3);
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(17, 21, 40, 0.92)
+    );
+
+  box-shadow:
+    0 22px 50px rgba(0, 0, 0, 0.25);
+
+  animation: balanceFloat 4s ease-in-out infinite;
+}
+
+.balanceHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+
+  color: #8f98b0;
+
+  font-size: 0.65rem;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+.balanceHeader svg {
+  color: #f1c75f;
+}
+
+.balanceContent {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+}
+
+.veImageWrapper {
+  display: grid;
+  place-items: center;
+
+  width: 62px;
+  height: 62px;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.2);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.veImageWrapper img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.balanceContent div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.balanceContent strong {
+  color: #ffffff;
+
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.balanceContent span {
+  color: #8f98b0;
+
+  font-size: 0.75rem;
+}
+
+
+/* =========================
+   REDEMPTION ARROW
+========================= */
+
+.flowArrow {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 5px;
+
+  margin: 8px 0;
+
+  color: #f1c75f;
+
+  font-size: 0.62rem;
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+.arrowLine {
+  width: 1px;
+  height: 22px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(241, 199, 95, 0.15),
+      rgba(241, 199, 95, 0.8)
+    );
+
+  position: relative;
+}
+
+.arrowLine::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -2px;
+  left: 50%;
+
+  width: 7px;
+  height: 7px;
+
+  border-right: 1px solid #f1c75f;
+  border-bottom: 1px solid #f1c75f;
+
+  transform:
+    translateX(-50%)
+    rotate(45deg);
+}
+
+
+/* =========================
+   REWARD OPTIONS
+========================= */
+
+.rewardOptions {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 10px;
+
+  width: 100%;
+}
+
+.rewardOption {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  min-height: 92px;
+
+  padding: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.rewardOption:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(241, 199, 95, 0.35);
+
+  background:
+    rgba(255, 255, 255, 0.06);
+}
+
+.rewardOption.selected {
+  border-color: rgba(241, 199, 95, 0.65);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(241, 199, 95, 0.13),
+      rgba(255, 255, 255, 0.035)
+    );
+
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.2);
+}
+
+.rewardOption:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.optionIcon {
+  display: grid;
+  place-items: center;
+
+  width: 34px;
+  height: 34px;
+
+  margin-bottom: 9px;
+
+  border: 1px solid rgba(241, 199, 95, 0.22);
+
+  border-radius: 10px;
+
+  background: rgba(241, 199, 95, 0.08);
+
+  color: #f1c75f;
+}
+
+.optionText {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.optionText strong {
+  color: #f3f5fb;
+
+  font-size: 0.8rem;
+}
+
+.optionText span {
+  color: #7f889f;
+
+  font-size: 0.65rem;
+  line-height: 1.3;
+}
+
+.selectedIcon {
+  position: absolute;
+
+  top: 11px;
+  right: 11px;
+
+  color: #f1c75f;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: 14px;
+
+  padding: 8px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  color: #9da6bb;
+
+  font-size: 0.7rem;
+}
+
+.status svg {
+  color: #f1c75f;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes balanceFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 991px) {
+  .banner {
+    min-height: 450px;
+
+    padding: 38px 35px;
+  }
+
+  .balanceCard {
+    max-width: 340px;
+  }
+
+  .rewardOption {
+    padding: 12px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .banner {
+    grid-template-columns: 1fr;
+
+    padding: 34px 25px;
+  }
+
+  .content {
+    align-items: center;
+
+    text-align: center;
+  }
+
+  .visual {
+    min-height: 330px;
+
+    margin-top: 18px;
+  }
+
+  .redemptionFlow {
+    max-width: 460px;
+  }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .banner {
+    padding: 30px 17px;
+  }
+
+  .content h2 {
+    font-size: 2.3rem;
+  }
+
+  .content p {
+    font-size: 0.9rem;
+  }
+
+  .rewardOptions {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .rewardOption {
+    flex-direction: row;
+    align-items: center;
+
+    min-height: auto;
+
+    padding: 10px 12px;
+  }
+
+  .optionIcon {
+    flex-shrink: 0;
+
+    margin: 0 10px 0 0;
+  }
+
+  .optionText {
+    gap: 2px;
+  }
+
+  .selectedIcon {
+    top: 50%;
+
+    transform: translateY(-50%);
+  }
+
+  .status {
+    font-size: 0.65rem;
+  }
+}

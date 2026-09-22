@@ -1,0 +1,563 @@
+.banner {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  padding: 46px 52px;
+
+  background:
+    radial-gradient(
+      circle at 75% 48%,
+      rgba(216, 169, 69, 0.18),
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      #101426 0%,
+      #1b1929 55%,
+      #1d1a2f 100%
+    );
+}
+
+
+/* =========================
+   LEFT CONTENT
+========================= */
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: flex-start;
+
+  position: relative;
+  z-index: 5;
+}
+
+.label {
+  margin-bottom: 16px;
+
+  color: #e5bd5f;
+
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  letter-spacing: 0.11em;
+}
+
+.content h2 {
+  margin: 0;
+
+  color: #f7f8fc;
+
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+
+  line-height: 0.98;
+
+  letter-spacing: -0.045em;
+}
+
+.content h2 strong {
+  color: #f1c75f;
+}
+
+.content p {
+  max-width: 490px;
+
+  margin: 20px 0 28px;
+
+  color: #b9bfd1;
+
+  line-height: 1.65;
+}
+
+
+/* =========================
+   RIGHT VISUAL
+========================= */
+
+.visual {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  min-height: 310px;
+}
+
+
+/* Background glow */
+
+.glow {
+  position: absolute;
+
+  width: 230px;
+  height: 230px;
+
+  border-radius: 50%;
+
+  background: rgba(229, 188, 87, 0.12);
+
+  filter: blur(35px);
+
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+
+/* Orbit */
+
+.orbit {
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border: 1px solid rgba(225, 186, 85, 0.25);
+
+  border-radius: 50%;
+
+  transform: rotate(-15deg);
+
+  animation: orbitRotate 12s linear infinite;
+}
+
+
+/* =========================
+   MAIN VE
+========================= */
+
+.veVisual {
+  position: relative;
+  z-index: 4;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 190px;
+  height: 190px;
+
+  padding: 0;
+
+  border: 9px solid rgba(224, 185, 83, 0.28);
+
+  border-top-color: #efc65e;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(228, 187, 83, 0.16),
+      rgba(18, 21, 38, 0.95) 68%
+    );
+
+  color: #f2c961;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 60px rgba(222, 180, 73, 0.12);
+
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.veVisual:hover {
+  transform: scale(1.05);
+
+  box-shadow:
+    0 0 75px rgba(222, 180, 73, 0.2);
+}
+
+.veVisual:active {
+  transform: scale(0.96);
+}
+
+.veVisual:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 5px;
+}
+
+
+/* VE image */
+
+.veVisual img {
+  position: absolute;
+
+  width: 125px;
+  height: 125px;
+
+  object-fit: contain;
+
+  border-radius: 50%;
+
+  mix-blend-mode: screen;
+
+  opacity: 0.82;
+
+  transition:
+    transform 300ms ease,
+    opacity 300ms ease;
+}
+
+.veVisual:hover img {
+  transform: scale(1.08);
+
+  opacity: 0.95;
+}
+
+
+/* Text over visual */
+
+.veLabel {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 62px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 0.6rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+}
+
+.veVisual strong {
+  position: relative;
+  z-index: 2;
+
+  font-size: 2.5rem;
+
+  line-height: 1;
+}
+
+
+/* =========================
+   SMALL VE
+========================= */
+
+.smallVe {
+  position: absolute;
+
+  width: 72px;
+  height: 72px;
+
+  object-fit: contain;
+
+  right: 11%;
+  top: 19%;
+
+  border-radius: 50%;
+
+  mix-blend-mode: screen;
+
+  opacity: 0.8;
+
+  animation: floating 3.5s ease-in-out infinite;
+}
+
+
+/* =========================
+   GIFT
+========================= */
+
+.gift {
+  position: absolute;
+
+  right: 10%;
+  bottom: 16%;
+
+  z-index: 5;
+
+  display: grid;
+  place-items: center;
+
+  width: 78px;
+  height: 78px;
+
+  border: 1px solid rgba(224, 185, 83, 0.2);
+
+  border-radius: 20px;
+
+  background: rgba(226, 184, 82, 0.1);
+
+  color: #f0c55e;
+
+  animation: floating 4s ease-in-out infinite reverse;
+}
+
+
+/* =========================
+   DECORATIVE ICONS
+========================= */
+
+.sparkle {
+  position: absolute;
+
+  z-index: 3;
+
+  color: #e9bd59;
+
+  animation: sparklePulse 2.5s ease-in-out infinite;
+}
+
+.sparkleOne {
+  left: 12%;
+  top: 21%;
+}
+
+.sparkleTwo {
+  right: 21%;
+  top: 12%;
+
+  color: #72b9ff;
+
+  animation-delay: 700ms;
+}
+
+
+/* =========================
+   INTERACTION MESSAGE
+========================= */
+
+.message {
+  position: absolute;
+
+  left: 50%;
+  bottom: 4%;
+
+  z-index: 8;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 8px 13px;
+
+  border: 1px solid rgba(224, 185, 83, 0.18);
+
+  border-radius: 999px;
+
+  background: rgba(19, 23, 40, 0.9);
+
+  color: #c9cdd9;
+
+  font-size: 0.68rem;
+
+  white-space: nowrap;
+
+  opacity: 0;
+
+  transform: translate(-50%, 8px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.message svg {
+  color: #f1c75f;
+}
+
+.messageVisible {
+  opacity: 1;
+
+  transform: translate(-50%, 0);
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes sparklePulse {
+  0%,
+  100% {
+    opacity: 0.35;
+
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: scale(1.1);
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 0.9;
+
+    transform: scale(1.08);
+  }
+}
+
+@keyframes orbitRotate {
+  from {
+    transform: rotate(-15deg);
+  }
+
+  to {
+    transform: rotate(345deg);
+  }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 991px) {
+  .banner {
+    min-height: 450px;
+
+    padding: 38px 35px;
+  }
+
+  .veVisual {
+    width: 165px;
+    height: 165px;
+  }
+
+  .veVisual img {
+    width: 108px;
+    height: 108px;
+  }
+
+  .orbit {
+    width: 270px;
+    height: 270px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .banner {
+    grid-template-columns: 1fr;
+
+    padding: 34px 25px;
+  }
+
+  .content {
+    align-items: center;
+
+    text-align: center;
+  }
+
+  .visual {
+    min-height: 300px;
+
+    margin-top: 10px;
+  }
+
+  .message {
+    bottom: 0;
+  }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .banner {
+    padding: 30px 17px;
+  }
+
+  .content h2 {
+    font-size: 2.35rem;
+  }
+
+  .content p {
+    font-size: 0.9rem;
+  }
+
+  .visual {
+    min-height: 275px;
+  }
+
+  .veVisual {
+    width: 145px;
+    height: 145px;
+
+    border-width: 7px;
+  }
+
+  .veVisual img {
+    width: 92px;
+    height: 92px;
+  }
+
+  .veLabel {
+    margin-top: 48px;
+  }
+
+  .veVisual strong {
+    font-size: 2rem;
+  }
+
+  .smallVe {
+    width: 58px;
+    height: 58px;
+  }
+
+  .gift {
+    width: 65px;
+    height: 65px;
+
+    right: 5%;
+  }
+
+  .orbit {
+    width: 235px;
+    height: 235px;
+  }
+
+  .message {
+    font-size: 0.6rem;
+  }
+}
+
+.veVisual.active {
+  transform: scale(1.08);
+
+  border-color: #f1c75f;
+
+  box-shadow:
+    0 0 90px rgba(241, 199, 95, 0.3);
+}

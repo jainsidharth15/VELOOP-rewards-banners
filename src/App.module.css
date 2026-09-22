@@ -1,0 +1,51 @@
+.page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 32px 24px 56px;
+  background: #161827;
+}
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto 28px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #f3c969;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.header h1 {
+  margin: 0;
+  color: #f5f7ff;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.05;
+}
+
+.header h1 span {
+  color: #f3c75f;
+}
+
+.header p {
+  max-width: 680px;
+  margin: 10px 0 0;
+  color: #a9aec3;
+}
+
+.bannerList {
+  display: grid;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 576px) {
+  .page {
+    padding: 22px 14px 40px;
+  }
+}
