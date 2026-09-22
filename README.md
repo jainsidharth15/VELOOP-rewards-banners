@@ -84,8 +84,13 @@ Shows a redemption flow from a demo VE balance to supported reward options.
 ## 📁 Project Structure
 
 ```text
-veloop-rewards-banners-starter/
+veloop-rewards-banners/
 ├── public/
+│   └── screenshots/
+│       ├── desktop-home.png
+│       ├── swap-center.png
+│       ├── mobile-home.png
+│       └── captcha-verified.png
 ├── src/
 │   ├── assets/
 │   │   └── images/
@@ -140,8 +145,8 @@ veloop-rewards-banners-starter/
 Clone the repository and enter the project directory:
 
 ```bash
-git clone <GITHUB_REPOSITORY_URL>
-cd veloop-rewards-banners-starter
+git clone https://github.com/jainsidharth15/VELOOP-rewards-banners.git
+cd VELOOP-rewards-banners
 ```
 
 Install dependencies:
@@ -254,7 +259,7 @@ The five concepts are intentionally separated as:
 
 ## 📦 Repository
 
-**GitHub Repository:** `<GITHUB_REPOSITORY_URL>`
+**GitHub Repository:** [VELOOP Rewards Banners](https://github.com/jainsidharth15/VELOOP-rewards-banners)
 
 ## 🔮 Scope & Notes
 
@@ -265,10 +270,10 @@ The five concepts are intentionally separated as:
 
 ## 👤 Author
 
-**Name:** `<YOUR_NAME>`  
+**Name:** Sidharth Jain  
 **Role:** Frontend Developer / Computer Science Graduate  
-**GitHub:** `<YOUR_GITHUB_PROFILE>`  
-**LinkedIn:** `<YOUR_LINKEDIN_PROFILE>`
+**GitHub:** https://github.com/jainsidharth15
+**LinkedIn:** https://www.linkedin.com/in/sidharth-jain-r15
 
 ---
 
