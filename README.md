@@ -232,21 +232,21 @@ The five concepts are intentionally separated as:
 
 ## 🖼️ Screenshots
 
-Screenshots will be added here before final submission.
+### Desktop
 
-Suggested screenshot set:
+![VELOOP Rewards - Desktop](./public/screenshots/desktop-home.png)
 
-```text
-docs/
-└── screenshots/
-    ├── desktop-home.png
-    ├── tablet-home.png
-    ├── mobile-home.png
-    ├── refer-interaction.png
-    ├── swap-interaction.png
-    ├── captcha-success.png
-    └── exchange-selection.png
-```
+### Swap Center
+
+![VELOOP Rewards - Swap Center](./public/screenshots/swap-center.png)
+
+### Mobile
+
+![VELOOP Rewards - Mobile](./public/screenshots/mobile-home.png)
+
+### Captcha Verification
+
+![VELOOP Rewards - Captcha Verified](./public/screenshots/captcha-verified.png)
 
 ## 🌐 Live Demo
 
