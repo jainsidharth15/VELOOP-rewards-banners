@@ -250,7 +250,7 @@ The five concepts are intentionally separated as:
 
 ## 🌐 Live Demo
 
-**Live Demo:** `<DEPLOYED_URL>`
+[View Live Demo](https://veloop-rewards-banners.netlify.app)
 
 ## 📦 Repository
 
