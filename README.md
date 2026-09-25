@@ -1,4 +1,4 @@
-# VELOOP Rewards — Promotional Banner Experience
+# VELOOP Rewards — Promotional & Feature Banner Redesign
 
 A responsive React-based landing page for **VELOOP Rewards**, featuring five distinct promotional banners for earning, swapping, completing tasks, and redeeming rewards.
 
@@ -21,6 +21,21 @@ The project focuses on a polished fintech-inspired visual system, responsive lay
 - Reduced-motion support through `prefers-reduced-motion`
 - Reusable banner shell and CTA button components
 - Demo data clearly identified where applicable
+
+## 🎯 Design Requirements
+
+The redesign follows the VELOOP Rewards assignment direction:
+
+- Full-width banner layouts within the available content area
+- Premium, modern, trustworthy, reward-focused, fintech-inspired visual language
+- Dark application background compatible with `#161827`
+- Restrained deep navy, blue, gold, purple, white, and neutral accents
+- A large feature-related visual in every banner
+- Meaningful interaction or animation in every banner
+- Clear CTAs with hover, active, and focus states
+- Responsive desktop, tablet, and mobile layouts
+- Meaningful icons and accessible controls
+- Subtle, performance-conscious animation rather than excessive visual effects
 
 ## 🎯 Reward Banners
 
@@ -241,17 +256,29 @@ The five concepts are intentionally separated as:
 
 ![VELOOP Rewards - Desktop](./public/screenshots/desktop-home.png)
 
+### Refer & Earn
+
+![VELOOP Rewards - Refer & Earn](./public/screenshots/refer-earn.png)
+
 ### Swap Center
 
 ![VELOOP Rewards - Swap Center](./public/screenshots/swap-center.png)
 
-### Mobile
+### Bonus VEs
 
-![VELOOP Rewards - Mobile](./public/screenshots/mobile-home.png)
+![VELOOP Rewards - Bonus VEs](./public/screenshots/bonus-ves.png)
 
 ### Captcha Verification
 
 ![VELOOP Rewards - Captcha Verified](./public/screenshots/captcha-verified.png)
+
+### Exchange Center
+
+![VELOOP Rewards - Exchange Center](./public/screenshots/exchange-center.png)
+
+### Mobile
+
+![VELOOP Rewards - Mobile](./public/screenshots/mobile-home.png)
 
 ## 🌐 Live Demo
 
