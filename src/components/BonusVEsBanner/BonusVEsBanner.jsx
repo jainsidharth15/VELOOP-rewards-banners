@@ -1,4 +1,4 @@
-import { CirclePlus, Gift, Sparkles } from "lucide-react";
+import { CirclePlus, Gift, Sparkles, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 
 import RewardBannerShell from "../shared/RewardBannerShell";
@@ -22,59 +22,93 @@ export default function BonusVEsBanner() {
 
   return (
     <RewardBannerShell className={styles.banner}>
-      {/* LEFT CONTENT */}
+      {/* =========================
+          LEFT CONTENT
+      ========================== */}
       <div className={styles.content}>
         <span className={styles.label}>BONUS OPPORTUNITY</span>
 
         <h2>
-          Boost Your
+          Get Extra
           <br />
-          <strong>VE Balance</strong>
+          <strong>VE Rewards.</strong>
         </h2>
 
         <p>
-          Complete eligible activities and unlock additional VEs through special
-          bonus opportunities.
+          Complete eligible activities and unlock additional VEs through
+          special bonus opportunities.
         </p>
 
-        <BannerButton to="/bonus">Explore Bonuses</BannerButton>
+        <div className={styles.ctaRow}>
+          <BannerButton to="/bonus">
+            Explore Bonuses
+          </BannerButton>
+
+          <span className={styles.actionHint}>
+            <Sparkles size={15} />
+            Discover bonus rewards
+          </span>
+        </div>
       </div>
 
-      {/* RIGHT VISUAL */}
+      {/* =========================
+          RIGHT VISUAL
+      ========================== */}
       <div className={styles.visual}>
-        {/* Decorative glow */}
+        {/* Background glow */}
         <div className={styles.glow}></div>
 
-        {/* Orbit */}
+        {/* Orbit rings */}
         <div className={styles.orbit}></div>
 
-        {/* Main VE visual */}
+        {/* Decorative top coin */}
+        <img
+          src={singleVEs}
+          alt=""
+          className={styles.smallVe}
+        />
+
+        {/* Main bonus reward */}
         <button
           type="button"
-          tabIndex={-1}
-          className={`${styles.veVisual} ${isHighlighted ? styles.active : ""}`}
+          className={`${styles.veVisual} ${
+            isHighlighted ? styles.active : ""
+          }`}
           onClick={handleBonusClick}
-          aria-label="Highlight bonus VE"
+          aria-label="Highlight bonus VE rewards"
         >
-          <img src={multiVEs} alt="VELOOP VE rewards" />
+          <div className={styles.bonusIcon}>
+            <Gift size={30} />
+          </div>
+
+          <img
+            src={multiVEs}
+            alt="VELOOP VE rewards"
+          />
 
           <span className={styles.veLabel}>BONUS</span>
 
           <strong>VE</strong>
         </button>
 
-        {/* Small VE */}
-        <img src={singleVEs} alt="" className={styles.smallVe} />
-
-        {/* Gift */}
+        {/* Floating gift */}
         <div className={styles.gift}>
           <Gift size={38} />
         </div>
 
-        {/* Decorative elements */}
-        <Sparkles className={`${styles.sparkle} ${styles.sparkleOne}`} />
+        {/* Decorative sparkle */}
+        <Sparkles
+          className={`${styles.sparkle} ${styles.sparkleOne}`}
+        />
 
-        <CirclePlus className={`${styles.sparkle} ${styles.sparkleTwo}`} />
+        <CirclePlus
+          className={`${styles.sparkle} ${styles.sparkleTwo}`}
+        />
+
+        {/* Small decorative arrow */}
+        <div className={styles.visualArrow}>
+          <ArrowUpRight size={18} />
+        </div>
 
         {/* Interaction message */}
         <div

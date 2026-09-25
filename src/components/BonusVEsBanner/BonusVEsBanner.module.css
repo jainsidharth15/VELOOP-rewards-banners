@@ -1,196 +1,370 @@
+/* =========================================================
+   BONUS VEs — PREMIUM GAME REWARD BANNER
+========================================================= */
+
 .banner {
+  position: relative;
+
   display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(500px, 1.18fr);
 
-  grid-template-columns: 1fr 1fr;
+  min-height: 330px;
 
-  padding: 46px 52px;
+  padding: 32px 40px 24px;
+
+  overflow: hidden;
 
   background:
     radial-gradient(
-      circle at 75% 48%,
-      rgba(216, 169, 69, 0.18),
-      transparent 34%
+      circle at 78% 48%,
+      rgba(225, 181, 69, 0.19),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 94% 15%,
+      rgba(92, 120, 207, 0.12),
+      transparent 25%
     ),
     linear-gradient(
-      135deg,
-      #101426 0%,
-      #1b1929 55%,
-      #1d1a2f 100%
+      120deg,
+      #0d1422 0%,
+      #151a29 55%,
+      #111827 100%
     );
 }
 
+.banner::before {
+  content: "";
 
-/* =========================
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      125deg,
+      rgba(255, 255, 255, 0.035),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 75% 65%,
+      rgba(232, 190, 82, 0.05),
+      transparent 25%
+    );
+}
+
+/* =========================================================
    LEFT CONTENT
-========================= */
+========================================================= */
 
 .content {
+  position: relative;
+  z-index: 10;
+
   display: flex;
   flex-direction: column;
-
   justify-content: center;
   align-items: flex-start;
 
-  position: relative;
-  z-index: 5;
+  max-width: 510px;
+
+  padding-left: 5px;
 }
 
 .label {
-  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
 
-  color: #e5bd5f;
+  margin-bottom: 13px;
+  padding: 7px 11px;
 
-  font-size: 0.78rem;
-  font-weight: 800;
+  border: 1px solid rgba(224, 187, 86, 0.3);
+  border-radius: 999px;
 
-  letter-spacing: 0.11em;
+  background: rgba(224, 187, 86, 0.07);
+
+  color: #e8c45f;
+
+  font-size: 0.65rem;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .content h2 {
   margin: 0;
 
-  color: #f7f8fc;
+  color: #f7f9fd;
 
-  font-size: clamp(2.5rem, 4.5vw, 4rem);
-
-  line-height: 0.98;
-
-  letter-spacing: -0.045em;
+  font-size: clamp(2.55rem, 4.4vw, 3.7rem);
+  line-height: 0.97;
+  letter-spacing: -0.055em;
 }
 
 .content h2 strong {
-  color: #f1c75f;
+  background:
+    linear-gradient(
+      100deg,
+      #eabd4e 0%,
+      #ffe7a0 52%,
+      #e9bd52 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
 }
 
 .content p {
-  max-width: 490px;
+  max-width: 480px;
 
-  margin: 20px 0 28px;
+  margin: 17px 0 21px;
 
-  color: #b9bfd1;
+  color: #aeb9cc;
 
-  line-height: 1.65;
+  font-size: 0.91rem;
+  line-height: 1.6;
 }
 
+/* =========================================================
+   CTA
+========================================================= */
 
-/* =========================
+.ctaRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.actionHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #7f8da5;
+
+  font-size: 0.66rem;
+  white-space: nowrap;
+}
+
+.actionHint svg {
+  color: #e1bb59;
+
+  animation: hintSpark 2.4s ease-in-out infinite;
+}
+
+/* =========================================================
    RIGHT VISUAL
-========================= */
+========================================================= */
 
 .visual {
   position: relative;
 
-  display: grid;
-  place-items: center;
+  min-height: 305px;
 
-  min-height: 310px;
+  isolation: isolate;
 }
 
-
-/* Background glow */
+/* =========================================================
+   CENTRAL GLOW
+========================================================= */
 
 .glow {
   position: absolute;
 
-  width: 230px;
-  height: 230px;
+  left: 53%;
+  top: 51%;
 
-  border-radius: 50%;
+  width: 285px;
+  height: 285px;
 
-  background: rgba(229, 188, 87, 0.12);
-
-  filter: blur(35px);
-
-  animation: glowPulse 4s ease-in-out infinite;
-}
-
-
-/* Orbit */
-
-.orbit {
-  position: absolute;
-
-  width: 300px;
-  height: 300px;
-
-  border: 1px solid rgba(225, 186, 85, 0.25);
-
-  border-radius: 50%;
-
-  transform: rotate(-15deg);
-
-  animation: orbitRotate 12s linear infinite;
-}
-
-
-/* =========================
-   MAIN VE
-========================= */
-
-.veVisual {
-  position: relative;
-  z-index: 4;
-
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 190px;
-  height: 190px;
-
-  padding: 0;
-
-  border: 9px solid rgba(224, 185, 83, 0.28);
-
-  border-top-color: #efc65e;
+  transform: translate(-50%, -50%);
 
   border-radius: 50%;
 
   background:
     radial-gradient(
       circle,
-      rgba(228, 187, 83, 0.16),
-      rgba(18, 21, 38, 0.95) 68%
+      rgba(231, 190, 79, 0.18) 0%,
+      rgba(231, 190, 79, 0.07) 42%,
+      transparent 72%
     );
 
-  color: #f2c961;
+  filter: blur(20px);
+
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+/* =========================================================
+   ORBIT
+========================================================= */
+
+.orbit {
+  position: absolute;
+
+  left: 53%;
+  top: 52%;
+
+  width: 390px;
+  height: 250px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-12deg);
+
+  border: 1px solid rgba(224, 184, 82, 0.19);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 18px rgba(224, 184, 82, 0.018),
+    0 0 0 38px rgba(224, 184, 82, 0.01);
+}
+
+.orbit::before {
+  content: "";
+
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  left: 9%;
+  top: 31%;
+
+  border-radius: 50%;
+
+  background: #e5bd5b;
+
+  box-shadow:
+    0 0 0 6px rgba(229, 189, 91, 0.07),
+    0 0 14px rgba(229, 189, 91, 0.4);
+
+  animation: orbitDotOne 4.2s ease-in-out infinite;
+}
+
+.orbit::after {
+  content: "";
+
+  position: absolute;
+
+  width: 6px;
+  height: 6px;
+
+  right: 12%;
+  bottom: 22%;
+
+  border-radius: 50%;
+
+  background: #82a9e2;
+
+  box-shadow:
+    0 0 0 6px rgba(130, 169, 226, 0.06);
+
+  animation: orbitDotTwo 4.8s ease-in-out infinite;
+}
+
+/* =========================================================
+   MAIN BONUS VISUAL
+========================================================= */
+
+.veVisual {
+  position: absolute;
+
+  z-index: 5;
+
+  left: 53%;
+  top: 51%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 205px;
+  height: 205px;
+
+  padding: 0;
+
+  transform: translate(-50%, -50%);
+
+  border: 1px solid rgba(235, 197, 99, 0.62);
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(237, 194, 74, 0.17),
+      rgba(11, 17, 29, 0.97) 68%
+    );
+
+  color: #e5bf60;
 
   cursor: pointer;
 
   box-shadow:
-    0 0 60px rgba(222, 180, 73, 0.12);
+    0 0 0 10px rgba(227, 188, 91, 0.025),
+    0 0 0 22px rgba(227, 188, 91, 0.012),
+    0 28px 62px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
   transition:
     transform 220ms ease,
+    border-color 220ms ease,
     box-shadow 220ms ease;
 }
 
+.veVisual::before {
+  content: "";
+
+  position: absolute;
+  inset: 9px;
+
+  border: 1px solid rgba(255, 224, 140, 0.08);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
 .veVisual:hover {
-  transform: scale(1.05);
+  transform:
+    translate(-50%, -50%)
+    scale(1.045);
+
+  border-color: rgba(244, 213, 133, 0.88);
 
   box-shadow:
-    0 0 75px rgba(222, 180, 73, 0.2);
+    0 0 0 10px rgba(227, 188, 91, 0.035),
+    0 0 0 24px rgba(227, 188, 91, 0.015),
+    0 32px 72px rgba(0, 0, 0, 0.46),
+    0 0 45px rgba(230, 190, 83, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .veVisual:active {
-  transform: scale(0.96);
+  transform:
+    translate(-50%, -50%)
+    scale(0.975);
 }
 
 .veVisual:focus-visible {
   outline: 2px solid #ffffff;
-  outline-offset: 5px;
+  outline-offset: 6px;
 }
 
-
-/* VE image */
+/* =========================================================
+   BONUS IMAGE
+========================================================= */
 
 .veVisual img {
   position: absolute;
 
-  width: 125px;
-  height: 125px;
+  width: 135px;
+  height: 135px;
 
   object-fit: contain;
 
@@ -200,195 +374,447 @@
 
   opacity: 0.82;
 
+  filter:
+    saturate(1.1)
+    drop-shadow(0 12px 20px rgba(0, 0, 0, 0.32));
+
   transition:
     transform 300ms ease,
-    opacity 300ms ease;
+    opacity 300ms ease,
+    filter 300ms ease;
 }
 
 .veVisual:hover img {
   transform: scale(1.08);
 
-  opacity: 0.95;
+  opacity: 0.98;
+
+  filter:
+    saturate(1.16)
+    drop-shadow(0 15px 25px rgba(0, 0, 0, 0.4));
 }
 
+/* =========================================================
+   BONUS ICON
+========================================================= */
 
-/* Text over visual */
+.bonusIcon {
+  position: absolute;
+
+  z-index: 3;
+
+  top: 27px;
+
+  display: grid;
+  place-items: center;
+
+  width: 43px;
+  height: 43px;
+
+  border: 1px solid rgba(232, 193, 91, 0.28);
+  border-radius: 13px;
+
+  background: rgba(226, 185, 80, 0.08);
+
+  color: #edc75f;
+
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.18);
+
+  transform: rotate(-6deg);
+
+  transition:
+    transform 220ms ease,
+    background 220ms ease;
+}
+
+.veVisual:hover .bonusIcon {
+  transform:
+    rotate(0deg)
+    scale(1.06);
+
+  background: rgba(226, 185, 80, 0.13);
+}
+
+/* =========================================================
+   VE LABEL
+========================================================= */
 
 .veLabel {
   position: relative;
-  z-index: 2;
 
-  margin-top: 62px;
+  z-index: 4;
 
-  color: rgba(255, 255, 255, 0.55);
+  margin-top: 64px;
 
-  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.58);
 
-  font-weight: 800;
-
-  letter-spacing: 0.16em;
+  font-size: 0.54rem;
+  font-weight: 850;
+  letter-spacing: 0.17em;
 }
 
 .veVisual strong {
   position: relative;
-  z-index: 2;
 
-  font-size: 2.5rem;
+  z-index: 4;
 
+  margin-top: 2px;
+
+  color: #f3cf68;
+
+  font-size: 2.45rem;
   line-height: 1;
+
+  letter-spacing: -0.04em;
+
+  text-shadow:
+    0 4px 18px rgba(228, 187, 75, 0.18);
 }
 
+/* =========================================================
+   HIGHLIGHT STATE
+========================================================= */
 
-/* =========================
-   SMALL VE
-========================= */
+/* =========================================================
+   BONUS CLICK — GOLDEN REWARD ACTIVATION
+========================================================= */
+
+.active {
+  border-color: #ffe28a !important;
+
+  box-shadow:
+    0 0 0 7px rgba(255, 211, 91, 0.12),
+    0 0 0 18px rgba(255, 211, 91, 0.075),
+    0 0 0 34px rgba(255, 211, 91, 0.035),
+    0 0 65px rgba(255, 197, 55, 0.55),
+    0 0 120px rgba(255, 184, 36, 0.28),
+    0 32px 70px rgba(0, 0, 0, 0.42),
+    inset 0 0 35px rgba(255, 213, 105, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+  animation: bonusHighlight 1.8s ease-out;
+}
+
+/* Expanding golden ring */
+
+.active::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -18px;
+
+  border: 2px solid rgba(255, 213, 105, 0.75);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  animation: goldenRing 1.8s ease-out forwards;
+}
+
+/* Make the reward itself glow */
+
+.active img {
+  opacity: 1;
+
+  transform: scale(1.14);
+
+  filter:
+    saturate(1.3)
+    brightness(1.12)
+    drop-shadow(0 0 12px rgba(255, 216, 104, 0.8))
+    drop-shadow(0 0 30px rgba(255, 190, 40, 0.55));
+
+  animation: rewardGlow 1.8s ease-out;
+}
+
+/* Make the gift icon react too */
+
+.active .bonusIcon {
+  background: rgba(255, 211, 91, 0.18);
+
+  border-color: rgba(255, 220, 126, 0.65);
+
+  color: #ffe08a;
+
+  box-shadow:
+    0 0 20px rgba(255, 202, 71, 0.45);
+
+  animation: giftPop 1.8s ease-out;
+}
+
+/* =========================================================
+   FLOATING VE COIN
+========================================================= */
 
 .smallVe {
   position: absolute;
 
-  width: 72px;
-  height: 72px;
+  z-index: 7;
+
+  width: 68px;
+  height: 68px;
+
+  right: 13%;
+  top: 12%;
 
   object-fit: contain;
-
-  right: 11%;
-  top: 19%;
 
   border-radius: 50%;
 
   mix-blend-mode: screen;
 
-  opacity: 0.8;
+  opacity: 0.82;
 
-  animation: floating 3.5s ease-in-out infinite;
+  filter:
+    drop-shadow(0 12px 18px rgba(0, 0, 0, 0.34));
+
+  animation:
+    floatingCoin 4.2s ease-in-out infinite;
 }
 
-
-/* =========================
-   GIFT
-========================= */
+/* =========================================================
+   FLOATING GIFT
+========================================================= */
 
 .gift {
   position: absolute;
 
-  right: 10%;
-  bottom: 16%;
+  z-index: 7;
 
-  z-index: 5;
+  right: 10%;
+  bottom: 12%;
 
   display: grid;
   place-items: center;
 
-  width: 78px;
-  height: 78px;
+  width: 72px;
+  height: 72px;
 
-  border: 1px solid rgba(224, 185, 83, 0.2);
+  border: 1px solid rgba(225, 186, 84, 0.34);
+  border-radius: 19px;
 
-  border-radius: 20px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(225, 186, 84, 0.13),
+      rgba(225, 186, 84, 0.035)
+    );
 
-  background: rgba(226, 184, 82, 0.1);
+  color: #e6bf5b;
 
-  color: #f0c55e;
+  transform: rotate(7deg);
 
-  animation: floating 4s ease-in-out infinite reverse;
+  box-shadow:
+    0 18px 34px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+
+  animation:
+    giftFloat 4.5s ease-in-out 600ms infinite;
 }
 
+.gift::after {
+  content: "";
 
-/* =========================
-   DECORATIVE ICONS
-========================= */
+  position: absolute;
+  inset: -6px;
+
+  border: 1px solid rgba(226, 187, 87, 0.07);
+  border-radius: 22px;
+}
+
+/* =========================================================
+   DECORATIVE SPARKLES
+========================================================= */
 
 .sparkle {
   position: absolute;
 
-  z-index: 3;
+  z-index: 6;
 
-  color: #e9bd59;
+  color: #e4bd5b;
 
-  animation: sparklePulse 2.5s ease-in-out infinite;
+  animation:
+    sparklePulse 2.8s ease-in-out infinite;
 }
 
 .sparkleOne {
-  left: 12%;
-  top: 21%;
+  left: 10%;
+  top: 20%;
 }
 
 .sparkleTwo {
-  right: 21%;
-  top: 12%;
+  right: 4%;
+  top: 32%;
 
-  color: #72b9ff;
+  width: 18px;
 
-  animation-delay: 700ms;
+  animation-delay: 800ms;
 }
 
+/* =========================================================
+   VISUAL ARROW
+========================================================= */
 
-/* =========================
+.visualArrow {
+  position: absolute;
+
+  z-index: 6;
+
+  left: 29%;
+  top: 50%;
+
+  display: grid;
+  place-items: center;
+
+  width: 35px;
+  height: 35px;
+
+  transform: translateY(-50%);
+
+  border: 1px solid rgba(224, 186, 84, 0.2);
+  border-radius: 50%;
+
+  background: rgba(224, 186, 84, 0.055);
+
+  color: #dcb85b;
+
+  animation:
+    arrowFloat 3.2s ease-in-out infinite;
+}
+
+/* =========================================================
    INTERACTION MESSAGE
-========================= */
+========================================================= */
 
 .message {
   position: absolute;
 
-  left: 50%;
-  bottom: 4%;
+  z-index: 12;
 
-  z-index: 8;
+  left: 53%;
+  bottom: 0;
 
   display: inline-flex;
-
   align-items: center;
+  gap: 6px;
 
-  gap: 7px;
+  padding: 8px 12px;
 
-  padding: 8px 13px;
+  transform:
+    translate(-50%, 10px);
 
-  border: 1px solid rgba(224, 185, 83, 0.18);
-
+  border: 1px solid rgba(224, 187, 91, 0.18);
   border-radius: 999px;
 
-  background: rgba(19, 23, 40, 0.9);
+  background: rgba(9, 14, 25, 0.9);
 
-  color: #c9cdd9;
+  color: #aeb7c7;
 
-  font-size: 0.68rem;
+  font-size: 0.65rem;
 
   white-space: nowrap;
 
   opacity: 0;
-
-  transform: translate(-50%, 8px);
-
   pointer-events: none;
 
+  box-shadow:
+    0 12px 25px rgba(0, 0, 0, 0.24);
+
+  backdrop-filter: blur(10px);
+
   transition:
-    opacity 200ms ease,
-    transform 200ms ease;
+    opacity 220ms ease,
+    transform 220ms ease;
 }
 
 .message svg {
-  color: #f1c75f;
+  color: #dfbb61;
 }
 
 .messageVisible {
   opacity: 1;
 
-  transform: translate(-50%, 0);
+  transform:
+    translate(-50%, 0);
 }
 
-
-/* =========================
+/* =========================================================
    ANIMATIONS
-========================= */
+========================================================= */
 
-@keyframes floating {
+@keyframes glowPulse {
   0%,
   100% {
-    transform: translateY(0);
+    opacity: 0.55;
+    transform:
+      translate(-50%, -50%)
+      scale(0.96);
   }
 
   50% {
-    transform: translateY(-10px);
+    opacity: 0.9;
+    transform:
+      translate(-50%, -50%)
+      scale(1.04);
+  }
+}
+
+@keyframes orbitDotOne {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: translate(25px, 12px);
+    opacity: 1;
+  }
+}
+
+@keyframes orbitDotTwo {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: translate(-20px, -14px);
+    opacity: 1;
+  }
+}
+
+@keyframes floatingCoin {
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(-4deg);
+  }
+
+  50% {
+    transform:
+      translateY(-11px)
+      rotate(5deg);
+  }
+}
+
+@keyframes giftFloat {
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(7deg);
+  }
+
+  50% {
+    transform:
+      translateY(-9px)
+      rotate(3deg);
   }
 }
 
@@ -407,157 +833,344 @@
   }
 }
 
-@keyframes glowPulse {
+@keyframes hintSpark {
   0%,
   100% {
-    opacity: 0.5;
-
-    transform: scale(0.95);
+    opacity: 0.55;
   }
 
   50% {
-    opacity: 0.9;
-
-    transform: scale(1.08);
+    opacity: 1;
   }
 }
 
-@keyframes orbitRotate {
-  from {
-    transform: rotate(-15deg);
+@keyframes arrowFloat {
+  0%,
+  100% {
+    transform:
+      translateY(-50%)
+      translateX(0);
   }
 
-  to {
-    transform: rotate(345deg);
+  50% {
+    transform:
+      translateY(-50%)
+      translateX(5px);
   }
 }
 
+@keyframes bonusHighlight {
+  0% {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
 
-/* =========================
+  15% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.08);
+  }
+
+  30% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.02);
+  }
+
+  48% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.05);
+  }
+
+  70% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.015);
+  }
+
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+}
+
+@keyframes goldenRing {
+  0% {
+    opacity: 0;
+
+    transform: scale(0.72);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 0.55;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform: scale(1.28);
+  }
+}
+
+@keyframes rewardGlow {
+  0% {
+    filter:
+      saturate(1.1)
+      brightness(1)
+      drop-shadow(0 0 0 rgba(255, 210, 90, 0));
+  }
+
+  25% {
+    filter:
+      saturate(1.35)
+      brightness(1.2)
+      drop-shadow(0 0 16px rgba(255, 220, 115, 0.95))
+      drop-shadow(0 0 38px rgba(255, 188, 40, 0.7));
+  }
+
+  55% {
+    filter:
+      saturate(1.3)
+      brightness(1.12)
+      drop-shadow(0 0 12px rgba(255, 215, 100, 0.8))
+      drop-shadow(0 0 28px rgba(255, 188, 40, 0.5));
+  }
+
+  100% {
+    filter:
+      saturate(1.1)
+      brightness(1)
+      drop-shadow(0 0 0 rgba(255, 210, 90, 0));
+  }
+}
+
+@keyframes giftPop {
+  0%,
+  100% {
+    transform:
+      rotate(-6deg)
+      scale(1);
+  }
+
+  18% {
+    transform:
+      rotate(0deg)
+      scale(1.18);
+  }
+
+  35% {
+    transform:
+      rotate(4deg)
+      scale(1.05);
+  }
+
+  55% {
+    transform:
+      rotate(-2deg)
+      scale(1.1);
+  }
+}
+
+/* =========================================================
    TABLET
-========================= */
+========================================================= */
 
-@media (max-width: 991px) {
+@media (max-width: 1100px) {
   .banner {
-    min-height: 450px;
+    grid-template-columns:
+      minmax(0, 0.8fr)
+      minmax(470px, 1.2fr);
 
-    padding: 38px 35px;
+    padding-inline: 30px;
   }
 
   .veVisual {
-    width: 165px;
-    height: 165px;
+    width: 190px;
+    height: 190px;
   }
 
   .veVisual img {
-    width: 108px;
-    height: 108px;
+    width: 126px;
+    height: 126px;
   }
 
   .orbit {
-    width: 270px;
-    height: 270px;
+    width: 360px;
   }
 }
 
+/* =========================================================
+   SMALL TABLET
+========================================================= */
 
-/* =========================
+@media (max-width: 991px) {
+  .banner {
+    min-height: 470px;
+
+    padding: 32px;
+  }
+
+  .content h2 {
+    font-size: 3rem;
+  }
+
+  .visual {
+    min-height: 300px;
+  }
+
+  .veVisual {
+    width: 175px;
+    height: 175px;
+  }
+
+  .veVisual img {
+    width: 116px;
+    height: 116px;
+  }
+
+  .orbit {
+    width: 330px;
+    height: 225px;
+  }
+}
+
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media (max-width: 768px) {
   .banner {
     grid-template-columns: 1fr;
 
-    padding: 34px 25px;
+    min-height: 560px;
+
+    padding: 30px 22px 22px;
   }
 
   .content {
     align-items: center;
 
+    max-width: none;
+
+    padding: 0;
+
     text-align: center;
   }
 
-  .visual {
-    min-height: 300px;
+  .content p {
+    max-width: 560px;
+  }
 
-    margin-top: 10px;
+  .ctaRow {
+    justify-content: center;
+  }
+
+  .visual {
+    min-height: 285px;
+
+    margin-top: 5px;
   }
 
   .message {
-    bottom: 0;
+    bottom: -3px;
   }
 }
 
-
-/* =========================
+/* =========================================================
    SMALL MOBILE
-========================= */
+========================================================= */
 
 @media (max-width: 480px) {
   .banner {
-    padding: 30px 17px;
+    min-height: 585px;
+
+    padding: 27px 16px 18px;
   }
 
   .content h2 {
-    font-size: 2.35rem;
+    font-size: 2.25rem;
   }
 
   .content p {
-    font-size: 0.9rem;
+    font-size: 0.86rem;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+    gap: 9px;
   }
 
   .visual {
-    min-height: 275px;
+    min-height: 270px;
   }
 
   .veVisual {
-    width: 145px;
-    height: 145px;
-
-    border-width: 7px;
+    width: 155px;
+    height: 155px;
   }
 
   .veVisual img {
-    width: 92px;
-    height: 92px;
+    width: 102px;
+    height: 102px;
+  }
+
+  .bonusIcon {
+    top: 20px;
+
+    width: 36px;
+    height: 36px;
+  }
+
+  .bonusIcon svg {
+    width: 22px;
   }
 
   .veLabel {
-    margin-top: 48px;
+    margin-top: 50px;
+
+    font-size: 0.49rem;
   }
 
   .veVisual strong {
-    font-size: 2rem;
-  }
-
-  .smallVe {
-    width: 58px;
-    height: 58px;
-  }
-
-  .gift {
-    width: 65px;
-    height: 65px;
-
-    right: 5%;
+    font-size: 2.1rem;
   }
 
   .orbit {
-    width: 235px;
-    height: 235px;
+    width: 275px;
+    height: 200px;
+  }
+
+  .smallVe {
+    width: 56px;
+    height: 56px;
+
+    right: 7%;
+  }
+
+  .gift {
+    width: 60px;
+    height: 60px;
+
+    right: 5%;
+    bottom: 12%;
+  }
+
+  .gift svg {
+    width: 31px;
+  }
+
+  .visualArrow {
+    left: 15%;
   }
 
   .message {
-    font-size: 0.6rem;
+    font-size: 0.59rem;
   }
-}
-
-.veVisual.active {
-  transform: scale(1.08);
-
-  border-color: #f1c75f;
-
-  box-shadow:
-    0 0 90px rgba(241, 199, 95, 0.3);
 }

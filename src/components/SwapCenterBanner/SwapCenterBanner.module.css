@@ -1,137 +1,345 @@
 .banner {
+  position: relative;
+
   display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(540px, 1.22fr);
 
-  grid-template-columns: 0.9fr 1.1fr;
+  padding: 30px 38px 22px;
 
-  padding: 46px 52px;
+  overflow: hidden;
 
   background:
-    radial-gradient(
-      circle at 78% 48%,
-      rgba(70, 127, 220, 0.2),
-      transparent 36%
-    ),
-    linear-gradient(
-      135deg,
-      #0e1426 0%,
-      #17213a 58%,
-      #192640 100%
-    );
+    radial-gradient(circle at 76% 48%,
+      rgba(69, 116, 216, 0.23),
+      transparent 30%),
+    radial-gradient(circle at 90% 15%,
+      rgba(148, 91, 235, 0.1),
+      transparent 23%),
+    linear-gradient(120deg,
+      #0a1221 0%,
+      #101a31 58%,
+      #0c1528 100%);
 }
 
+.banner::before {
+  background:
+    radial-gradient(circle at 77% 50%,
+      rgba(72, 133, 225, 0.09),
+      transparent 26%),
+    linear-gradient(125deg,
+      rgba(255, 255, 255, 0.035),
+      transparent 35%);
+}
 
 /* =========================
    LEFT CONTENT
 ========================= */
 
 .content {
+  position: relative;
+  z-index: 8;
+
   display: flex;
   flex-direction: column;
-
   justify-content: center;
   align-items: flex-start;
 
-  position: relative;
-  z-index: 5;
+  max-width: 500px;
+
+  padding-left: 5px;
 }
 
 .label {
-  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 
-  color: #69b7ff;
+  margin-bottom: 13px;
+  padding: 7px 11px;
 
-  font-size: 0.78rem;
-  font-weight: 800;
+  border: 1px solid rgba(102, 155, 224, 0.28);
+  border-radius: 999px;
 
-  letter-spacing: 0.12em;
+  background: rgba(74, 126, 204, 0.08);
+
+  color: #8fc5f4;
+
+  font-size: 0.65rem;
+  font-weight: 850;
+  letter-spacing: 0.15em;
 }
 
 .content h2 {
   margin: 0;
 
-  color: #f7f8fc;
+  color: #f7f9fd;
 
-  font-size: clamp(2.7rem, 5vw, 4.4rem);
-
-  line-height: 0.98;
-
-  letter-spacing: -0.05em;
+  font-size: clamp(2.55rem, 4.4vw, 3.7rem);
+  line-height: 0.97;
+  letter-spacing: -0.055em;
 }
 
 .content h2 strong {
-  color: #f1c75f;
+  background: linear-gradient(100deg,
+      #eec45d,
+      #ffe7a0 52%,
+      #efc45e);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
 }
 
 .content p {
-  max-width: 480px;
+  max-width: 470px;
 
-  margin: 20px 0 28px;
+  margin: 17px 0 21px;
 
-  color: #b8c1d5;
+  color: #aab6cc;
 
-  line-height: 1.65;
+  font-size: 0.91rem;
+  line-height: 1.6;
 }
 
+.actionRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.actionHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #7888a5;
+
+  font-size: 0.67rem;
+  white-space: nowrap;
+}
+
+.actionHint svg {
+  color: #dfbd61;
+}
 
 /* =========================
-   RIGHT VISUAL
+   VISUAL AREA
 ========================= */
 
 .visual {
   position: relative;
 
+  min-height: 310px;
+
+  isolation: isolate;
+}
+
+/* Main glow */
+.visualGlow {
+  position: absolute;
+
+  left: 51%;
+  top: 52%;
+
+  width: 430px;
+  height: 250px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(ellipse,
+      rgba(66, 113, 221, 0.23),
+      rgba(66, 113, 221, 0.06) 52%,
+      transparent 74%);
+
+  filter: blur(9px);
+}
+
+/* Decorative rings */
+.orbit {
+  position: absolute;
+
+  left: 51%;
+  top: 53%;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.orbitOne {
+  width: 500px;
+  height: 205px;
+
+  transform: translate(-50%, -50%) rotate(-8deg);
+
+  border: 1px solid rgba(94, 137, 223, 0.18);
+
+  box-shadow:
+    0 0 0 17px rgba(82, 126, 214, 0.018),
+    0 0 0 34px rgba(82, 126, 214, 0.012);
+}
+
+.orbitTwo {
+  width: 420px;
+  height: 175px;
+
+  transform: translate(-50%, -50%) rotate(12deg);
+
+  border: 1px dashed rgba(230, 191, 92, 0.18);
+
+  animation: orbitPulse 4.8s ease-in-out infinite;
+}
+
+/* =========================
+   WALLET
+========================= */
+
+.wallet {
+  position: absolute;
+
+  z-index: 1;
+
+  left: 51%;
+  top: 53%;
+
+  width: 225px;
+  height: 150px;
+
+  transform:
+    translate(-50%, -50%) rotate(-4deg);
+
+  padding: 16px 18px;
+
+  border: 1px solid rgba(104, 145, 213, 0.2);
+  border-radius: 20px;
+
+  background:
+    linear-gradient(145deg,
+      rgba(38, 55, 91, 0.76),
+      rgba(10, 17, 31, 0.82));
+
+  box-shadow:
+    0 30px 55px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  opacity: 0.86;
+
+  backdrop-filter: blur(12px);
+}
+
+.walletHeader,
+.walletFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.walletHeader {
+  color: #8091af;
+
+  font-size: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.walletDots {
+  color: #61708b;
+  letter-spacing: 0.16em;
+}
+
+.walletBalance {
   display: flex;
   flex-direction: column;
 
-  align-items: center;
-  justify-content: center;
-
-  min-height: 310px;
+  margin-top: 22px;
 }
 
-.conversionArea {
-  display: flex;
+.walletBalance small {
+  color: #7887a1;
 
-  align-items: center;
-  justify-content: center;
+  font-size: 0.52rem;
+}
 
-  gap: 18px;
+.walletBalance strong {
+  margin-top: 4px;
 
+  color: #edf3fc;
+
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.walletProgress {
   width: 100%;
+  height: 4px;
+
+  margin-top: 17px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.07);
 }
 
+.walletProgress span {
+  display: block;
+
+  width: 72%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(90deg,
+      #4d88dc,
+      #e6bf5d);
+
+  animation: progressGlow 3s ease-in-out infinite;
+}
+
+.walletFooter {
+  margin-top: 13px;
+
+  color: #71809a;
+
+  font-size: 0.49rem;
+}
 
 /* =========================
    CURRENCY CARDS
 ========================= */
 
 .currencyCard {
-  position: relative;
+  position: absolute;
+
+  z-index: 5;
 
   display: flex;
   flex-direction: column;
-
   align-items: center;
-  justify-content: center;
 
-  width: 170px;
-  min-height: 205px;
+  width: 135px;
+  height: 160px;
 
-  padding: 18px;
+  padding: 15px;
 
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
-  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.105);
+  border-radius: 21px;
 
   background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.08),
-      rgba(16, 21, 39, 0.9)
-    );
+    linear-gradient(145deg,
+      rgba(255, 255, 255, 0.09),
+      rgba(8, 14, 27, 0.92));
 
   box-shadow:
-    0 22px 50px rgba(0, 0, 0, 0.25);
+    0 26px 52px rgba(0, 0, 0, 0.31),
+    inset 0 1px 0 rgba(255, 255, 255, 0.075);
+
+  backdrop-filter: blur(12px);
 
   transition:
     transform 220ms ease,
@@ -139,256 +347,491 @@
     box-shadow 220ms ease;
 }
 
-.currencyCard:first-child {
-  border-color: rgba(241, 199, 95, 0.35);
+.fromCard {
+  left: 9%;
+  top: 28%;
 
-  transform: rotate(-4deg);
+  transform: rotate(-5deg);
+
+  border-color: rgba(228, 191, 91, 0.38);
+
+  box-shadow:
+    0 27px 55px rgba(0, 0, 0, 0.3),
+    0 0 45px rgba(230, 190, 85, 0.07);
 }
 
-.currencyCard:last-child {
-  border-color: rgba(102, 181, 255, 0.4);
+.toCard {
+  right: 7%;
+  top: 31%;
 
-  transform: rotate(4deg);
+  transform: rotate(5deg);
+
+  border-color: rgba(92, 150, 226, 0.4);
+
+  box-shadow:
+    0 27px 55px rgba(0, 0, 0, 0.3),
+    0 0 45px rgba(80, 139, 222, 0.08);
 }
 
 .currencyCard:hover {
-  transform: translateY(-7px) rotate(0deg);
+  z-index: 9;
+
+  transform:
+    translateY(-8px) rotate(0deg);
 
   box-shadow:
-    0 28px 60px rgba(0, 0, 0, 0.3);
+    0 34px 62px rgba(0, 0, 0, 0.36);
 }
 
+.cardTag {
+  align-self: flex-start;
 
-/* Small FROM / TO label */
+  color: #74839e;
 
-.cardLabel {
-  position: absolute;
-
-  top: 15px;
-  left: 17px;
-
-  color: #8089a1;
-
-  font-size: 0.65rem;
-  font-weight: 800;
-
-  letter-spacing: 0.1em;
+  font-size: 0.53rem;
+  font-weight: 850;
+  letter-spacing: 0.15em;
 }
 
+.fromCard .cardTag {
+  color: #d8b75c;
+}
 
-/* =========================
-   ASSET
-========================= */
+.toCard .cardTag {
+  color: #82b6e8;
+}
 
-.currencyVisual {
+.coinVisual {
   display: grid;
   place-items: center;
 
-  width: 105px;
-  height: 105px;
+  width: 78px;
+  height: 78px;
 
-  margin-top: 14px;
+  margin-top: 9px;
 
   border-radius: 50%;
 
   overflow: hidden;
+
+  background:
+    radial-gradient(circle,
+      rgba(255, 255, 255, 0.06),
+      rgba(0, 0, 0, 0.14));
+
+  box-shadow:
+    inset 0 0 25px rgba(0, 0, 0, 0.18);
 }
 
-.currencyVisual img {
+.coinVisual img {
   width: 100%;
   height: 100%;
 
   object-fit: cover;
 
+  mix-blend-mode: screen;
+
+  filter:
+    drop-shadow(0 9px 14px rgba(0, 0, 0, 0.35)) saturate(1.08);
+
   transition: transform 300ms ease;
 }
 
-.currencyCard:hover .currencyVisual img {
+.currencyCard:hover .coinVisual img {
   transform: scale(1.08);
 }
 
+.cardCurrency {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-/* Currency name */
-
-.currencyName {
-  margin-top: 10px;
-
-  color: #f4f6fb;
-
-  font-size: 1.35rem;
-
-  letter-spacing: 0.03em;
+  margin-top: 5px;
 }
 
+.cardCurrency strong {
+  color: #f3f6fb;
+
+  font-size: 1.05rem;
+
+  letter-spacing: 0.05em;
+}
+
+.cardCurrency span {
+  margin-top: 2px;
+
+  color: #71809a;
+
+  font-size: 0.5rem;
+}
 
 /* =========================
-   SWAP BUTTON
+   SWAP CORE
 ========================= */
 
-.swapButton {
-  position: relative;
-  z-index: 5;
+.swapCore {
+  position: absolute;
+
+  z-index: 10;
+
+  left: 51%;
+  top: 53%;
 
   display: grid;
   place-items: center;
 
-  width: 64px;
-  height: 64px;
+  width: 67px;
+  height: 67px;
 
-  flex-shrink: 0;
+  transform: translate(-50%, -50%);
 
-  border: 1px solid rgba(241, 199, 95, 0.45);
-
+  border: 1px solid rgba(235, 196, 98, 0.64);
   border-radius: 50%;
 
   background:
-    linear-gradient(
-      145deg,
-      #242942,
-      #151a2d
-    );
+    linear-gradient(145deg,
+      #263654,
+      #111b2c);
 
-  color: #f1c75f;
+  color: #f0c95f;
 
   cursor: pointer;
 
   box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.25);
+    0 15px 34px rgba(0, 0, 0, 0.38),
+    0 0 30px rgba(231, 190, 83, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 
   transition:
-    transform 220ms ease,
-    background 220ms ease,
-    box-shadow 220ms ease;
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    background 200ms ease;
 }
 
-.swapButton:hover {
-  transform: scale(1.08);
+.swapCore::before {
+  content: "";
 
-  background:
-    linear-gradient(
-      145deg,
-      #30364f,
-      #1a2035
-    );
-
-  box-shadow:
-    0 16px 35px rgba(0, 0, 0, 0.32);
-}
-
-.swapButton:active {
-  transform: scale(0.96);
-}
-
-.swapButton:focus-visible {
-  outline: 2px solid #ffffff;
-
-  outline-offset: 4px;
-}
-
-
-/* Little text under the icon */
-
-.swapHint {
   position: absolute;
 
-  bottom: -27px;
+  inset: -8px;
 
-  color: #7e879f;
+  border: 1px solid rgba(224, 188, 91, 0.12);
 
-  font-size: 0.65rem;
+  border-radius: 50%;
 
-  white-space: nowrap;
+  animation: corePulse 2.8s ease-in-out infinite;
 }
 
+.swapCore:hover {
+  transform:
+    translate(-50%, -50%) scale(1.09);
+
+  background:
+    linear-gradient(145deg,
+      #304361,
+      #152139);
+
+  box-shadow:
+    0 20px 42px rgba(0, 0, 0, 0.42),
+    0 0 40px rgba(231, 190, 83, 0.19);
+}
+
+.swapCore:active {
+  transform:
+    translate(-50%, -50%) scale(0.97);
+}
+
+.swapCore:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 5px;
+}
+
+.swapCore svg {
+  transition: transform 400ms ease;
+}
+
+.swapCore:hover svg {
+  transform: rotate(180deg);
+}
+
+.swapCore span {
+  position: absolute;
+
+  bottom: -23px;
+
+  color: #7c8ba6;
+
+  font-size: 0.48rem;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+}
+
+/* =========================
+   FLOW ARROWS
+========================= */
+
+.flow {
+  position: absolute;
+
+  z-index: 4;
+
+  display: flex;
+  align-items: center;
+
+  color: #dfbc5e;
+
+  opacity: 0.65;
+}
+
+.flow svg+svg {
+  margin-left: -10px;
+}
+
+.flowTop {
+  left: 30%;
+  top: 39%;
+
+  animation: flowRight 2.4s ease-in-out infinite;
+}
+
+.flowBottom {
+  right: 29%;
+  top: 63%;
+
+  transform: rotate(180deg);
+
+  animation: flowLeft 2.4s ease-in-out 900ms infinite;
+}
+
+/* =========================
+   FLOATING COINS
+========================= */
+
+.floatingCoin {
+  position: absolute;
+
+  z-index: 7;
+
+  width: 43px;
+  height: 43px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  mix-blend-mode: screen;
+
+  filter:
+    drop-shadow(0 10px 15px rgba(0, 0, 0, 0.35)) saturate(1.1);
+}
+
+.coinOne {
+  left: 19%;
+  top: 10%;
+
+  animation: floatingCoin 3.8s ease-in-out infinite;
+}
+
+.coinTwo {
+  right: 16%;
+  bottom: 11%;
+
+  width: 35px;
+  height: 35px;
+
+  animation:
+    floatingCoin 4.4s ease-in-out 800ms infinite reverse;
+}
 
 /* =========================
    STATUS
 ========================= */
 
 .status {
+  position: absolute;
+
+  z-index: 11;
+
+  left: 51%;
+  bottom: 0;
+
   display: inline-flex;
-
   align-items: center;
+  gap: 6px;
 
-  gap: 7px;
+  transform: translateX(-50%);
 
-  margin-top: 30px;
+  padding: 7px 11px;
 
-  padding: 8px 13px;
-
-  border: 1px solid rgba(255, 255, 255, 0.07);
-
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 999px;
 
-  background: rgba(255, 255, 255, 0.035);
+  background: rgba(8, 14, 27, 0.78);
 
-  color: #9ca6bc;
+  color: #7887a0;
 
-  font-size: 0.72rem;
+  font-size: 0.55rem;
+
+  white-space: nowrap;
+
+  backdrop-filter: blur(10px);
+}
+
+.status strong {
+  color: #dce5f4;
 }
 
 .status svg {
-  color: #69b7ff;
-
-  animation: rotate 3s linear infinite;
+  color: #d9b85d;
 }
 
-@keyframes swapPulse {
+.statusDot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #7acb8a;
+
+  box-shadow: 0 0 9px rgba(122, 203, 138, 0.6);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes floatingCoin {
+
   0%,
   100% {
-    opacity: 0.65;
-    transform: scale(0.95);
+    transform: translateY(0) rotate(-4deg);
   }
 
   50% {
-    opacity: 1;
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+@keyframes flowRight {
+
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform: translateX(7px);
+    opacity: 0.9;
+  }
+}
+
+@keyframes flowLeft {
+
+  0%,
+  100% {
+    transform: translateX(0) rotate(180deg);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform: translateX(7px) rotate(180deg);
+    opacity: 0.9;
+  }
+}
+
+@keyframes orbitPulse {
+
+  0%,
+  100% {
+    opacity: 0.35;
+
+    transform:
+      translate(-50%, -50%) rotate(12deg) scale(1);
+  }
+
+  50% {
+    opacity: 0.72;
+
+    transform:
+      translate(-50%, -50%) rotate(12deg) scale(1.025);
+  }
+}
+
+@keyframes corePulse {
+
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.96);
+  }
+
+  50% {
+    opacity: 0.7;
     transform: scale(1.05);
   }
 }
 
-/* =========================
-   ANIMATION
-========================= */
+@keyframes progressGlow {
 
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
+  0%,
+  100% {
+    opacity: 0.65;
   }
 
-  to {
-    transform: rotate(360deg);
+  50% {
+    opacity: 1;
   }
 }
-
 
 /* =========================
    TABLET
 ========================= */
 
-@media (max-width: 991px) {
+@media (max-width: 1100px) {
   .banner {
-    min-height: 450px;
+    grid-template-columns:
+      minmax(0, 0.8fr) minmax(500px, 1.2fr);
 
-    padding: 38px 35px;
+    padding-inline: 30px;
   }
 
   .currencyCard {
-    width: 145px;
-
-    min-height: 185px;
+    width: 135px;
+    height: 164px;
   }
 
-  .currencyVisual {
-    width: 90px;
-    height: 90px;
+  .coinVisual {
+    width: 80px;
+    height: 80px;
   }
 
-  .swapButton {
-    width: 58px;
-    height: 58px;
+  .wallet {
+    width: 225px;
   }
 }
 
+/* =========================
+   SMALL TABLET
+========================= */
+
+@media (max-width: 991px) {
+  .banner {
+    min-height: 470px;
+  }
+
+  .visual {
+    min-height: 295px;
+  }
+
+  .fromCard {
+    left: 7%;
+  }
+
+  .toCard {
+    right: 5%;
+  }
+}
 
 /* =========================
    MOBILE
@@ -398,32 +841,53 @@
   .banner {
     grid-template-columns: 1fr;
 
-    padding: 34px 25px;
+    min-height: 555px;
+
+    padding: 28px 22px 20px;
   }
 
   .content {
     align-items: center;
 
+    max-width: none;
+
+    padding: 0;
+
     text-align: center;
   }
 
+  .content p {
+    max-width: 560px;
+  }
+
+  .actionRow {
+    justify-content: center;
+  }
+
   .visual {
-    min-height: 300px;
+    min-height: 285px;
 
-    margin-top: 10px;
+    margin-top: 4px;
   }
 
-  .conversionArea {
-    gap: 8px;
+  .wallet {
+    left: 50%;
+
+    width: 215px;
   }
 
-  .currencyCard {
-    width: 135px;
+  .fromCard {
+    left: 5%;
+  }
 
-    min-height: 175px;
+  .toCard {
+    right: 4%;
+  }
+
+  .status {
+    bottom: -4px;
   }
 }
-
 
 /* =========================
    SMALL MOBILE
@@ -431,40 +895,90 @@
 
 @media (max-width: 480px) {
   .banner {
-    padding: 30px 17px;
+    min-height: 590px;
+
+    padding: 25px 15px 15px;
   }
 
   .content h2 {
-    font-size: 2.35rem;
+    font-size: 2.25rem;
   }
 
   .content p {
-    font-size: 0.9rem;
+    font-size: 0.86rem;
+  }
+
+  .actionRow {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .visual {
+    min-height: 285px;
   }
 
   .currencyCard {
-    width: 112px;
+    width: 105px;
+    height: 143px;
 
-    min-height: 155px;
-
-    padding: 12px;
+    padding: 9px;
   }
 
-  .currencyVisual {
-    width: 75px;
-    height: 75px;
+  .coinVisual {
+    width: 66px;
+    height: 66px;
   }
 
-  .currencyName {
-    font-size: 1.1rem;
+  .cardCurrency strong {
+    font-size: 0.98rem;
   }
 
-  .swapButton {
-    width: 52px;
-    height: 52px;
+  .cardCurrency span {
+    font-size: 0.45rem;
   }
 
-  .swapButton svg {
-    width: 20px;
+  .wallet {
+    width: 190px;
+    height: 140px;
+  }
+
+  .swapCore {
+    width: 54px;
+    height: 54px;
+  }
+
+  .swapCore svg {
+    width: 21px;
+  }
+
+  .fromCard {
+    left: 0;
+    top: 31%;
+  }
+
+  .toCard {
+    right: 0;
+    top: 34%;
+  }
+
+  .orbitOne {
+    width: 320px;
+  }
+
+  .orbitTwo {
+    width: 285px;
+  }
+
+  .floatingCoin {
+    width: 35px;
+    height: 35px;
+  }
+
+  .coinOne {
+    left: 12%;
+  }
+
+  .coinTwo {
+    right: 9%;
   }
 }

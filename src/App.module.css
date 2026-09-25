@@ -1,51 +1,69 @@
 .page {
-  width: 100%;
-  min-height: 100vh;
-  padding: 32px 24px 56px;
-  background: #161827;
+  width:100%;
+  min-height:100vh;
+  padding:46px 24px 76px;
+  background:
+    radial-gradient(circle at 50% -12%, rgba(84,105,205,.18), transparent 34%),
+    radial-gradient(circle at 0% 100%, rgba(238,192,78,.045), transparent 30%),
+    #080d18;
 }
-
 .header {
-  max-width: 1200px;
-  margin: 0 auto 28px;
+  position:relative;
+  max-width:1240px;
+  margin:0 auto 32px;
+  padding:6px 4px 0;
 }
-
+.header::after {
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-17px;
+  width:120px;
+  height:1px;
+  background:linear-gradient(90deg,#efc65e,rgba(239,198,94,0));
+}
 .eyebrow {
-  display: inline-block;
-  margin-bottom: 8px;
-  color: #f3c969;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:11px;
+  color:#efc65e;
+  font-size:.68rem;
+  font-weight:850;
+  letter-spacing:.20em;
+  text-transform:uppercase;
 }
-
+.eyebrow::before {
+  content:"";
+  width:28px;
+  height:1px;
+  background:#efc65e;
+  box-shadow:0 0 12px rgba(239,198,94,.4);
+}
 .header h1 {
-  margin: 0;
-  color: #f5f7ff;
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  line-height: 1.05;
+  margin:0;
+  color:#f8f9fc;
+  font-size:clamp(2.1rem,4.4vw,3.65rem);
+  line-height:.98;
+  letter-spacing:-.055em;
 }
-
 .header h1 span {
-  color: #f3c75f;
+  background:linear-gradient(100deg,#f3cb65,#fff0b0);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
-
 .header p {
-  max-width: 680px;
-  margin: 10px 0 0;
-  color: #a9aec3;
+  max-width:650px;
+  margin:13px 0 0;
+  color:#8f9ab1;
+  font-size:.95rem;
+  line-height:1.6;
 }
-
-.bannerList {
-  display: grid;
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-@media (max-width: 576px) {
-  .page {
-    padding: 22px 14px 40px;
-  }
+.bannerList { display:grid; gap:20px; max-width:1240px; margin:0 auto; }
+@media (max-width:576px) {
+  .page { padding:30px 12px 52px; }
+  .header { margin-bottom:25px; }
+  .header h1 { font-size:2rem; }
+  .header p { font-size:.9rem; }
 }
