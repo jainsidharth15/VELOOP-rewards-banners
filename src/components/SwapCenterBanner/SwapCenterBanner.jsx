@@ -1,182 +1,205 @@
 import {
   ArrowLeftRight,
-  ChevronRight,
+  ArrowRight,
+  CheckCircle2,
   RefreshCw,
   Sparkles,
   WalletCards,
 } from "lucide-react";
+
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import RewardBannerShell from "../shared/RewardBannerShell";
-import BannerButton from "../shared/BannerButton";
 
 import singleVEs from "../../assets/images/single_VEs.jpeg";
 import singleSVEs from "../../assets/images/single_SVEs.jpeg";
-import gameCoin from "../../assets/images/game_coin.jpeg";
+import multiVEs from "../../assets/images/multi_VEs_transparent.webp";
 
 import styles from "./SwapCenterBanner.module.css";
 
 export default function SwapCenterBanner() {
-  const [isReversed, setIsReversed] = useState(false);
+  const [reverse, setReverse] = useState(false);
+  const navigate = useNavigate();
 
-  const fromAsset = isReversed ? singleSVEs : singleVEs;
-  const toAsset = isReversed ? singleVEs : singleSVEs;
+  const from = reverse ? singleSVEs : singleVEs;
+  const to = reverse ? singleVEs : singleSVEs;
 
-  const fromCurrency = isReversed ? "SVE" : "VE";
-  const toCurrency = isReversed ? "VE" : "SVE";
+  const fromName = reverse ? "SVE" : "VE";
+  const toName = reverse ? "VE" : "SVE";
 
-  function handleSwapDirection() {
-    setIsReversed((current) => !current);
-  }
+  const handleSwap = () => {
+    setReverse((value) => !value);
+  };
 
   return (
     <RewardBannerShell className={styles.banner}>
-      <div className={styles.content}>
-        <span className={styles.label}>
-          <WalletCards size={15} />
-          REWARD UTILITY
-        </span>
+      {/* =====================================================
+          CONTENT
+      ===================================================== */}
 
+      <div className={styles.content}>
         <h2>
           Swap <strong>Center</strong>
         </h2>
 
         <p>
-          Convert eligible reward balances between supported VE and SVE
+          Convert eligible reward balances between supported
           currencies.
         </p>
 
-        <div className={styles.actionRow}>
-          <BannerButton to="/swap">
-            Open Swap Center
-          </BannerButton>
+        <div className={styles.actions}>
+          <button
+            type="button"
+            className={styles.cta}
+            onClick={() => navigate("/swap")}
+          >
+            <span>OPEN SWAP CENTER</span>
+            <ArrowRight
+              size={22}
+              strokeWidth={2.2}
+              aria-hidden="true"
+            />
+          </button>
 
-          <span className={styles.actionHint}>
-            <RefreshCw size={14} />
-            Fast reward conversion
+          <span className={styles.liveNote}>
+            <RefreshCw
+              size={16}
+              strokeWidth={2.2}
+              aria-hidden="true"
+            />
+            Live conversion preview
           </span>
         </div>
       </div>
 
+      {/* =====================================================
+          HERO VISUAL
+      ===================================================== */}
+
       <div className={styles.visual}>
-        <div className={styles.visualGlow} />
+        <div className={styles.glow} />
+        <div className={styles.ring} />
+        <div className={styles.ringSmall} />
 
-        <div className={styles.orbit + " " + styles.orbitOne} />
-        <div className={styles.orbit + " " + styles.orbitTwo} />
-
-        <img
-          src={gameCoin}
-          alt=""
-          aria-hidden="true"
-          className={styles.floatingCoin + " " + styles.coinOne}
-        />
-
-        <img
-          src={gameCoin}
-          alt=""
-          aria-hidden="true"
-          className={styles.floatingCoin + " " + styles.coinTwo}
-        />
-
+        {/* Large wallet behind everything */}
         <div className={styles.wallet}>
-          <div className={styles.walletHeader}>
+          <div className={styles.walletTop}>
             <span>REWARD WALLET</span>
-            <span className={styles.walletDots}>•••</span>
-          </div>
 
-          <div className={styles.walletBalance}>
-            <small>Eligible Balance</small>
-            <strong>
-              {isReversed ? "1,240 SVE" : "1,240 VE"}
-            </strong>
-          </div>
-
-          <div className={styles.walletProgress}>
-            <span />
-          </div>
-
-          <div className={styles.walletFooter}>
-            <span>Available</span>
-            <span>Ready to swap</span>
-          </div>
-        </div>
-
-        <div
-          className={
-            styles.currencyCard + " " + styles.fromCard
-          }
-        >
-          <span className={styles.cardTag}>FROM</span>
-
-          <div className={styles.coinVisual}>
-            <img
-              src={fromAsset}
-              alt={fromCurrency + " reward coin"}
+            <WalletCards
+              size={24}
+              strokeWidth={2}
+              aria-hidden="true"
             />
           </div>
 
-          <div className={styles.cardCurrency}>
-            <strong>{fromCurrency}</strong>
-            <span>Reward Currency</span>
+          <strong>Eligible Balances</strong>
+
+          <small>
+            Supported rewards · ready to swap
+          </small>
+
+          <div className={styles.walletRows}>
+            <div>
+              <span className={styles.walletDotGold} />
+              <i />
+            </div>
+
+            <div>
+              <span className={styles.walletDotBlue} />
+              <i />
+            </div>
+          </div>
+
+          <div className={styles.bar}>
+            <i />
           </div>
         </div>
 
-        <div
-          className={
-            styles.currencyCard + " " + styles.toCard
-          }
-        >
-          <span className={styles.cardTag}>TO</span>
+        {/* FROM / VE */}
+        <div className={`${styles.assetCard} ${styles.from}`}>
+          <span className={styles.cardLabel}>FROM</span>
 
-          <div className={styles.coinVisual}>
-            <img
-              src={toAsset}
-              alt={toCurrency + " reward coin"}
-            />
-          </div>
+          <img
+            src={from}
+            alt={`${fromName} reward currency`}
+          />
 
-          <div className={styles.cardCurrency}>
-            <strong>{toCurrency}</strong>
-            <span>Reward Currency</span>
+          <div className={styles.cardInfo}>
+            <b>{fromName}</b>
+            <small>REWARD CURRENCY</small>
           </div>
         </div>
 
+        {/* Central swap */}
         <button
           type="button"
-          className={styles.swapCore}
-          onClick={handleSwapDirection}
-          aria-label={
-            "Swap " + fromCurrency + " and " + toCurrency
-          }
-          title="Reverse conversion"
+          className={styles.swapButton}
+          onClick={handleSwap}
+          aria-label={`Swap ${fromName} and ${toName}`}
+          title={`Swap ${fromName} and ${toName}`}
         >
-          <div className={styles.swapCoreGlow} />
-
-          <ArrowLeftRight size={27} />
+          <ArrowLeftRight
+            size={45}
+            strokeWidth={2.1}
+            aria-hidden="true"
+          />
 
           <span>SWAP</span>
         </button>
 
-        <div className={styles.flow + " " + styles.flowTop}>
-          <ChevronRight size={18} />
-          <ChevronRight size={18} />
+        {/* TO / SVE */}
+        <div className={`${styles.assetCard} ${styles.to}`}>
+          <span className={styles.cardLabel}>TO</span>
+
+          <img
+            src={to}
+            alt={`${toName} reward currency`}
+          />
+
+          <div className={styles.cardInfo}>
+            <b>{toName}</b>
+            <small>REWARD CURRENCY</small>
+          </div>
         </div>
 
-        <div className={styles.flow + " " + styles.flowBottom}>
-          <ChevronRight size={18} />
-          <ChevronRight size={18} />
+        {/* Conversion arrows */}
+        <div className={styles.flow} aria-hidden="true">
+          <ArrowRight size={25} />
+          <ArrowRight size={25} />
+          <ArrowRight size={25} />
         </div>
 
+        {/* Transparent coin pile */}
+        <img
+          src={multiVEs}
+          alt=""
+          className={styles.coinPile}
+          aria-hidden="true"
+        />
+
+        {/* Status */}
         <div className={styles.status}>
-          <span className={styles.statusDot} />
+          <CheckCircle2
+            size={20}
+            strokeWidth={2.3}
+            aria-hidden="true"
+          />
 
-          <Sparkles size={13} />
+          <span>
+            <b>
+              {fromName} → {toName}
+            </b>
 
-          <strong>
-            {fromCurrency} → {toCurrency}
-          </strong>
+            <small>Ready to convert</small>
+          </span>
 
-          <span>Ready to convert</span>
+          <Sparkles
+            size={17}
+            strokeWidth={2}
+            aria-hidden="true"
+          />
         </div>
       </div>
     </RewardBannerShell>

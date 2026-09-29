@@ -1,144 +1,363 @@
-import { Check, ShieldCheck, Sparkles } from "lucide-react";
-import { useRef, useState } from "react";
+import {
+  ArrowRight,
+  Check,
+  CheckCircle2,
+  RefreshCw,
+  ShieldCheck,
+  Sparkles,
+  Zap,
+} from "lucide-react";
+
+import { useState } from "react";
 
 import RewardBannerShell from "../shared/RewardBannerShell";
 import BannerButton from "../shared/BannerButton";
 
-import singleGem from "../../assets/images/single_gem.jpeg";
+import singleGem from "../../assets/images/single_gem_transparent_v2.webp";
+import multiGems from "../../assets/images/multi_gems_transparent_v2.webp";
 
 import styles from "./CaptchaTasksBanner.module.css";
 
 export default function CaptchaTasksBanner() {
-  const [captcha, setCaptcha] = useState("");
+  const [value, setValue] = useState("");
   const [verified, setVerified] = useState(false);
   const [error, setError] = useState(false);
 
-  const captchaInputRef = useRef(null);
+  const verify = () => {
+    const correct =
+      value.trim().toUpperCase() === "K7M4";
 
-  const correctCaptcha = "K7M4";
-
-  const handleVerify = () => {
-    const value = captcha.trim().toUpperCase();
-
-    if (value === correctCaptcha) {
-      setVerified(true);
-      setError(false);
-    } else {
-      setVerified(false);
-      setError(true);
-    }
+    setVerified(correct);
+    setError(!correct);
   };
 
   const handleInputChange = (event) => {
-    setCaptcha(event.target.value);
+    setValue(event.target.value);
+    setError(false);
+    setVerified(false);
+  };
+
+  const handleReset = () => {
+    setValue("");
     setError(false);
     setVerified(false);
   };
 
   return (
     <RewardBannerShell className={styles.banner}>
-      {/* LEFT CONTENT */}
+      {/* =====================================================
+          LEFT CONTENT
+      ===================================================== */}
+
       <div className={styles.content}>
-        <span className={styles.label}>TASK · VERIFY · REWARD</span>
+        <span className={styles.label}>
+          <ShieldCheck
+            size={18}
+            strokeWidth={2.1}
+            aria-hidden="true"
+          />
+
+          <span>TASK · VERIFY · REWARD</span>
+        </span>
 
         <h2>
-          Complete
+          Solve Captchas.
           <br />
-          <strong>Captcha Tasks</strong>
+          <strong>Earn Gems.</strong>
         </h2>
 
         <p>
-          Complete available captcha tasks accurately and earn rewards for
-          eligible submissions.
+          Complete simple captcha tasks accurately and earn
+          eligible Gem rewards.
         </p>
 
-        <BannerButton to="/captcha">Start Task</BannerButton>
+        <div className={styles.actions}>
+          <BannerButton to="/captcha">
+            Start Task
+          </BannerButton>
+
+          <span>
+            <ShieldCheck
+              size={15}
+              strokeWidth={2.1}
+              aria-hidden="true"
+            />
+
+            <span>Task-based earning</span>
+          </span>
+        </div>
+
+        <div className={styles.steps}>
+          <span className={styles.done}>
+            <b>01</b>
+            <strong>CAPTCHA</strong>
+          </span>
+
+          <i aria-hidden="true" />
+
+          <span className={verified ? styles.done : ""}>
+            <b>02</b>
+            <strong>VERIFY</strong>
+          </span>
+
+          <i aria-hidden="true" />
+
+          <span className={verified ? styles.done : ""}>
+            <b>03</b>
+            <strong>REWARD</strong>
+          </span>
+        </div>
       </div>
 
-      {/* RIGHT VISUAL */}
+      {/* =====================================================
+          RIGHT VISUAL
+      ===================================================== */}
+
       <div className={styles.visual}>
-        <div className={styles.taskCard}>
-          {/* Card header */}
-          <div className={styles.cardHeader}>
-            <div className={styles.securityIcon}>
-              <ShieldCheck size={24} />
+        <div className={styles.glow} />
+        <div className={styles.purpleRing} />
+
+        {/* =================================================
+            GEM HERO
+        ================================================= */}
+
+        <div
+          className={`${styles.gemHero} ${
+            verified ? styles.gemHeroActive : ""
+          }`}
+        >
+          <img
+            src={multiGems}
+            alt="Purple reward gems"
+          />
+
+          <div className={styles.gemBadge}>
+            <img
+              src={singleGem}
+              alt=""
+              aria-hidden="true"
+            />
+
+            <span>GEMS REWARD</span>
+          </div>
+        </div>
+
+        {/* =================================================
+            CAPTCHA TASK CARD
+        ================================================= */}
+
+        <div
+          className={`${styles.taskCard} ${
+            verified
+              ? styles.taskCardSuccess
+              : error
+                ? styles.taskCardError
+                : ""
+          }`}
+        >
+          <div className={styles.cardTop}>
+            <div className={styles.shield}>
+              <ShieldCheck
+                size={23}
+                strokeWidth={2}
+                aria-hidden="true"
+              />
             </div>
 
             <div>
-              <span>VERIFICATION TASK</span>
-              <strong>Captcha Check</strong>
+              <small>SECURE TASK</small>
+              <strong>Captcha Verification</strong>
             </div>
+
+            <button
+              type="button"
+              className={styles.refreshButton}
+              onClick={handleReset}
+              aria-label="Reset captcha"
+              title="Reset captcha"
+            >
+              <RefreshCw
+                size={19}
+                strokeWidth={2}
+                aria-hidden="true"
+              />
+            </button>
           </div>
 
-          {/* Captcha */}
-          <div className={styles.captchaBox}>
-            <div className={styles.captchaCode}>{correctCaptcha}</div>
+          {/* CAPTCHA CODE */}
+          <div className={styles.captchaDisplay}>
+            <span>K7M4</span>
 
-            <span>Enter the code shown above</span>
+            <Sparkles
+              size={21}
+              strokeWidth={1.9}
+              aria-hidden="true"
+            />
           </div>
 
-          {/* Input */}
-          <div className={styles.inputGroup}>
+          {/* INPUT + VERIFY */}
+          <div className={styles.inputRow}>
             <input
-              ref={captchaInputRef}
-              type="text"
-              value={captcha}
+              value={value}
               onChange={handleInputChange}
               placeholder="Enter captcha"
               maxLength={4}
+              autoComplete="off"
+              spellCheck="false"
               aria-label="Enter captcha"
+              aria-invalid={error}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  verify();
+                }
+              }}
             />
 
             <button
               type="button"
-              onClick={handleVerify}
-              className={styles.verifyButton}
+              onClick={verify}
+              disabled={!value.trim()}
+              aria-pressed={verified}
             >
               {verified ? (
                 <>
-                  <Check size={17} />
-                  Verified
+                  <Check
+                    size={18}
+                    strokeWidth={2.7}
+                    aria-hidden="true"
+                  />
+
+                  <span>Verified</span>
                 </>
               ) : (
-                "Verify"
+                <span>Verify</span>
               )}
             </button>
           </div>
 
-          {/* Status */}
+          {/* VERIFICATION STATUS */}
           <div
             className={`${styles.status} ${
-              verified ? styles.success : error ? styles.failed : ""
+              verified
+                ? styles.success
+                : error
+                  ? styles.error
+                  : ""
             }`}
             aria-live="polite"
-            role="status"
           >
             {verified ? (
               <>
-                <Check size={15} />
-                Captcha verified — reward unlocked
+                <CheckCircle2
+                  size={17}
+                  strokeWidth={2.3}
+                  aria-hidden="true"
+                />
+
+                <span>
+                  Captcha verified — reward unlocked
+                </span>
               </>
             ) : error ? (
-              <>Verification failed — try again</>
+              <>
+                <RefreshCw
+                  size={16}
+                  strokeWidth={2.2}
+                  aria-hidden="true"
+                />
+
+                <span>
+                  Verification failed — try again
+                </span>
+              </>
             ) : (
               <>
-                <ShieldCheck size={15} />
-                Verification required
+                <ShieldCheck
+                  size={16}
+                  strokeWidth={2.1}
+                  aria-hidden="true"
+                />
+
+                <span>
+                  Verification required
+                </span>
               </>
             )}
           </div>
         </div>
 
-        {/* Reward visual */}
-        <div
-          className={`${styles.reward} ${verified ? styles.rewardActive : ""}`}
-        >
-          <img src={singleGem} alt="Reward gem" />
+        {/* =================================================
+            PROCESS FLOW
+        ================================================= */}
 
-          <div className={styles.rewardText}>
-            <Sparkles size={14} />
-            <span>Reward</span>
-          </div>
+        <div className={styles.flow}>
+          <span className={styles.flowActive}>
+            CAPTCHA
+          </span>
+
+          <ArrowRight
+            size={17}
+            strokeWidth={2}
+            aria-hidden="true"
+          />
+
+          <span
+            className={
+              verified
+                ? styles.flowActive
+                : ""
+            }
+          >
+            VERIFY
+          </span>
+
+          <ArrowRight
+            size={17}
+            strokeWidth={2}
+            aria-hidden="true"
+          />
+
+          <span
+            className={
+              verified
+                ? styles.flowActive
+                : ""
+            }
+          >
+            REWARD
+          </span>
+        </div>
+
+        {/* =================================================
+            REWARD STATUS
+        ================================================= */}
+
+        <div
+          className={`${styles.rewardPill} ${
+            verified
+              ? styles.rewardPillActive
+              : ""
+          }`}
+        >
+          {verified ? (
+            <CheckCircle2
+              size={17}
+              strokeWidth={2.2}
+              aria-hidden="true"
+            />
+          ) : (
+            <Zap
+              size={17}
+              strokeWidth={2}
+              aria-hidden="true"
+            />
+          )}
+
+          <span>
+            {verified
+              ? "Gem reward unlocked"
+              : "Accurate tasks unlock eligible rewards"}
+          </span>
         </div>
       </div>
     </RewardBannerShell>

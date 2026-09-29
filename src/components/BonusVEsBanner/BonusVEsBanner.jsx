@@ -1,124 +1,251 @@
-import { CirclePlus, Gift, Sparkles, ArrowUpRight } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart3,
+  Check,
+  ClipboardCheck,
+  Gift,
+  Sparkles,
+  TrendingUp,
+  Users,
+} from "lucide-react";
+
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import RewardBannerShell from "../shared/RewardBannerShell";
-import BannerButton from "../shared/BannerButton";
 
 import singleVEs from "../../assets/images/single_VEs.jpeg";
-import multiVEs from "../../assets/images/multi_VEs.jpeg";
+import multiVEsTransparent from "../../assets/images/multi_VEs_transparent.webp";
+import gameCoin from "../../assets/images/game_coin.jpeg";
 
 import styles from "./BonusVEsBanner.module.css";
 
 export default function BonusVEsBanner() {
-  const [isHighlighted, setIsHighlighted] = useState(false);
+  const [active, setActive] = useState(false);
+  const navigate = useNavigate();
 
   const handleBonusClick = () => {
-    setIsHighlighted(true);
-
-    setTimeout(() => {
-      setIsHighlighted(false);
-    }, 1800);
+    setActive((value) => !value);
   };
 
   return (
     <RewardBannerShell className={styles.banner}>
-      {/* =========================
-          LEFT CONTENT
-      ========================== */}
       <div className={styles.content}>
-        <span className={styles.label}>BONUS OPPORTUNITY</span>
-
         <h2>
-          Get Extra
+          Boost Your
           <br />
-          <strong>VE Rewards.</strong>
+          <strong>VE Balance</strong>
         </h2>
 
+        <div className={styles.headingLine}>
+          <span />
+          <b>›››</b>
+        </div>
+
         <p>
-          Complete eligible activities and unlock additional VEs through
-          special bonus opportunities.
+          Complete eligible activities and unlock additional VEs
+          through special bonus opportunities.
         </p>
 
-        <div className={styles.ctaRow}>
-          <BannerButton to="/bonus">
-            Explore Bonuses
-          </BannerButton>
+        <div className={styles.actions}>
+          <button
+            type="button"
+            className={styles.cta}
+            onClick={() => navigate("/bonus")}
+          >
+            <span>EXPLORE BONUSES</span>
 
-          <span className={styles.actionHint}>
-            <Sparkles size={15} />
-            Discover bonus rewards
+            <span className={styles.ctaIcon}>
+              <ArrowRight
+                size={21}
+                strokeWidth={2.5}
+                aria-hidden="true"
+              />
+            </span>
+          </button>
+
+          <span className={styles.actionNote}>
+            <TrendingUp
+              size={16}
+              strokeWidth={2.2}
+              aria-hidden="true"
+            />
+            More activities, more value
           </span>
         </div>
       </div>
 
-      {/* =========================
-          RIGHT VISUAL
-      ========================== */}
       <div className={styles.visual}>
-        {/* Background glow */}
-        <div className={styles.glow}></div>
+        <div className={styles.glow} />
+        <div className={styles.ring} />
+        <div className={styles.ringTwo} />
 
-        {/* Orbit rings */}
-        <div className={styles.orbit}></div>
+        <div className={styles.taskList}>
+          <div className={styles.taskCard}>
+            <div className={styles.taskIcon}>
+              <ClipboardCheck size={25} strokeWidth={1.9} aria-hidden="true" />
+            </div>
+            <div className={styles.taskContent}>
+              <b>Daily Check-in</b>
+              <small>Stay active</small>
+            </div>
+            <span className={styles.taskCheck}>
+              <Check size={17} strokeWidth={2.8} aria-hidden="true" />
+            </span>
+          </div>
 
-        {/* Decorative top coin */}
+          <div className={styles.taskCard}>
+            <div className={styles.taskIcon}>
+              <Users size={25} strokeWidth={1.9} aria-hidden="true" />
+            </div>
+            <div className={styles.taskContent}>
+              <b>Invite Friends</b>
+              <small>Grow together</small>
+            </div>
+            <span className={styles.taskCheck}>
+              <Check size={17} strokeWidth={2.8} aria-hidden="true" />
+            </span>
+          </div>
+
+          <div className={styles.taskCard}>
+            <div className={styles.taskIcon}>
+              <BarChart3 size={25} strokeWidth={1.9} aria-hidden="true" />
+            </div>
+            <div className={styles.taskContent}>
+              <b>Complete Tasks</b>
+              <small>Earn more</small>
+            </div>
+            <span className={styles.taskCheck}>
+              <Check size={17} strokeWidth={2.8} aria-hidden="true" />
+            </span>
+          </div>
+        </div>
+
+        <div className={styles.energyFlow} aria-hidden="true">
+          <span />
+          <span />
+          <span />
+        </div>
+
+        <button
+          type="button"
+          className={`${styles.bonusDial} ${active ? styles.active : ""}`}
+          onClick={handleBonusClick}
+          aria-label={active ? "Bonus VE reward is active" : "Activate bonus VE reward"}
+          aria-pressed={active}
+          title={active ? "Bonus active" : "Activate bonus preview"}
+        >
+          <span className={styles.dialGlow} />
+          <span className={styles.dialOuter} />
+          <span className={styles.dialInner}>
+            <span>BONUS</span>
+            <strong>VE</strong>
+            <small>{active ? "BONUS ACTIVE" : "MORE VALUE"}</small>
+          </span>
+        </button>
+
+        <div
+          className={`${styles.plusOrb} ${active ? styles.plusOrbActive : ""}`}
+          aria-hidden="true"
+        >
+          <Gift size={25} strokeWidth={2} />
+          <span>+</span>
+        </div>
+
+        <div className={styles.rewardStage}>
+          <div className={styles.stageGlow} />
+
+          <div className={styles.stageBase}>
+            <div className={styles.stageTop} />
+
+            <div className={styles.stageFront}>
+              <span>VE</span>
+              <div className={styles.stageMark}>
+                <Sparkles size={16} strokeWidth={2.2} aria-hidden="true" />
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.rewardCoin}>
+            <img src={singleVEs} alt="VE reward coin" />
+          </div>
+
+          <div className={styles.rewardLight} />
+        </div>
+
+        <div className={styles.vault}>
+          <div className={styles.vaultTop}>
+            <span>VE REWARDS</span>
+            <div className={styles.vaultLight}>
+              <span />
+              <span />
+              <span />
+            </div>
+          </div>
+
+          <div className={styles.vaultBody}>
+            <div className={styles.vaultGlow} />
+
+            <img
+              src={multiVEsTransparent}
+              alt=""
+              className={styles.vaultRewardArt}
+              aria-hidden="true"
+            />
+
+            <div className={styles.vaultDoor}>
+              <div className={styles.vaultHandle}>
+                <span />
+                <span />
+                <span />
+                <span />
+              </div>
+
+              <div className={styles.vaultLock}>
+                <Gift size={19} strokeWidth={1.8} aria-hidden="true" />
+              </div>
+            </div>
+          </div>
+        </div>
+
         <img
           src={singleVEs}
           alt=""
-          className={styles.smallVe}
+          className={`${styles.floatingCoin} ${styles.coinOne}`}
+          aria-hidden="true"
         />
 
-        {/* Main bonus reward */}
-        <button
-          type="button"
-          className={`${styles.veVisual} ${
-            isHighlighted ? styles.active : ""
-          }`}
-          onClick={handleBonusClick}
-          aria-label="Highlight bonus VE rewards"
-        >
-          <div className={styles.bonusIcon}>
-            <Gift size={30} />
-          </div>
+        <img
+          src={singleVEs}
+          alt=""
+          className={`${styles.floatingCoin} ${styles.coinTwo}`}
+          aria-hidden="true"
+        />
 
-          <img
-            src={multiVEs}
-            alt="VELOOP VE rewards"
-          />
+        <img
+          src={gameCoin}
+          alt=""
+          className={`${styles.floatingCoin} ${styles.coinThree}`}
+          aria-hidden="true"
+        />
 
-          <span className={styles.veLabel}>BONUS</span>
-
-          <strong>VE</strong>
-        </button>
-
-        {/* Floating gift */}
-        <div className={styles.gift}>
-          <Gift size={38} />
-        </div>
-
-        {/* Decorative sparkle */}
         <Sparkles
-          className={`${styles.sparkle} ${styles.sparkleOne}`}
+          className={styles.sparkleOne}
+          size={19}
+          strokeWidth={1.7}
+          aria-hidden="true"
         />
 
-        <CirclePlus
-          className={`${styles.sparkle} ${styles.sparkleTwo}`}
+        <Sparkles
+          className={styles.sparkleTwo}
+          size={14}
+          strokeWidth={1.7}
+          aria-hidden="true"
         />
 
-        {/* Small decorative arrow */}
-        <div className={styles.visualArrow}>
-          <ArrowUpRight size={18} />
-        </div>
-
-        {/* Interaction message */}
-        <div
-          className={`${styles.message} ${
-            isHighlighted ? styles.messageVisible : ""
-          }`}
-          aria-live="polite"
-        >
-          <Sparkles size={15} />
-          Bonus opportunity highlighted
+        <div className={`${styles.status} ${active ? styles.statusActive : ""}`}>
+          <Sparkles size={16} strokeWidth={2} aria-hidden="true" />
+          <span>{active ? "Bonus opportunity active" : "Tap bonus to preview"}</span>
         </div>
       </div>
     </RewardBannerShell>

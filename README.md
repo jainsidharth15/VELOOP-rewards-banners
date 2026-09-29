@@ -98,25 +98,22 @@ Shows a redemption flow from a demo VE balance to supported reward options.
 
 ## 📁 Project Structure
 
-```text
 veloop-rewards-banners/
+
 ├── public/
 │   └── screenshots/
-│       ├── desktop-home.png
-│       ├── swap-center.png
-│       ├── mobile-home.png
+│       ├── desktop-refer.png
+│       ├── desktop-swap.png
+│       ├── desktop-bonus.png
+│       ├── desktop-captcha.png
+│       ├── desktop-exchange.png
+│       ├── mobile-overview.png
+│       ├── tablet-overview.png
 │       └── captcha-verified.png
+│
 ├── src/
 │   ├── assets/
 │   │   └── images/
-│   │       ├── multi_SVEs.jpeg
-│   │       ├── multi_VEs.jpeg
-│   │       ├── multi_gems.jpeg
-│   │       ├── multi_token.jpeg
-│   │       ├── single_SVEs.jpeg
-│   │       ├── single_VEs.jpeg
-│   │       ├── single_gem.jpeg
-│   │       └── ...
 │   │
 │   ├── components/
 │   │   ├── BonusVEsBanner/
@@ -126,7 +123,9 @@ veloop-rewards-banners/
 │   │   ├── SwapCenterBanner/
 │   │   └── shared/
 │   │       ├── BannerButton.jsx
-│   │       └── RewardBannerShell.jsx
+│   │       ├── BannerButton.module.css
+│   │       ├── RewardBannerShell.jsx
+│   │       └── RewardBannerShell.module.css
 │   │
 │   ├── pages/
 │   │   ├── BonusPage.jsx
@@ -146,7 +145,6 @@ veloop-rewards-banners/
 ├── package-lock.json
 ├── vite.config.js
 └── README.md
-```
 
 ## 🚀 Getting Started
 
@@ -252,33 +250,37 @@ The five concepts are intentionally separated as:
 
 ## 🖼️ Screenshots
 
-### Desktop
-
-![VELOOP Rewards - Desktop](./public/screenshots/desktop-home.png)
-
 ### Refer & Earn
 
-![VELOOP Rewards - Refer & Earn](./public/screenshots/refer-earn.png)
+![VELOOP Rewards - Refer & Earn](./public/screenshots/desktop-refer.png)
 
 ### Swap Center
 
-![VELOOP Rewards - Swap Center](./public/screenshots/swap-center.png)
+![VELOOP Rewards - Swap Center](./public/screenshots/desktop-swap.png)
 
 ### Bonus VEs
 
-![VELOOP Rewards - Bonus VEs](./public/screenshots/bonus-ves.png)
+![VELOOP Rewards - Bonus VEs](./public/screenshots/desktop-bonus.png)
+
+### Captcha Banner
+
+![VELOOP Rewards - Bonus VEs](./public/screenshots/desktop-captcha.png)
+
+### Exchange Center
+
+![VELOOP Rewards - Exchange Center](./public/screenshots/desktop-exchange.png)
+
+### Mobile Overview
+
+![VELOOP Rewards - Mobile](./public/screenshots/mobile-overview.png)
+
+### Tablet Overview
+
+![VELOOP Rewards - Tablet](./public/screenshots/tablet-overview.png)
 
 ### Captcha Verification
 
 ![VELOOP Rewards - Captcha Verified](./public/screenshots/captcha-verified.png)
-
-### Exchange Center
-
-![VELOOP Rewards - Exchange Center](./public/screenshots/exchange-center.png)
-
-### Mobile
-
-![VELOOP Rewards - Mobile](./public/screenshots/mobile-home.png)
 
 ## 🌐 Live Demo
 

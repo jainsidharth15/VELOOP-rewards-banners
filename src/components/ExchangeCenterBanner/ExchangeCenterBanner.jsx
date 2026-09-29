@@ -1,132 +1,354 @@
 import {
+  ArrowLeftRight,
+  ArrowRight,
+  Check,
   CheckCircle2,
   CreditCard,
   Gift,
+  RefreshCw,
   Smartphone,
+  Sparkles,
   WalletCards,
 } from "lucide-react";
+
 import { useState } from "react";
 
 import RewardBannerShell from "../shared/RewardBannerShell";
 import BannerButton from "../shared/BannerButton";
 
 import singleVE from "../../assets/images/single_VEs.jpeg";
+import singleGem from "../../assets/images/single_gem_transparent_v2.webp";
+import multiGems from "../../assets/images/multi_gems_transparent_v2.webp";
 
 import styles from "./ExchangeCenterBanner.module.css";
 
 export default function ExchangeCenterBanner() {
-  const [selectedReward, setSelectedReward] = useState("UPI");
+  const [selected, setSelected] = useState("UPI");
 
-  const rewardOptions = [
+  const options = [
     {
       id: "UPI",
       label: "UPI",
-      description: "Direct payout",
+      desc: "Direct payout",
       icon: Smartphone,
     },
     {
       id: "Gift Card",
       label: "Gift Card",
-      description: "Supported vouchers",
+      desc: "Supported vouchers",
       icon: Gift,
     },
     {
       id: "Reward Card",
       label: "Reward Card",
-      description: "Redeem rewards",
+      desc: "Redeem rewards",
       icon: CreditCard,
     },
   ];
 
   return (
     <RewardBannerShell className={styles.banner}>
-      {/* LEFT CONTENT */}
+      {/* =====================================================
+          LEFT CONTENT
+      ===================================================== */}
+
       <div className={styles.content}>
-        <span className={styles.label}>REDEEM YOUR REWARDS</span>
+        <span className={styles.label}>
+          <WalletCards
+            size={19}
+            strokeWidth={2.1}
+            aria-hidden="true"
+          />
+          <span>REDEEM YOUR REWARDS</span>
+        </span>
 
         <h2>
           Exchange <strong>Center</strong>
         </h2>
 
         <p>
-          Explore available redemption options and exchange eligible VEs for
-          supported rewards.
+          Explore available redemption options and exchange
+          eligible VEs for supported rewards.
         </p>
 
-        <BannerButton to="/exchange">Open Exchange Center</BannerButton>
+        <div className={styles.actions}>
+          <BannerButton to="/exchange">
+            Open Exchange Center
+          </BannerButton>
+
+          <span className={styles.actionNote}>
+            <Sparkles
+              size={16}
+              strokeWidth={2}
+              aria-hidden="true"
+            />
+            <span>Choose how to redeem</span>
+          </span>
+        </div>
+
+        <div className={styles.micro}>
+          <span>VE BALANCE</span>
+
+          <ArrowRight
+            size={18}
+            strokeWidth={2}
+            aria-hidden="true"
+          />
+
+          <span>REDEEM</span>
+
+          <ArrowRight
+            size={18}
+            strokeWidth={2}
+            aria-hidden="true"
+          />
+
+          <span>REWARD</span>
+        </div>
       </div>
 
-      {/* RIGHT VISUAL */}
+      {/* =====================================================
+          RIGHT VISUAL
+      ===================================================== */}
+
       <div className={styles.visual}>
-        <div className={styles.redemptionFlow}>
-          {/* VE BALANCE */}
-          <div className={styles.balanceCard}>
-            <div className={styles.balanceHeader}>
+        <div className={styles.glow} />
+        <div className={styles.ring} />
+        <div className={styles.ringSmall} />
+
+        {/* =================================================
+            SOURCE BALANCE
+        ================================================= */}
+
+        <div className={styles.wallet}>
+          <div className={styles.walletTop}>
+            <div>
               <span>YOUR BALANCE</span>
-              <WalletCards size={17} />
+              <strong>VE REWARDS</strong>
             </div>
 
-            <div className={styles.balanceContent}>
-              <div className={styles.veImageWrapper}>
-                <img src={singleVE} alt="VE reward coin" />
-              </div>
-
-              <div>
-                <strong>2,450</strong>
-                <span>Demo VE balance</span>
-              </div>
+            <div className={styles.walletIcon}>
+              <WalletCards
+                size={21}
+                strokeWidth={2}
+                aria-hidden="true"
+              />
             </div>
           </div>
 
-          {/* FLOW ARROW */}
-          <div className={styles.flowArrow}>
-            <span>REDEEM</span>
-            <div className={styles.arrowLine}></div>
+          <div className={styles.balanceRow}>
+            <div className={styles.coinFrame}>
+              <img
+                src={singleVE}
+                alt="VE reward coin"
+              />
+            </div>
+
+            <div className={styles.balanceCopy}>
+              <strong>VE</strong>
+              <span>Eligible reward balance</span>
+            </div>
           </div>
 
-          {/* REWARD OPTIONS */}
-          <div className={styles.rewardOptions}>
-            {rewardOptions.map((option) => {
-              const Icon = option.icon;
-              const isSelected = selectedReward === option.id;
+          <div className={styles.progress}>
+            <i />
+          </div>
 
-              return (
-                <button
-                  key={option.id}
-                  type="button"
-                  className={`${styles.rewardOption} ${
-                    isSelected ? styles.selected : ""
-                  }`}
-                  onClick={() => setSelectedReward(option.id)}
-                  aria-pressed={isSelected}
-                >
-                  <div className={styles.optionIcon}>
-                    <Icon size={20} />
-                  </div>
+          <div className={styles.walletFoot}>
+            <span>Available for redemption</span>
 
-                  <div className={styles.optionText}>
-                    <strong>{option.label}</strong>
-                    <span>{option.description}</span>
-                  </div>
-
-                  {isSelected && (
-                    <CheckCircle2
-                      size={17}
-                      className={styles.selectedIcon}
-                      aria-hidden="true"
-                    />
-                  )}
-                </button>
-              );
-            })}
+            <CheckCircle2
+              size={16}
+              strokeWidth={2.2}
+              aria-hidden="true"
+            />
           </div>
         </div>
 
-        {/* SELECTED REWARD STATUS */}
-        <div className={styles.status}>
-          <CheckCircle2 size={15} />
+        {/* =================================================
+            TRAVELING REDEMPTION FLOW
+        ================================================= */}
 
-          <span>{selectedReward} selected for redemption</span>
+        <div className={styles.flowRail} aria-hidden="true">
+          <span className={styles.flowGlow} />
+
+          <span className={styles.flowLine} />
+
+          <span
+            className={`${styles.flowArrow} ${styles.flowArrowOne}`}
+          >
+            <ArrowRight size={24} strokeWidth={2.2} />
+          </span>
+
+          <span
+            className={`${styles.flowArrow} ${styles.flowArrowTwo}`}
+          >
+            <ArrowRight size={24} strokeWidth={2.2} />
+          </span>
+
+          <span
+            className={`${styles.flowArrow} ${styles.flowArrowThree}`}
+          >
+            <ArrowRight size={24} strokeWidth={2.2} />
+          </span>
+
+          <span className={styles.flowLabel}>REDEEM</span>
+        </div>
+
+        {/* =================================================
+            EXCHANGE RATE
+        ================================================= */}
+
+        <div className={styles.exchangeRate}>
+          <div className={styles.rateHeading}>
+            <RefreshCw
+              size={15}
+              strokeWidth={2.1}
+              aria-hidden="true"
+            />
+            <span>EXCHANGE RATE</span>
+          </div>
+
+          <div className={styles.rateFlow}>
+            <div className={styles.rateAsset}>
+              <img
+                src={singleVE}
+                alt=""
+                aria-hidden="true"
+              />
+              <span>VE</span>
+            </div>
+
+            <ArrowLeftRight
+              size={25}
+              strokeWidth={2}
+              aria-hidden="true"
+            />
+
+            <div className={styles.rateAsset}>
+              <img
+                src={singleGem}
+                alt=""
+                aria-hidden="true"
+              />
+              <span>REWARD</span>
+            </div>
+          </div>
+
+          <small>Rate preview shown at redemption</small>
+        </div>
+
+        {/* =================================================
+            REWARD VISUAL
+        ================================================= */}
+
+        <div className={styles.rewardVisual}>
+          <div className={styles.rewardGlow} />
+
+          <img
+            src={multiGems}
+            alt="Reward gems"
+            className={styles.gem}
+          />
+
+          <div className={styles.rewardBadge}>
+            <Sparkles
+              size={13}
+              strokeWidth={2}
+              aria-hidden="true"
+            />
+            <span>REWARD VALUE</span>
+          </div>
+        </div>
+
+        {/* =================================================
+            REDEMPTION OPTIONS
+        ================================================= */}
+
+        <div className={styles.rewardStack}>
+          <div className={styles.rewardLabel}>
+            <Sparkles
+              size={14}
+              strokeWidth={2}
+              aria-hidden="true"
+            />
+            <span>REDEMPTION OPTIONS</span>
+          </div>
+
+          <div className={styles.options}>
+            {options.map(
+              ({
+                id,
+                label,
+                desc,
+                icon: Icon,
+              }) => {
+                const active = selected === id;
+
+                return (
+                  <button
+                    key={id}
+                    type="button"
+                    className={`${styles.option} ${
+                      active ? styles.active : ""
+                    }`}
+                    onClick={() => setSelected(id)}
+                    aria-pressed={active}
+                  >
+                    <span className={styles.optionIcon}>
+                      <Icon
+                        size={21}
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      />
+                    </span>
+
+                    <span className={styles.optionText}>
+                      <b>{label}</b>
+                      <small>{desc}</small>
+                    </span>
+
+                    <span className={styles.optionCheck}>
+                      {active ? (
+                        <CheckCircle2
+                          size={20}
+                          strokeWidth={2.2}
+                          aria-hidden="true"
+                        />
+                      ) : (
+                        <span className={styles.emptyCheck} />
+                      )}
+                    </span>
+                  </button>
+                );
+              }
+            )}
+          </div>
+        </div>
+
+        {/* =================================================
+            SELECTED STATUS
+        ================================================= */}
+
+        <div className={styles.status}>
+          <span className={styles.statusIcon}>
+            <Check
+              size={15}
+              strokeWidth={2.8}
+              aria-hidden="true"
+            />
+          </span>
+
+          <span className={styles.statusText}>
+            <b>{selected}</b>
+            <small>Selected for redemption</small>
+          </span>
+
+          <Sparkles
+            size={17}
+            strokeWidth={2}
+            aria-hidden="true"
+          />
         </div>
       </div>
     </RewardBannerShell>

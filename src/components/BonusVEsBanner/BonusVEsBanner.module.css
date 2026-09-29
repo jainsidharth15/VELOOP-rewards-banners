@@ -1,58 +1,40 @@
 /* =========================================================
-   BONUS VEs — PREMIUM GAME REWARD BANNER
+   BONUS VE BANNER
+   Reference-inspired hero composition
 ========================================================= */
 
 .banner {
   position: relative;
 
   display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(500px, 1.18fr);
+  grid-template-columns: 38% 62%;
 
-  min-height: 330px;
+  min-height: 430px;
 
-  padding: 32px 40px 24px;
+  padding: 28px 28px 26px 40px;
 
   overflow: hidden;
+  isolation: isolate;
 
   background:
     radial-gradient(
-      circle at 78% 48%,
-      rgba(225, 181, 69, 0.19),
-      transparent 28%
+      circle at 74% 48%,
+      rgba(53, 111, 224, 0.28),
+      transparent 31%
     ),
     radial-gradient(
-      circle at 94% 15%,
-      rgba(92, 120, 207, 0.12),
-      transparent 25%
+      circle at 78% 78%,
+      rgba(231, 183, 65, 0.12),
+      transparent 24%
     ),
     linear-gradient(
       120deg,
-      #0d1422 0%,
-      #151a29 55%,
-      #111827 100%
+      #070d1b 0%,
+      #0a1427 55%,
+      #0b1830 100%
     );
 }
 
-.banner::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      125deg,
-      rgba(255, 255, 255, 0.035),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 75% 65%,
-      rgba(232, 190, 82, 0.05),
-      transparent 25%
-    );
-}
 
 /* =========================================================
    LEFT CONTENT
@@ -60,38 +42,14 @@
 
 .content {
   position: relative;
-  z-index: 10;
+  z-index: 40;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 
-  max-width: 510px;
-
-  padding-left: 5px;
-}
-
-.label {
-  display: inline-flex;
-  align-items: center;
-
-  margin-bottom: 13px;
-  padding: 7px 11px;
-
-  border: 1px solid rgba(224, 187, 86, 0.3);
-  border-radius: 999px;
-
-  background: rgba(224, 187, 86, 0.07);
-
-  color: #e8c45f;
-
-  font-size: 0.65rem;
-  font-weight: 850;
-  letter-spacing: 0.15em;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  padding-right: 15px;
 }
 
 .content h2 {
@@ -99,63 +57,183 @@
 
   color: #f7f9fd;
 
-  font-size: clamp(2.55rem, 4.4vw, 3.7rem);
-  line-height: 0.97;
-  letter-spacing: -0.055em;
+  font-size: clamp(2.8rem, 4.6vw, 4rem);
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.065em;
 }
 
 .content h2 strong {
-  background:
-    linear-gradient(
-      100deg,
-      #eabd4e 0%,
-      #ffe7a0 52%,
-      #e9bd52 100%
-    );
+  color: #edbf62;
 
-  -webkit-background-clip: text;
-  background-clip: text;
+  font-weight: 800;
 
-  color: transparent;
+  text-shadow:
+    0 0 24px rgba(237, 191, 98, 0.12);
 }
 
-.content p {
-  max-width: 480px;
-
-  margin: 17px 0 21px;
-
-  color: #aeb9cc;
-
-  font-size: 0.91rem;
-  line-height: 1.6;
-}
 
 /* =========================================================
-   CTA
+   HEADING LINE
 ========================================================= */
 
-.ctaRow {
+.headingLine {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 17px;
+
+  margin-top: 18px;
 }
 
-.actionHint {
+.headingLine span {
+  display: block;
+
+  width: 105px;
+  height: 2px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #f0c96d,
+      #b88936 62%,
+      transparent
+    );
+
+  box-shadow:
+    0 0 12px rgba(238, 194, 88, 0.22);
+}
+
+.headingLine b {
+  color: #d5a64a;
+
+  font-size: 0.78rem;
+  letter-spacing: 0.13em;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.content p {
+  max-width: 390px;
+
+  margin: 20px 0 23px;
+
+  color: #a8b8d0;
+
+  font-size: 0.91rem;
+  line-height: 1.58;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+/* GOLD CTA */
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  min-width: 250px;
+  min-height: 54px;
+
+  padding: 0 12px 0 23px;
+
+  border: 1px solid rgba(255, 225, 145, 0.7);
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5d27d 0%,
+      #dfb454 52%,
+      #be8d31 100%
+    );
+
+  color: #182033;
+
+  font-size: 0.77rem;
+  font-weight: 900;
+  letter-spacing: 0.045em;
+
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.32),
+    0 0 25px rgba(229, 183, 68, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+
+  cursor: pointer;
+
+  transition:
+    transform 180ms ease,
+    filter 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.05);
+
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.38),
+    0 0 32px rgba(229, 183, 68, 0.23),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.cta:active {
+  transform: translateY(0);
+}
+
+.cta:focus-visible {
+  outline: 2px solid #f5d783;
+  outline-offset: 4px;
+}
+
+.ctaIcon {
+  display: grid;
+  place-items: center;
+
+  width: 35px;
+  height: 35px;
+
+  border-radius: 50%;
+
+  background: #17243a;
+
+  color: #f4d17a;
+}
+
+
+/* Action note */
+
+.actionNote {
   display: inline-flex;
   align-items: center;
   gap: 6px;
 
-  color: #7f8da5;
+  color: #8091aa;
 
-  font-size: 0.66rem;
-  white-space: nowrap;
+  font-size: 0.63rem;
 }
 
-.actionHint svg {
-  color: #e1bb59;
-
-  animation: hintSpark 2.4s ease-in-out infinite;
+.actionNote svg {
+  color: #e1b84f;
 }
+
 
 /* =========================================================
    RIGHT VISUAL
@@ -164,23 +242,24 @@
 .visual {
   position: relative;
 
-  min-height: 305px;
+  min-height: 376px;
 
-  isolation: isolate;
+  overflow: hidden;
 }
 
+
 /* =========================================================
-   CENTRAL GLOW
+   ATMOSPHERIC LIGHT
 ========================================================= */
 
 .glow {
   position: absolute;
 
-  left: 53%;
-  top: 51%;
+  left: 50%;
+  top: 52%;
 
-  width: 285px;
-  height: 285px;
+  width: 610px;
+  height: 390px;
 
   transform: translate(-50%, -50%);
 
@@ -188,633 +267,1346 @@
 
   background:
     radial-gradient(
-      circle,
-      rgba(231, 190, 79, 0.18) 0%,
-      rgba(231, 190, 79, 0.07) 42%,
-      transparent 72%
+      ellipse at center,
+      rgba(65, 124, 235, 0.3) 0%,
+      rgba(45, 87, 180, 0.13) 40%,
+      rgba(226, 180, 63, 0.08) 56%,
+      transparent 74%
     );
 
-  filter: blur(20px);
+  filter: blur(17px);
 
-  animation: glowPulse 4s ease-in-out infinite;
+  z-index: 0;
 }
 
+
 /* =========================================================
-   ORBIT
+   ORBITS
 ========================================================= */
 
-.orbit {
+.ring {
   position: absolute;
 
-  left: 53%;
+  left: 51%;
   top: 52%;
 
-  width: 390px;
-  height: 250px;
+  width: 560px;
+  height: 285px;
 
   transform:
     translate(-50%, -50%)
-    rotate(-12deg);
+    rotate(-8deg);
 
-  border: 1px solid rgba(224, 184, 82, 0.19);
+  border: 1px solid rgba(71, 133, 236, 0.14);
 
   border-radius: 50%;
 
-  box-shadow:
-    0 0 0 18px rgba(224, 184, 82, 0.018),
-    0 0 0 38px rgba(224, 184, 82, 0.01);
+  z-index: 1;
 }
 
-.orbit::before {
+.ring::after {
   content: "";
 
   position: absolute;
 
-  width: 7px;
-  height: 7px;
+  inset: 30px;
 
-  left: 9%;
-  top: 31%;
+  border: 1px solid rgba(229, 184, 71, 0.09);
 
   border-radius: 50%;
-
-  background: #e5bd5b;
-
-  box-shadow:
-    0 0 0 6px rgba(229, 189, 91, 0.07),
-    0 0 14px rgba(229, 189, 91, 0.4);
-
-  animation: orbitDotOne 4.2s ease-in-out infinite;
 }
 
-.orbit::after {
-  content: "";
-
+.ringTwo {
   position: absolute;
 
-  width: 6px;
-  height: 6px;
+  left: 50%;
+  top: 51%;
 
-  right: 12%;
-  bottom: 22%;
+  width: 230px;
+  height: 410px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(10deg);
+
+  border: 1px dashed rgba(226, 183, 70, 0.14);
 
   border-radius: 50%;
 
-  background: #82a9e2;
+  z-index: 1;
 
-  box-shadow:
-    0 0 0 6px rgba(130, 169, 226, 0.06);
-
-  animation: orbitDotTwo 4.8s ease-in-out infinite;
+  animation: orbit 18s linear infinite;
 }
+
 
 /* =========================================================
-   MAIN BONUS VISUAL
+   TASK CARDS
 ========================================================= */
 
-.veVisual {
+.taskList {
   position: absolute;
 
-  z-index: 5;
+  z-index: 12;
 
-  left: 53%;
-  top: 51%;
+  left: 0;
+  top: 12%;
+
+  display: grid;
+  gap: 9px;
+
+  width: 225px;
+}
+
+.taskCard {
+  display: grid;
+  grid-template-columns: 38px 1fr 29px;
+
+  align-items: center;
+  column-gap: 9px;
+
+  min-height: 58px;
+
+  padding: 8px 10px;
+
+  border: 1px solid rgba(92, 137, 207, 0.28);
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(28, 53, 94, 0.94),
+      rgba(7, 17, 35, 0.94)
+    );
+
+  box-shadow:
+    0 13px 28px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease;
+}
+
+.taskCard:hover {
+  transform: translateX(4px);
+
+  border-color: rgba(104, 160, 241, 0.5);
+}
+
+
+/* Task icon */
+
+.taskIcon {
+  display: grid;
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid rgba(98, 153, 237, 0.3);
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(77, 131, 225, 0.25),
+      rgba(40, 73, 136, 0.12)
+    );
+
+  color: #9dc6ff;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.taskIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+
+/* Task text */
+
+.taskContent {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  min-width: 0;
+}
+
+.taskContent b {
+  overflow: hidden;
+
+  color: #edf2fa;
+
+  font-size: 0.62rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.taskContent small {
+  color: #7285a1;
+
+  font-size: 0.49rem;
+}
+
+
+/* Check circle */
+
+.taskCheck {
+  display: grid;
+  place-items: center;
+
+  width: 29px;
+  height: 29px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #8dbaff,
+      #386bc1
+    );
+
+  color: white;
+
+  box-shadow:
+    0 0 15px rgba(68, 128, 228, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+
+/* =========================================================
+   ENERGY CONNECTION
+========================================================= */
+
+.energyFlow {
+  position: absolute;
+
+  z-index: 8;
+
+  left: 21%;
+  top: 43%;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  width: 105px;
+
+  pointer-events: none;
+}
+
+.energyFlow span {
+  display: block;
+
+  height: 2px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #4f91ed,
+      #e7bd59
+    );
+
+  box-shadow:
+    0 0 8px rgba(76, 143, 238, 0.3);
+}
+
+.energyFlow span:nth-child(1) {
+  width: 32px;
+}
+
+.energyFlow span:nth-child(2) {
+  width: 27px;
+}
+
+.energyFlow span:nth-child(3) {
+  width: 19px;
+}
+
+.energyFlow::after {
+  content: "›";
+
+  position: absolute;
+
+  right: -1px;
+  top: 50%;
+
+  transform: translateY(-58%);
+
+  color: #e8bf59;
+
+  font-size: 1.4rem;
+
+  text-shadow:
+    0 0 10px rgba(235, 191, 87, 0.5);
+}
+
+
+/* =========================================================
+   BONUS VE DIAL
+========================================================= */
+
+.bonusDial {
+  position: absolute;
+
+  z-index: 20;
+
+  left: 44%;
+  top: 35%;
+
+  display: grid;
+  place-items: center;
+
+  width: 172px;
+  height: 172px;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transform: translate(-50%, -50%);
+
+  transition: transform 220ms ease;
+}
+
+.bonusDial:hover {
+  transform:
+    translate(-50%, -50%)
+    scale(1.045);
+}
+
+.bonusDial:focus-visible {
+  outline: 2px solid #f4d37b;
+  outline-offset: 5px;
+}
+
+
+/* Outer metallic ring */
+
+.dialOuter {
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 50%;
+
+  background:
+    conic-gradient(
+      from -25deg,
+      #263b6c 0deg,
+      #6689cb 50deg,
+      #f7dfa0 82deg,
+      #ffffff 102deg,
+      #a18755 130deg,
+      #e8bd5c 172deg,
+      #3b5488 225deg,
+      #172744 300deg,
+      #263b6c 360deg
+    );
+
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.48),
+    0 0 35px rgba(85, 133, 226, 0.17),
+    0 0 35px rgba(231, 187, 75, 0.14);
+}
+
+
+/* Dark center */
+
+.dialInner {
+  position: absolute;
+
+  inset: 12px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  width: 205px;
-  height: 205px;
-
-  padding: 0;
-
-  transform: translate(-50%, -50%);
-
-  border: 1px solid rgba(235, 197, 99, 0.62);
+  border: 1px solid rgba(255, 222, 143, 0.3);
   border-radius: 50%;
 
   background:
     radial-gradient(
-      circle at 50% 35%,
-      rgba(237, 194, 74, 0.17),
-      rgba(11, 17, 29, 0.97) 68%
+      circle at 50% 32%,
+      #35496e 0%,
+      #17243e 40%,
+      #0a1224 74%
     );
 
-  color: #e5bf60;
-
-  cursor: pointer;
-
   box-shadow:
-    0 0 0 10px rgba(227, 188, 91, 0.025),
-    0 0 0 22px rgba(227, 188, 91, 0.012),
-    0 28px 62px rgba(0, 0, 0, 0.42),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-
-  transition:
-    transform 220ms ease,
-    border-color 220ms ease,
-    box-shadow 220ms ease;
+    inset 0 0 30px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
-.veVisual::before {
+.dialInner span {
+  color: #e4c87b;
+
+  font-size: 0.59rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.dialInner strong {
+  margin-top: 2px;
+
+  color: #f8dda0;
+
+  font-size: 2.7rem;
+  font-weight: 700;
+  line-height: 0.95;
+
+  text-shadow:
+    0 0 20px rgba(246, 204, 92, 0.3);
+}
+
+.dialInner small {
+  margin-top: 5px;
+
+  color: #8c9ab0;
+
+  font-size: 0.42rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.dialGlow {
+  position: absolute;
+
+  inset: -17px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(242, 195, 82, 0.19),
+      transparent 62%
+    );
+
+  filter: blur(11px);
+
+  z-index: -1;
+
+  opacity: 0.7;
+}
+
+.bonusDial.active .dialGlow {
+  opacity: 1;
+  inset: -28px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 213, 94, 0.42) 0%,
+      rgba(245, 190, 58, 0.2) 32%,
+      rgba(73, 128, 238, 0.12) 54%,
+      transparent 72%
+    );
+
+  filter: blur(15px);
+
+  animation: bonusActiveGlow 1.7s ease-in-out infinite;
+}
+
+.bonusDial.active .dialOuter {
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.48),
+    0 0 22px rgba(255, 211, 86, 0.5),
+    0 0 52px rgba(241, 186, 54, 0.3),
+    0 0 76px rgba(64, 125, 235, 0.18);
+}
+
+.bonusDial.active .dialInner {
+  border-color: rgba(255, 225, 143, 0.72);
+
+  box-shadow:
+    inset 0 0 34px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 22px rgba(245, 195, 70, 0.18);
+}
+
+.bonusDial.active .dialInner strong {
+  color: #ffe8a4;
+
+  text-shadow:
+    0 0 10px rgba(255, 221, 119, 0.8),
+    0 0 28px rgba(246, 194, 65, 0.55),
+    0 0 48px rgba(246, 194, 65, 0.28);
+}
+
+.bonusDial.active .dialInner small {
+  color: #f4cb68;
+}
+
+
+/* =========================================================
+   BONUS GIFT ORB
+========================================================= */
+
+.plusOrb {
+  position: absolute;
+
+  z-index: 25;
+
+  left: 53%;
+  top: 2%;
+
+  display: grid;
+  place-items: center;
+
+  width: 58px;
+  height: 58px;
+
+  border: 1px solid rgba(105, 157, 241, 0.7);
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 28%,
+      #8ab4ff,
+      #34559f 52%,
+      #101b36 100%
+    );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 0 0 7px rgba(73, 112, 204, 0.09),
+    0 0 28px rgba(72, 132, 237, 0.4),
+    0 15px 30px rgba(0, 0, 0, 0.35);
+
+  animation: plusPulse 3s ease-in-out infinite;
+}
+
+.plusOrb::before {
   content: "";
 
   position: absolute;
-  inset: 9px;
 
-  border: 1px solid rgba(255, 224, 140, 0.08);
+  inset: -10px;
+
+  border: 1px solid rgba(91, 138, 225, 0.25);
+
+  border-radius: 50%;
+}
+
+.plusOrb::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 5px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
   border-radius: 50%;
 
   pointer-events: none;
 }
 
-.veVisual:hover {
-  transform:
-    translate(-50%, -50%)
-    scale(1.045);
+.plusOrb svg {
+  position: relative;
+  z-index: 2;
 
-  border-color: rgba(244, 213, 133, 0.88);
+  width: 25px;
+  height: 25px;
 
-  box-shadow:
-    0 0 0 10px rgba(227, 188, 91, 0.035),
-    0 0 0 24px rgba(227, 188, 91, 0.015),
-    0 32px 72px rgba(0, 0, 0, 0.46),
-    0 0 45px rgba(230, 190, 83, 0.13),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-}
-
-.veVisual:active {
-  transform:
-    translate(-50%, -50%)
-    scale(0.975);
-}
-
-.veVisual:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 6px;
-}
-
-/* =========================================================
-   BONUS IMAGE
-========================================================= */
-
-.veVisual img {
-  position: absolute;
-
-  width: 135px;
-  height: 135px;
-
-  object-fit: contain;
-
-  border-radius: 50%;
-
-  mix-blend-mode: screen;
-
-  opacity: 0.82;
+  color: #f8fbff;
 
   filter:
-    saturate(1.1)
-    drop-shadow(0 12px 20px rgba(0, 0, 0, 0.32));
-
-  transition:
-    transform 300ms ease,
-    opacity 300ms ease,
-    filter 300ms ease;
+    drop-shadow(0 0 7px rgba(255, 255, 255, 0.35));
 }
 
-.veVisual:hover img {
-  transform: scale(1.08);
-
-  opacity: 0.98;
-
-  filter:
-    saturate(1.16)
-    drop-shadow(0 15px 25px rgba(0, 0, 0, 0.4));
-}
-
-/* =========================================================
-   BONUS ICON
-========================================================= */
-
-.bonusIcon {
+.plusOrb span {
   position: absolute;
+
+  right: 7px;
+  bottom: 6px;
 
   z-index: 3;
 
-  top: 27px;
+  display: grid;
+  place-items: center;
+
+  width: 18px;
+  height: 18px;
+
+  border: 2px solid #172a55;
+  border-radius: 50%;
+
+  background: #f4c95f;
+
+  color: #17233d;
+
+  font-size: 0.82rem;
+  font-weight: 900;
+  line-height: 1;
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.32);
+}
+
+.plusOrbActive {
+  border-color: rgba(255, 218, 108, 0.92);
+
+  background:
+    radial-gradient(
+      circle at 35% 28%,
+      #fff0b2,
+      #dcae3d 48%,
+      #60461c 100%
+    );
+
+  color: #17233d;
+
+  box-shadow:
+    0 0 0 8px rgba(244, 195, 74, 0.1),
+    0 0 30px rgba(246, 194, 65, 0.65),
+    0 0 62px rgba(246, 194, 65, 0.28),
+    0 18px 34px rgba(0, 0, 0, 0.4);
+
+  animation:
+    plusActivePulse 1.4s ease-in-out infinite;
+}
+
+.plusOrbActive::before {
+  border-color: rgba(247, 207, 91, 0.52);
+
+  animation:
+    orbRingPulse 1.4s ease-in-out infinite;
+}
+
+.plusOrbActive svg {
+  color: #17233d;
+
+  filter:
+    drop-shadow(0 0 7px rgba(255, 239, 178, 0.8));
+}
+
+.plusOrbActive span {
+  border-color: #6f521d;
+  background: #fff0b0;
+}
+
+
+/* =========================================================
+   VE REWARD PEDESTAL
+========================================================= */
+
+.rewardStage {
+  position: absolute;
+
+  z-index: 14;
+
+  left: 44%;
+  top: 70%;
+
+  width: 215px;
+  height: 165px;
+
+  transform: translate(-50%, -50%);
+}
+
+
+/* Ground glow */
+
+.stageGlow {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 210px;
+  height: 65px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(77, 133, 238, 0.46),
+      rgba(229, 182, 66, 0.14) 40%,
+      transparent 72%
+    );
+
+  filter: blur(10px);
+}
+
+
+/* Base */
+
+.stageBase {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 170px;
+  height: 70px;
+
+  transform: translateX(-50%);
+
+  border: 1px solid rgba(116, 148, 205, 0.45);
+  border-radius: 14px 14px 25px 25px;
+
+  background:
+    linear-gradient(
+      155deg,
+      #3b4c70,
+      #18243c 38%,
+      #080f20 100%
+    );
+
+  box-shadow:
+    0 22px 40px rgba(0, 0, 0, 0.48),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1);
+}
+
+.stageTop {
+  position: absolute;
+
+  left: 50%;
+  top: -15px;
+
+  width: 150px;
+  height: 31px;
+
+  transform: translateX(-50%);
+
+  border: 1px solid rgba(237, 201, 112, 0.45);
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      #64645f,
+      #252d3d 48%,
+      #0a1221 100%
+    );
+}
+
+.stageFront {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 30px;
+
+  transform: translateX(-50%);
+
+  border-top: 1px solid rgba(125, 153, 202, 0.25);
+
+  color: #e3bc5a;
+
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.stageMark {
+  position: absolute;
+
+  left: 50%;
+  bottom: 5px;
+
+  color: #e4bd5c;
+
+  transform: translateX(-50%);
+}
+
+
+/* Reward coin */
+
+.rewardCoin {
+  position: absolute;
+
+  z-index: 8;
+
+  left: 50%;
+  top: -13px;
 
   display: grid;
   place-items: center;
 
-  width: 43px;
-  height: 43px;
+  width: 105px;
+  height: 105px;
 
-  border: 1px solid rgba(232, 193, 91, 0.28);
-  border-radius: 13px;
-
-  background: rgba(226, 185, 80, 0.08);
-
-  color: #edc75f;
-
-  box-shadow:
-    0 8px 18px rgba(0, 0, 0, 0.18);
-
-  transform: rotate(-6deg);
-
-  transition:
-    transform 220ms ease,
-    background 220ms ease;
-}
-
-.veVisual:hover .bonusIcon {
-  transform:
-    rotate(0deg)
-    scale(1.06);
-
-  background: rgba(226, 185, 80, 0.13);
-}
-
-/* =========================================================
-   VE LABEL
-========================================================= */
-
-.veLabel {
-  position: relative;
-
-  z-index: 4;
-
-  margin-top: 64px;
-
-  color: rgba(255, 255, 255, 0.58);
-
-  font-size: 0.54rem;
-  font-weight: 850;
-  letter-spacing: 0.17em;
-}
-
-.veVisual strong {
-  position: relative;
-
-  z-index: 4;
-
-  margin-top: 2px;
-
-  color: #f3cf68;
-
-  font-size: 2.45rem;
-  line-height: 1;
-
-  letter-spacing: -0.04em;
-
-  text-shadow:
-    0 4px 18px rgba(228, 187, 75, 0.18);
-}
-
-/* =========================================================
-   HIGHLIGHT STATE
-========================================================= */
-
-/* =========================================================
-   BONUS CLICK — GOLDEN REWARD ACTIVATION
-========================================================= */
-
-.active {
-  border-color: #ffe28a !important;
-
-  box-shadow:
-    0 0 0 7px rgba(255, 211, 91, 0.12),
-    0 0 0 18px rgba(255, 211, 91, 0.075),
-    0 0 0 34px rgba(255, 211, 91, 0.035),
-    0 0 65px rgba(255, 197, 55, 0.55),
-    0 0 120px rgba(255, 184, 36, 0.28),
-    0 32px 70px rgba(0, 0, 0, 0.42),
-    inset 0 0 35px rgba(255, 213, 105, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
-
-  animation: bonusHighlight 1.8s ease-out;
-}
-
-/* Expanding golden ring */
-
-.active::after {
-  content: "";
-
-  position: absolute;
-
-  inset: -18px;
-
-  border: 2px solid rgba(255, 213, 105, 0.75);
+  transform: translateX(-50%);
 
   border-radius: 50%;
 
-  pointer-events: none;
-
-  animation: goldenRing 1.8s ease-out forwards;
-}
-
-/* Make the reward itself glow */
-
-.active img {
-  opacity: 1;
-
-  transform: scale(1.14);
-
-  filter:
-    saturate(1.3)
-    brightness(1.12)
-    drop-shadow(0 0 12px rgba(255, 216, 104, 0.8))
-    drop-shadow(0 0 30px rgba(255, 190, 40, 0.55));
-
-  animation: rewardGlow 1.8s ease-out;
-}
-
-/* Make the gift icon react too */
-
-.active .bonusIcon {
-  background: rgba(255, 211, 91, 0.18);
-
-  border-color: rgba(255, 220, 126, 0.65);
-
-  color: #ffe08a;
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 220, 114, 0.4),
+      rgba(236, 184, 59, 0.14) 55%,
+      transparent 72%
+    );
 
   box-shadow:
-    0 0 20px rgba(255, 202, 71, 0.45);
-
-  animation: giftPop 1.8s ease-out;
+    0 0 34px rgba(240, 192, 65, 0.28);
 }
 
-/* =========================================================
-   FLOATING VE COIN
-========================================================= */
-
-.smallVe {
-  position: absolute;
-
-  z-index: 7;
-
-  width: 68px;
-  height: 68px;
-
-  right: 13%;
-  top: 12%;
+.rewardCoin img {
+  width: 98px;
+  height: 98px;
 
   object-fit: contain;
 
-  border-radius: 50%;
-
+  /*
+    The JPEG asset contains its own background.
+    Keep the coin visually subordinate to the dial.
+  */
   mix-blend-mode: screen;
 
-  opacity: 0.82;
-
   filter:
-    drop-shadow(0 12px 18px rgba(0, 0, 0, 0.34));
-
-  animation:
-    floatingCoin 4.2s ease-in-out infinite;
+    drop-shadow(0 12px 14px rgba(0, 0, 0, 0.42));
 }
 
-/* =========================================================
-   FLOATING GIFT
-========================================================= */
-
-.gift {
+.rewardLight {
   position: absolute;
 
-  z-index: 7;
+  left: 50%;
+  top: 40px;
 
-  right: 10%;
-  bottom: 12%;
+  width: 60px;
+  height: 85px;
 
-  display: grid;
-  place-items: center;
+  transform: translateX(-50%);
 
-  width: 72px;
-  height: 72px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 220, 111, 0.27),
+      transparent
+    );
 
-  border: 1px solid rgba(225, 186, 84, 0.34);
-  border-radius: 19px;
+  filter: blur(9px);
+}
+
+
+/* =========================================================
+   REWARD VAULT
+========================================================= */
+
+.vault {
+  position: absolute;
+
+  z-index: 10;
+
+  left: 52%;
+  bottom: 0;
+
+  width: 270px;
+  height: 210px;
+
+  transform: perspective(700px) rotateY(-4deg);
+
+  border: 1px solid rgba(188, 157, 99, 0.5);
+  border-radius: 19px 19px 12px 12px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(225, 186, 84, 0.13),
-      rgba(225, 186, 84, 0.035)
+      #4a4c54 0%,
+      #252c39 24%,
+      #0a1220 66%,
+      #171c27 100%
     );
 
-  color: #e6bf5b;
-
-  transform: rotate(7deg);
-
   box-shadow:
-    0 18px 34px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    -20px 25px 50px rgba(0, 0, 0, 0.5),
+    0 0 28px rgba(227, 181, 65, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.13);
 
-  animation:
-    giftFloat 4.5s ease-in-out 600ms infinite;
+  overflow: hidden;
 }
 
-.gift::after {
+.vault::before {
   content: "";
 
   position: absolute;
-  inset: -6px;
 
-  border: 1px solid rgba(226, 187, 87, 0.07);
-  border-radius: 22px;
+  inset: 7px;
+
+  border: 1px solid rgba(218, 183, 107, 0.2);
+  border-radius: 14px;
+
+  pointer-events: none;
 }
 
-/* =========================================================
-   DECORATIVE SPARKLES
-========================================================= */
+.vaultTop {
+  position: relative;
+  z-index: 4;
 
-.sparkle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 38px;
+
+  padding: 0 13px;
+
+  border-bottom: 1px solid rgba(224, 188, 105, 0.15);
+
+  color: #c0a96f;
+
+  font-size: 0.48rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.vaultLight {
+  display: flex;
+  gap: 5px;
+}
+
+.vaultLight span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #7187b0;
+
+  box-shadow:
+    0 0 6px rgba(95, 135, 209, 0.35);
+}
+
+.vaultBody {
+  position: relative;
+
+  height: calc(100% - 38px);
+}
+
+
+/* Reward storage glow */
+
+.vaultGlow {
   position: absolute;
 
-  z-index: 6;
+  left: 18px;
+  top: 25px;
 
-  color: #e4bd5b;
+  width: 145px;
+  height: 120px;
 
-  animation:
-    sparklePulse 2.8s ease-in-out infinite;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(239, 191, 67, 0.2),
+      rgba(69, 121, 226, 0.1) 48%,
+      transparent 72%
+    );
+
+  filter: blur(13px);
+
+  pointer-events: none;
 }
 
-.sparkleOne {
-  left: 10%;
-  top: 20%;
+
+/* Transparent VE reward stack inside the vault */
+
+.vaultRewardArt {
+  position: absolute;
+  z-index: 2;
+
+  left: 4px;
+  top: 28px;
+
+  width: 160px;
+  height: 125px;
+
+  object-fit: contain;
+  object-position: center;
+
+  opacity: 0.78;
+  mix-blend-mode: screen;
+
+  filter:
+    drop-shadow(0 10px 12px rgba(0, 0, 0, 0.38))
+    drop-shadow(0 0 13px rgba(238, 190, 66, 0.14));
+
+  pointer-events: none;
 }
 
-.sparkleTwo {
-  right: 4%;
-  top: 32%;
 
-  width: 18px;
+/* Vault door */
 
-  animation-delay: 800ms;
-}
-
-/* =========================================================
-   VISUAL ARROW
-========================================================= */
-
-.visualArrow {
+.vaultDoor {
   position: absolute;
 
-  z-index: 6;
+  right: -4px;
+  top: 20px;
 
-  left: 29%;
+  width: 93px;
+  height: 153px;
+
+  border: 1px solid rgba(209, 177, 103, 0.5);
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #3a404b,
+      #151c29 55%,
+      #080e18
+    );
+
+  box-shadow:
+    -8px 10px 22px rgba(0, 0, 0, 0.43),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09);
+}
+
+.vaultHandle {
+  position: absolute;
+
+  left: 50%;
+  top: 49%;
+
+  width: 58px;
+  height: 58px;
+
+  transform: translate(-50%, -50%);
+
+  border: 3px solid #c99b42;
+  border-radius: 50%;
+}
+
+.vaultHandle span {
+  position: absolute;
+
+  left: 50%;
   top: 50%;
+
+  width: 20px;
+  height: 2px;
+
+  transform-origin: left center;
+
+  background: #d6aa4d;
+}
+
+.vaultHandle span:nth-child(1) {
+  transform: rotate(0deg);
+}
+
+.vaultHandle span:nth-child(2) {
+  transform: rotate(90deg);
+}
+
+.vaultHandle span:nth-child(3) {
+  transform: rotate(180deg);
+}
+
+.vaultHandle span:nth-child(4) {
+  transform: rotate(270deg);
+}
+
+.vaultLock {
+  position: absolute;
+
+  left: 50%;
+  bottom: 16px;
 
   display: grid;
   place-items: center;
 
-  width: 35px;
-  height: 35px;
+  width: 28px;
+  height: 28px;
 
-  transform: translateY(-50%);
+  transform: translateX(-50%);
 
-  border: 1px solid rgba(224, 186, 84, 0.2);
-  border-radius: 50%;
+  border: 1px solid rgba(231, 190, 79, 0.4);
+  border-radius: 8px;
 
-  background: rgba(224, 186, 84, 0.055);
-
-  color: #dcb85b;
-
-  animation:
-    arrowFloat 3.2s ease-in-out infinite;
+  color: #e7bd5a;
 }
 
+
 /* =========================================================
-   INTERACTION MESSAGE
+   FLOATING COINS
 ========================================================= */
 
-.message {
+.floatingCoin {
   position: absolute;
 
-  z-index: 12;
+  object-fit: contain;
 
-  left: 53%;
-  bottom: 0;
+  mix-blend-mode: screen;
+
+  filter:
+    drop-shadow(0 15px 14px rgba(0, 0, 0, 0.4));
+}
+
+
+/* Top-right gold coin */
+
+.coinOne {
+  z-index: 26;
+
+  right: 4%;
+  top: 2%;
+
+  width: 55px;
+  height: 55px;
+
+  transform: rotate(20deg);
+
+  animation: coinOneFloat 5s ease-in-out infinite;
+}
+
+
+/* Lower-left coin */
+
+.coinTwo {
+  z-index: 15;
+
+  left: 25%;
+  bottom: 2%;
+
+  width: 65px;
+  height: 65px;
+
+  transform: rotate(-18deg);
+
+  animation: coinTwoFloat 5.5s ease-in-out infinite;
+}
+
+
+/* Small upper coin */
+
+.coinThree {
+  z-index: 15;
+
+  left: 66%;
+  top: 3%;
+
+  width: 38px;
+  height: 38px;
+
+  animation: coinThreeFloat 4.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   SPARKLES
+========================================================= */
+
+.sparkleOne {
+  position: absolute;
+
+  z-index: 28;
+
+  left: 51%;
+  top: 1%;
+
+  color: #eac45d;
+
+  filter:
+    drop-shadow(0 0 9px rgba(234, 196, 93, 0.5));
+
+  animation: sparklePulse 2.5s ease-in-out infinite;
+}
+
+.sparkleTwo {
+  position: absolute;
+
+  z-index: 22;
+
+  right: 12%;
+  bottom: 30%;
+
+  color: #77a8ed;
+
+  filter:
+    drop-shadow(0 0 8px rgba(88, 143, 229, 0.45));
+
+  animation:
+    sparklePulse 2.8s ease-in-out infinite reverse;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status {
+  position: absolute;
+
+  z-index: 35;
+
+  right: 1%;
+  bottom: 1%;
 
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
 
   padding: 8px 12px;
 
-  transform:
-    translate(-50%, 10px);
-
-  border: 1px solid rgba(224, 187, 91, 0.18);
+  border: 1px solid rgba(101, 145, 218, 0.28);
   border-radius: 999px;
 
-  background: rgba(9, 14, 25, 0.9);
+  background:
+    rgba(6, 15, 30, 0.93);
 
-  color: #aeb7c7;
+  color: #8799b4;
 
-  font-size: 0.65rem;
-
-  white-space: nowrap;
-
-  opacity: 0;
-  pointer-events: none;
+  font-size: 0.48rem;
 
   box-shadow:
-    0 12px 25px rgba(0, 0, 0, 0.24);
+    0 12px 25px rgba(0, 0, 0, 0.4);
 
   backdrop-filter: blur(10px);
-
-  transition:
-    opacity 220ms ease,
-    transform 220ms ease;
 }
 
-.message svg {
-  color: #dfbb61;
+.status svg {
+  color: #dfb74d;
 }
 
-.messageVisible {
-  opacity: 1;
+.statusActive {
+  border-color: rgba(235, 191, 79, 0.38);
 
-  transform:
-    translate(-50%, 0);
+  color: #d9e4f5;
+
+  box-shadow:
+    0 12px 25px rgba(0, 0, 0, 0.4),
+    0 0 18px rgba(235, 191, 79, 0.12);
 }
+
+.statusActive svg {
+  color: #f1c85f;
+
+  filter:
+    drop-shadow(0 0 7px rgba(241, 200, 95, 0.55));
+}
+
 
 /* =========================================================
    ANIMATIONS
 ========================================================= */
 
-@keyframes glowPulse {
+@keyframes orbit {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(10deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(370deg);
+  }
+}
+
+@keyframes bonusActiveGlow {
   0%,
   100% {
+    opacity: 0.72;
+    transform: scale(0.94);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes plusActivePulse {
+  0%,
+  100% {
+    transform: scale(0.96);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes orbRingPulse {
+  0%,
+  100% {
+    inset: -10px;
     opacity: 0.55;
-    transform:
-      translate(-50%, -50%)
-      scale(0.96);
   }
 
   50% {
-    opacity: 0.9;
-    transform:
-      translate(-50%, -50%)
-      scale(1.04);
-  }
-}
-
-@keyframes orbitDotOne {
-  0%,
-  100% {
-    transform: translate(0, 0);
-    opacity: 0.45;
-  }
-
-  50% {
-    transform: translate(25px, 12px);
+    inset: -16px;
     opacity: 1;
   }
 }
 
-@keyframes orbitDotTwo {
+@keyframes plusPulse {
   0%,
   100% {
-    transform: translate(0, 0);
-    opacity: 0.45;
+    transform: scale(0.94);
   }
 
   50% {
-    transform: translate(-20px, -14px);
-    opacity: 1;
+    transform: scale(1.04);
   }
 }
 
-@keyframes floatingCoin {
+@keyframes coinOneFloat {
   0%,
   100% {
-    transform:
-      translateY(0)
-      rotate(-4deg);
+    transform: translateY(0) rotate(20deg);
   }
 
   50% {
-    transform:
-      translateY(-11px)
-      rotate(5deg);
+    transform: translateY(-9px) rotate(28deg);
   }
 }
 
-@keyframes giftFloat {
+@keyframes coinTwoFloat {
   0%,
   100% {
-    transform:
-      translateY(0)
-      rotate(7deg);
+    transform: translateY(0) rotate(-18deg);
   }
 
   50% {
-    transform:
-      translateY(-9px)
-      rotate(3deg);
+    transform: translateY(-10px) rotate(-10deg);
+  }
+}
+
+@keyframes coinThreeFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-7deg);
+  }
+
+  50% {
+    transform: translateY(-7px) rotate(8deg);
   }
 }
 
@@ -822,224 +1614,96 @@
   0%,
   100% {
     opacity: 0.35;
-
-    transform: scale(0.85);
+    transform: scale(0.82);
   }
 
   50% {
     opacity: 1;
-
-    transform: scale(1.1);
+    transform: scale(1.12);
   }
 }
 
-@keyframes hintSpark {
-  0%,
-  100% {
-    opacity: 0.55;
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes arrowFloat {
-  0%,
-  100% {
-    transform:
-      translateY(-50%)
-      translateX(0);
-  }
-
-  50% {
-    transform:
-      translateY(-50%)
-      translateX(5px);
-  }
-}
-
-@keyframes bonusHighlight {
-  0% {
-    transform:
-      translate(-50%, -50%)
-      scale(1);
-  }
-
-  15% {
-    transform:
-      translate(-50%, -50%)
-      scale(1.08);
-  }
-
-  30% {
-    transform:
-      translate(-50%, -50%)
-      scale(1.02);
-  }
-
-  48% {
-    transform:
-      translate(-50%, -50%)
-      scale(1.05);
-  }
-
-  70% {
-    transform:
-      translate(-50%, -50%)
-      scale(1.015);
-  }
-
-  100% {
-    transform:
-      translate(-50%, -50%)
-      scale(1);
-  }
-}
-
-@keyframes goldenRing {
-  0% {
-    opacity: 0;
-
-    transform: scale(0.72);
-  }
-
-  15% {
-    opacity: 1;
-  }
-
-  65% {
-    opacity: 0.55;
-  }
-
-  100% {
-    opacity: 0;
-
-    transform: scale(1.28);
-  }
-}
-
-@keyframes rewardGlow {
-  0% {
-    filter:
-      saturate(1.1)
-      brightness(1)
-      drop-shadow(0 0 0 rgba(255, 210, 90, 0));
-  }
-
-  25% {
-    filter:
-      saturate(1.35)
-      brightness(1.2)
-      drop-shadow(0 0 16px rgba(255, 220, 115, 0.95))
-      drop-shadow(0 0 38px rgba(255, 188, 40, 0.7));
-  }
-
-  55% {
-    filter:
-      saturate(1.3)
-      brightness(1.12)
-      drop-shadow(0 0 12px rgba(255, 215, 100, 0.8))
-      drop-shadow(0 0 28px rgba(255, 188, 40, 0.5));
-  }
-
-  100% {
-    filter:
-      saturate(1.1)
-      brightness(1)
-      drop-shadow(0 0 0 rgba(255, 210, 90, 0));
-  }
-}
-
-@keyframes giftPop {
-  0%,
-  100% {
-    transform:
-      rotate(-6deg)
-      scale(1);
-  }
-
-  18% {
-    transform:
-      rotate(0deg)
-      scale(1.18);
-  }
-
-  35% {
-    transform:
-      rotate(4deg)
-      scale(1.05);
-  }
-
-  55% {
-    transform:
-      rotate(-2deg)
-      scale(1.1);
-  }
-}
 
 /* =========================================================
    TABLET
 ========================================================= */
 
-@media (max-width: 1100px) {
-  .banner {
-    grid-template-columns:
-      minmax(0, 0.8fr)
-      minmax(470px, 1.2fr);
-
-    padding-inline: 30px;
-  }
-
-  .veVisual {
-    width: 190px;
-    height: 190px;
-  }
-
-  .veVisual img {
-    width: 126px;
-    height: 126px;
-  }
-
-  .orbit {
-    width: 360px;
-  }
-}
-
-/* =========================================================
-   SMALL TABLET
-========================================================= */
-
 @media (max-width: 991px) {
   .banner {
-    min-height: 470px;
+    grid-template-columns: 39% 61%;
 
-    padding: 32px;
+    padding: 25px 25px 23px 30px;
   }
 
   .content h2 {
-    font-size: 3rem;
+    font-size: clamp(2.45rem, 5vw, 3.35rem);
   }
 
-  .visual {
-    min-height: 300px;
+  .content p {
+    max-width: 305px;
+
+    font-size: 0.82rem;
   }
 
-  .veVisual {
-    width: 175px;
-    height: 175px;
+  .cta {
+    min-width: 215px;
   }
 
-  .veVisual img {
-    width: 116px;
-    height: 116px;
+  .actionNote {
+    display: none;
   }
 
-  .orbit {
-    width: 330px;
-    height: 225px;
+  .taskList {
+    width: 190px;
+  }
+
+  .taskCard {
+    grid-template-columns: 33px 1fr 25px;
+
+    min-height: 52px;
+  }
+
+  .taskIcon {
+    width: 33px;
+    height: 33px;
+  }
+
+  .taskIcon svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .taskCheck {
+    width: 25px;
+    height: 25px;
+  }
+
+  .bonusDial {
+    width: 148px;
+    height: 148px;
+  }
+
+  .dialInner strong {
+    font-size: 2.3rem;
+  }
+
+  .rewardStage {
+    transform:
+      translate(-50%, -50%)
+      scale(0.86);
+  }
+
+  .vault {
+    width: 235px;
+    height: 190px;
+  }
+
+  .plusOrb {
+    width: 49px;
+    height: 49px;
   }
 }
+
 
 /* =========================================================
    MOBILE
@@ -1048,129 +1712,352 @@
 @media (max-width: 768px) {
   .banner {
     grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
 
-    min-height: 560px;
+    min-height: 510px;
 
-    padding: 30px 22px 22px;
+    padding: 22px 18px 10px;
   }
 
   .content {
     align-items: center;
 
-    max-width: none;
-
-    padding: 0;
+    padding-right: 0;
 
     text-align: center;
   }
 
-  .content p {
-    max-width: 560px;
+  .content h2 {
+    font-size: 3rem;
   }
 
-  .ctaRow {
+  .headingLine {
+    justify-content: center;
+  }
+
+  .content p {
+    max-width: 470px;
+
+    margin: 17px auto 20px;
+  }
+
+  .actions {
     justify-content: center;
   }
 
   .visual {
-    min-height: 285px;
+    min-height: 300px;
 
-    margin-top: 5px;
+    margin-top: 3px;
   }
 
-  .message {
-    bottom: -3px;
+  .taskList {
+    left: 0;
+    top: 6%;
+
+    width: 185px;
+  }
+
+  .bonusDial {
+    left: 44%;
+    top: 34%;
+
+    width: 145px;
+    height: 145px;
+  }
+
+  .rewardStage {
+    left: 44%;
+    top: 68%;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.78);
+  }
+
+  .vault {
+    left: 53%;
+    right: auto;
+    bottom: 0;
+
+    transform:
+      perspective(700px)
+      rotateY(-4deg)
+      scale(0.7);
+
+    transform-origin: bottom left;
+  }
+
+  .vaultGlow {
+    left: 15px;
+    top: 20px;
+    width: 125px;
+    height: 105px;
+  }
+
+  .vaultRewardArt {
+    left: 2px;
+    top: 24px;
+    width: 145px;
+    height: 112px;
+  }
+
+  .plusOrb {
+    left: 58%;
+    top: 1%;
+  }
+
+  .coinOne {
+    right: 2%;
+    top: 0;
+
+    width: 48px;
+    height: 48px;
+  }
+
+  .coinTwo {
+    left: 22%;
+    bottom: 2%;
+
+    width: 50px;
+    height: 50px;
+  }
+
+  .coinThree {
+    left: 70%;
+
+    width: 31px;
+    height: 31px;
+  }
+
+  .status {
+    right: 50%;
+    bottom: 0;
+
+    transform: translateX(50%);
+
+    white-space: nowrap;
   }
 }
+
 
 /* =========================================================
    SMALL MOBILE
 ========================================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .banner {
-    min-height: 585px;
+    min-height: 500px;
 
-    padding: 27px 16px 18px;
+    padding: 18px 13px 8px;
   }
 
   .content h2 {
-    font-size: 2.25rem;
+    font-size: 2.45rem;
+  }
+
+  .headingLine {
+    margin-top: 13px;
+  }
+
+  .headingLine span {
+    width: 75px;
   }
 
   .content p {
-    font-size: 0.86rem;
+    max-width: 350px;
+
+    margin: 13px auto 17px;
+
+    font-size: 0.76rem;
+    line-height: 1.45;
   }
 
-  .ctaRow {
-    flex-direction: column;
-    gap: 9px;
-  }
+  .cta {
+    min-width: 220px;
+    min-height: 49px;
 
+    font-size: 0.68rem;
+  }
   .visual {
-    min-height: 270px;
+    min-height: 280px;
   }
 
-  .veVisual {
-    width: 155px;
-    height: 155px;
+  .taskList {
+    width: 145px;
+
+    gap: 5px;
   }
 
-  .veVisual img {
-    width: 102px;
-    height: 102px;
+  .taskCard {
+    grid-template-columns: 27px 1fr 21px;
+
+    min-height: 45px;
+
+    padding: 5px 6px;
+
+    border-radius: 9px;
   }
 
-  .bonusIcon {
-    top: 20px;
+  .taskIcon {
+    width: 27px;
+    height: 27px;
 
-    width: 36px;
-    height: 36px;
+    border-radius: 7px;
   }
 
-  .bonusIcon svg {
-    width: 22px;
+  .taskIcon svg {
+    width: 17px;
+    height: 17px;
   }
 
-  .veLabel {
-    margin-top: 50px;
-
-    font-size: 0.49rem;
+  .taskContent {
+    gap: 1px;
   }
 
-  .veVisual strong {
-    font-size: 2.1rem;
+  .taskContent b {
+    font-size: 0.44rem;
   }
 
-  .orbit {
-    width: 275px;
-    height: 200px;
+  .taskContent small {
+    font-size: 0.36rem;
   }
 
-  .smallVe {
-    width: 56px;
-    height: 56px;
-
-    right: 7%;
+  .taskCheck {
+    width: 21px;
+    height: 21px;
   }
 
-  .gift {
-    width: 60px;
-    height: 60px;
-
-    right: 5%;
-    bottom: 12%;
+  .taskCheck svg {
+    width: 12px;
+    height: 12px;
   }
 
-  .gift svg {
-    width: 31px;
+  .bonusDial {
+    top: 33%;
+
+    width: 122px;
+    height: 122px;
+  }
+  .dialInner {
+    inset: 9px;
   }
 
-  .visualArrow {
-    left: 15%;
+  .dialInner span {
+    font-size: 0.42rem;
   }
 
-  .message {
-    font-size: 0.59rem;
+  .dialInner strong {
+    font-size: 1.85rem;
+  }
+
+  .dialInner small {
+    font-size: 0.33rem;
+  }
+
+  .rewardStage {
+    transform:
+      translate(-50%, -50%)
+      scale(0.61);
+  }
+
+  .vault {
+    left: 52%;
+    bottom: -2%;
+
+    transform:
+      perspective(700px)
+      rotateY(-4deg)
+      scale(0.53);
+
+    transform-origin: bottom left;
+  }
+
+  .plusOrb {
+    left: 61%;
+    top: 0;
+
+    width: 40px;
+    height: 40px;
+  }
+
+  .plusOrb span {
+    right: 5px;
+    bottom: 5px;
+
+    width: 15px;
+    height: 15px;
+
+    font-size: 0.68rem;
+  }
+
+  .plusOrb svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .coinOne {
+    width: 38px;
+    height: 38px;
+  }
+
+  .coinTwo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .coinThree {
+    width: 27px;
+    height: 27px;
+  }
+
+  .status {
+    padding: 6px 9px;
+
+    font-size: 0.4rem;
+  }
+
+  .status svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .sparkleOne {
+    width: 14px;
+    height: 14px;
+  }
+
+  .sparkleTwo {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ringTwo,
+  .plusOrb,
+  .plusOrbActive,
+  .coinOne,
+  .coinTwo,
+  .coinThree,
+  .sparkleOne,
+  .sparkleTwo {
+    animation: none;
+  }
+
+  .cta,
+  .bonusDial,
+  .taskCard {
+    transition: none;
+  }
+
+  .bonusDial.active .dialGlow,
+  .plusOrbActive::before {
+    animation: none;
   }
 }

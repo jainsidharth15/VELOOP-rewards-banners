@@ -2,983 +2,1095 @@
   position: relative;
 
   display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(540px, 1.22fr);
+  grid-template-columns: 36% 64%;
 
-  padding: 30px 38px 22px;
+  min-height: 430px;
+
+  padding: 30px 30px 28px 40px;
 
   overflow: hidden;
 
   background:
     radial-gradient(circle at 76% 48%,
-      rgba(69, 116, 216, 0.23),
-      transparent 30%),
-    radial-gradient(circle at 90% 15%,
-      rgba(148, 91, 235, 0.1),
-      transparent 23%),
+      rgba(38, 102, 225, 0.32),
+      transparent 32%),
+    radial-gradient(circle at 84% 76%,
+      rgba(226, 182, 67, 0.1),
+      transparent 25%),
     linear-gradient(120deg,
-      #0a1221 0%,
-      #101a31 58%,
-      #0c1528 100%);
+      #070d1a 0%,
+      #0b1427 52%,
+      #0b1831 100%);
 }
-
-.banner::before {
-  background:
-    radial-gradient(circle at 77% 50%,
-      rgba(72, 133, 225, 0.09),
-      transparent 26%),
-    linear-gradient(125deg,
-      rgba(255, 255, 255, 0.035),
-      transparent 35%);
-}
-
-/* =========================
-   LEFT CONTENT
-========================= */
 
 .content {
   position: relative;
-  z-index: 8;
+  z-index: 30;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
+  justify-content: center;
 
-  max-width: 500px;
-
-  padding-left: 5px;
-}
-
-.label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  margin-bottom: 13px;
-  padding: 7px 11px;
-
-  border: 1px solid rgba(102, 155, 224, 0.28);
-  border-radius: 999px;
-
-  background: rgba(74, 126, 204, 0.08);
-
-  color: #8fc5f4;
-
-  font-size: 0.65rem;
-  font-weight: 850;
-  letter-spacing: 0.15em;
+  padding-right: 10px;
 }
 
 .content h2 {
+  position: relative;
+
   margin: 0;
 
-  color: #f7f9fd;
+  padding-bottom: 17px;
 
-  font-size: clamp(2.55rem, 4.4vw, 3.7rem);
-  line-height: 0.97;
-  letter-spacing: -0.055em;
+  color: #e8bd56;
+
+  font-size: clamp(2.8rem, 4.7vw, 4.2rem);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.065em;
 }
 
 .content h2 strong {
-  background: linear-gradient(100deg,
-      #eec45d,
-      #ffe7a0 52%,
-      #efc45e);
+  color: #f7f9fd;
+  font-weight: 800;
+}
 
-  -webkit-background-clip: text;
-  background-clip: text;
+.content h2::after {
+  content: "";
 
-  color: transparent;
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 78px;
+  height: 2px;
+
+  border-radius: 99px;
+
+  background:
+    linear-gradient(90deg,
+      #f0c75f,
+      #c99731,
+      transparent);
+
+  box-shadow:
+    0 0 12px rgba(235, 190, 76, 0.28);
 }
 
 .content p {
-  max-width: 470px;
+  max-width: 355px;
 
-  margin: 17px 0 21px;
+  margin: 20px 0 23px;
 
-  color: #aab6cc;
+  color: #a8b8d0;
 
-  font-size: 0.91rem;
-  line-height: 1.6;
+  font-size: 0.92rem;
+  line-height: 1.58;
 }
 
-.actionRow {
+.actions {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
-.actionHint {
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  min-width: 235px;
+  min-height: 52px;
+
+  padding: 0 22px;
+
+  border: 1px solid rgba(255, 220, 126, 0.65);
+  border-radius: 13px;
+
+  background:
+    linear-gradient(135deg,
+      #f5d47c 0%,
+      #dfb653 48%,
+      #bd8e31 100%);
+
+  color: #172033;
+
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.045em;
+
+  box-shadow:
+    0 13px 28px rgba(0, 0, 0, 0.3),
+    0 0 22px rgba(224, 179, 66, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+
+  cursor: pointer;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.06);
+
+  box-shadow:
+    0 17px 34px rgba(0, 0, 0, 0.36),
+    0 0 30px rgba(224, 179, 66, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.cta:active {
+  transform: translateY(0);
+}
+
+.cta:focus-visible {
+  outline: 2px solid #f7d987;
+  outline-offset: 4px;
+}
+
+.liveNote {
   display: inline-flex;
   align-items: center;
   gap: 6px;
 
-  color: #7888a5;
+  color: #8294b1;
 
-  font-size: 0.67rem;
-  white-space: nowrap;
+  font-size: 0.63rem;
 }
 
-.actionHint svg {
-  color: #dfbd61;
+.liveNote svg {
+  color: #dfb94f;
 }
-
-/* =========================
-   VISUAL AREA
-========================= */
 
 .visual {
   position: relative;
 
-  min-height: 310px;
-
-  isolation: isolate;
+  min-height: 370px;
 }
 
-/* Main glow */
-.visualGlow {
+.glow {
   position: absolute;
 
-  left: 51%;
-  top: 52%;
-
-  width: 430px;
-  height: 250px;
-
-  transform: translate(-50%, -50%);
+  left: 2%;
+  right: -7%;
+  top: 3%;
+  bottom: 0;
 
   border-radius: 50%;
 
   background:
-    radial-gradient(ellipse,
-      rgba(66, 113, 221, 0.23),
-      rgba(66, 113, 221, 0.06) 52%,
-      transparent 74%);
+    radial-gradient(ellipse at center,
+      rgba(50, 118, 239, 0.34) 0%,
+      rgba(42, 88, 180, 0.15) 38%,
+      transparent 70%);
 
-  filter: blur(9px);
+  filter: blur(15px);
+
+  z-index: 0;
 }
 
-/* Decorative rings */
-.orbit {
+.ring {
   position: absolute;
 
-  left: 51%;
-  top: 53%;
+  left: 56%;
+  top: 52%;
 
-  border-radius: 50%;
-
-  pointer-events: none;
-}
-
-.orbitOne {
-  width: 500px;
-  height: 205px;
-
-  transform: translate(-50%, -50%) rotate(-8deg);
-
-  border: 1px solid rgba(94, 137, 223, 0.18);
-
-  box-shadow:
-    0 0 0 17px rgba(82, 126, 214, 0.018),
-    0 0 0 34px rgba(82, 126, 214, 0.012);
-}
-
-.orbitTwo {
-  width: 420px;
-  height: 175px;
-
-  transform: translate(-50%, -50%) rotate(12deg);
-
-  border: 1px dashed rgba(230, 191, 92, 0.18);
-
-  animation: orbitPulse 4.8s ease-in-out infinite;
-}
-
-/* =========================
-   WALLET
-========================= */
-
-.wallet {
-  position: absolute;
-
-  z-index: 1;
-
-  left: 51%;
-  top: 53%;
-
-  width: 225px;
-  height: 150px;
+  width: 610px;
+  height: 235px;
 
   transform:
     translate(-50%, -50%) rotate(-4deg);
 
-  padding: 16px 18px;
+  border: 1px solid rgba(66, 135, 237, 0.2);
 
-  border: 1px solid rgba(104, 145, 213, 0.2);
-  border-radius: 20px;
+  border-radius: 50%;
 
-  background:
-    linear-gradient(145deg,
-      rgba(38, 55, 91, 0.76),
-      rgba(10, 17, 31, 0.82));
-
-  box-shadow:
-    0 30px 55px rgba(0, 0, 0, 0.34),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-
-  opacity: 0.86;
-
-  backdrop-filter: blur(12px);
+  z-index: 1;
 }
 
-.walletHeader,
-.walletFooter {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.walletHeader {
-  color: #8091af;
-
-  font-size: 0.5rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-}
-
-.walletDots {
-  color: #61708b;
-  letter-spacing: 0.16em;
-}
-
-.walletBalance {
-  display: flex;
-  flex-direction: column;
-
-  margin-top: 22px;
-}
-
-.walletBalance small {
-  color: #7887a1;
-
-  font-size: 0.52rem;
-}
-
-.walletBalance strong {
-  margin-top: 4px;
-
-  color: #edf3fc;
-
-  font-size: 1.05rem;
-  letter-spacing: 0.02em;
-}
-
-.walletProgress {
-  width: 100%;
-  height: 4px;
-
-  margin-top: 17px;
-
-  overflow: hidden;
-
-  border-radius: 999px;
-
-  background: rgba(255, 255, 255, 0.07);
-}
-
-.walletProgress span {
-  display: block;
-
-  width: 72%;
-  height: 100%;
-
-  border-radius: inherit;
-
-  background: linear-gradient(90deg,
-      #4d88dc,
-      #e6bf5d);
-
-  animation: progressGlow 3s ease-in-out infinite;
-}
-
-.walletFooter {
-  margin-top: 13px;
-
-  color: #71809a;
-
-  font-size: 0.49rem;
-}
-
-/* =========================
-   CURRENCY CARDS
-========================= */
-
-.currencyCard {
+.ringSmall {
   position: absolute;
 
-  z-index: 5;
+  left: 56%;
+  top: 51%;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  width: 135px;
-  height: 160px;
-
-  padding: 15px;
-
-  border: 1px solid rgba(255, 255, 255, 0.105);
-  border-radius: 21px;
-
-  background:
-    linear-gradient(145deg,
-      rgba(255, 255, 255, 0.09),
-      rgba(8, 14, 27, 0.92));
-
-  box-shadow:
-    0 26px 52px rgba(0, 0, 0, 0.31),
-    inset 0 1px 0 rgba(255, 255, 255, 0.075);
-
-  backdrop-filter: blur(12px);
-
-  transition:
-    transform 220ms ease,
-    border-color 220ms ease,
-    box-shadow 220ms ease;
-}
-
-.fromCard {
-  left: 9%;
-  top: 28%;
-
-  transform: rotate(-5deg);
-
-  border-color: rgba(228, 191, 91, 0.38);
-
-  box-shadow:
-    0 27px 55px rgba(0, 0, 0, 0.3),
-    0 0 45px rgba(230, 190, 85, 0.07);
-}
-
-.toCard {
-  right: 7%;
-  top: 31%;
-
-  transform: rotate(5deg);
-
-  border-color: rgba(92, 150, 226, 0.4);
-
-  box-shadow:
-    0 27px 55px rgba(0, 0, 0, 0.3),
-    0 0 45px rgba(80, 139, 222, 0.08);
-}
-
-.currencyCard:hover {
-  z-index: 9;
+  width: 270px;
+  height: 470px;
 
   transform:
-    translateY(-8px) rotate(0deg);
+    translate(-50%, -50%) rotate(1deg);
 
-  box-shadow:
-    0 34px 62px rgba(0, 0, 0, 0.36);
-}
-
-.cardTag {
-  align-self: flex-start;
-
-  color: #74839e;
-
-  font-size: 0.53rem;
-  font-weight: 850;
-  letter-spacing: 0.15em;
-}
-
-.fromCard .cardTag {
-  color: #d8b75c;
-}
-
-.toCard .cardTag {
-  color: #82b6e8;
-}
-
-.coinVisual {
-  display: grid;
-  place-items: center;
-
-  width: 78px;
-  height: 78px;
-
-  margin-top: 9px;
+  border: 1px dashed rgba(230, 186, 73, 0.18);
 
   border-radius: 50%;
+
+  z-index: 1;
+
+  animation: orbit 16s linear infinite;
+}
+
+.wallet {
+  position: absolute;
+
+  z-index: 3;
+
+  left: 29%;
+  top: 1%;
+
+  width: 315px;
+  height: 335px;
+
+  padding: 19px;
 
   overflow: hidden;
 
-  background:
-    radial-gradient(circle,
-      rgba(255, 255, 255, 0.06),
-      rgba(0, 0, 0, 0.14));
-
-  box-shadow:
-    inset 0 0 25px rgba(0, 0, 0, 0.18);
-}
-
-.coinVisual img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  mix-blend-mode: screen;
-
-  filter:
-    drop-shadow(0 9px 14px rgba(0, 0, 0, 0.35)) saturate(1.08);
-
-  transition: transform 300ms ease;
-}
-
-.currencyCard:hover .coinVisual img {
-  transform: scale(1.08);
-}
-
-.cardCurrency {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  margin-top: 5px;
-}
-
-.cardCurrency strong {
-  color: #f3f6fb;
-
-  font-size: 1.05rem;
-
-  letter-spacing: 0.05em;
-}
-
-.cardCurrency span {
-  margin-top: 2px;
-
-  color: #71809a;
-
-  font-size: 0.5rem;
-}
-
-/* =========================
-   SWAP CORE
-========================= */
-
-.swapCore {
-  position: absolute;
-
-  z-index: 10;
-
-  left: 51%;
-  top: 53%;
-
-  display: grid;
-  place-items: center;
-
-  width: 67px;
-  height: 67px;
-
-  transform: translate(-50%, -50%);
-
-  border: 1px solid rgba(235, 196, 98, 0.64);
-  border-radius: 50%;
+  border: 1px solid rgba(110, 153, 222, 0.38);
+  border-radius: 25px;
 
   background:
     linear-gradient(145deg,
-      #263654,
-      #111b2c);
-
-  color: #f0c95f;
-
-  cursor: pointer;
+      rgba(29, 55, 99, 0.97),
+      rgba(8, 19, 40, 0.98) 72%);
 
   box-shadow:
-    0 15px 34px rgba(0, 0, 0, 0.38),
-    0 0 30px rgba(231, 190, 83, 0.13),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    0 35px 70px rgba(0, 0, 0, 0.48),
+    0 0 35px rgba(50, 112, 220, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
-  transition:
-    transform 200ms ease,
-    box-shadow 200ms ease,
-    background 200ms ease;
+  transform: rotate(-5deg);
 }
 
-.swapCore::before {
+.wallet::before {
   content: "";
 
   position: absolute;
 
-  inset: -8px;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
-  border: 1px solid rgba(224, 188, 91, 0.12);
-
-  border-radius: 50%;
-
-  animation: corePulse 2.8s ease-in-out infinite;
-}
-
-.swapCore:hover {
-  transform:
-    translate(-50%, -50%) scale(1.09);
+  height: 44%;
 
   background:
-    linear-gradient(145deg,
-      #304361,
-      #152139);
+    linear-gradient(180deg,
+      transparent,
+      rgba(45, 100, 204, 0.13));
 
-  box-shadow:
-    0 20px 42px rgba(0, 0, 0, 0.42),
-    0 0 40px rgba(231, 190, 83, 0.19);
+  pointer-events: none;
 }
 
-.swapCore:active {
-  transform:
-    translate(-50%, -50%) scale(0.97);
-}
-
-.swapCore:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 5px;
-}
-
-.swapCore svg {
-  transition: transform 400ms ease;
-}
-
-.swapCore:hover svg {
-  transform: rotate(180deg);
-}
-
-.swapCore span {
-  position: absolute;
-
-  bottom: -23px;
-
-  color: #7c8ba6;
-
-  font-size: 0.48rem;
-  font-weight: 850;
-  letter-spacing: 0.15em;
-}
-
-/* =========================
-   FLOW ARROWS
-========================= */
-
-.flow {
-  position: absolute;
-
-  z-index: 4;
+.walletTop {
+  position: relative;
+  z-index: 2;
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
-  color: #dfbc5e;
+  color: #a0b1cc;
 
-  opacity: 0.65;
+  font-size: 0.61rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
 }
 
-.flow svg+svg {
-  margin-left: -10px;
+.walletTop svg {
+  color: #e5bd51;
 }
 
-.flowTop {
-  left: 30%;
-  top: 39%;
+.wallet > strong {
+  position: relative;
+  z-index: 2;
 
-  animation: flowRight 2.4s ease-in-out infinite;
+  display: block;
+
+  margin-top: 27px;
+
+  max-width: 205px;
+
+  color: #eef3fc;
+
+  font-size: 1.28rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
 }
 
-.flowBottom {
-  right: 29%;
-  top: 63%;
+.wallet > small {
+  position: relative;
+  z-index: 2;
 
-  transform: rotate(180deg);
+  display: block;
 
-  animation: flowLeft 2.4s ease-in-out 900ms infinite;
+  max-width: 205px;
+
+  margin-top: 7px;
+
+  color: #8296b6;
+
+  font-size: 0.53rem;
+  line-height: 1.35;
 }
 
-/* =========================
-   FLOATING COINS
-========================= */
+.walletRows {
+  position: relative;
+  z-index: 2;
 
-.floatingCoin {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  margin-top: 31px;
+}
+
+.walletRows > div {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.walletRows span {
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+}
+
+.walletDotGold {
+  border: 2px solid #e6bd50;
+
+  box-shadow:
+    0 0 9px rgba(230, 189, 80, 0.24);
+}
+
+.walletDotBlue {
+  border: 2px solid #5f9cf1;
+
+  box-shadow:
+    0 0 9px rgba(95, 156, 241, 0.24);
+}
+
+.walletRows i {
+  display: block;
+
+  width: 150px;
+  height: 7px;
+
+  border-radius: 99px;
+
+  background:
+    linear-gradient(90deg,
+      rgba(115, 151, 210, 0.55),
+      rgba(115, 151, 210, 0.14));
+}
+
+.bar {
   position: absolute;
 
-  z-index: 7;
+  left: 19px;
+  right: 19px;
+  bottom: 22px;
 
-  width: 43px;
-  height: 43px;
+  height: 5px;
+
+  overflow: hidden;
+
+  border-radius: 99px;
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.bar i {
+  display: block;
+
+  width: 70%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(90deg,
+      #4b90ed,
+      #6da8f4);
+}
+
+.assetCard {
+  position: absolute;
+
+  z-index: 8;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  width: 245px;
+  height: 155px;
+
+  padding: 17px;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 30px 55px rgba(0, 0, 0, 0.46),
+    inset 0 1px 0 rgba(255, 255, 255, 0.11);
+}
+
+.assetCard::after {
+  content: "";
+
+  position: absolute;
+
+  right: -50px;
+  top: -55px;
+
+  width: 150px;
+  height: 150px;
 
   border-radius: 50%;
 
-  object-fit: cover;
+  background: rgba(255, 255, 255, 0.05);
+
+  filter: blur(10px);
+}
+
+.from {
+  left: 8%;
+  top: 31%;
+
+  border: 1px solid rgba(238, 194, 79, 0.65);
+
+  background:
+    linear-gradient(145deg,
+      #252525 0%,
+      #0b0d12 62%,
+      #18130a 100%);
+
+  transform: rotate(-7deg);
+
+  box-shadow:
+    0 30px 55px rgba(0, 0, 0, 0.52),
+    0 0 30px rgba(229, 184, 64, 0.1);
+}
+
+.to {
+  right: -2%;
+  top: 31%;
+
+  border: 1px solid rgba(84, 154, 245, 0.68);
+
+  background:
+    linear-gradient(145deg,
+      #1d4b8e 0%,
+      #0d2b58 58%,
+      #07172f 100%);
+
+  transform: rotate(7deg);
+
+  box-shadow:
+    0 30px 55px rgba(0, 0, 0, 0.48),
+    0 0 32px rgba(57, 126, 236, 0.15);
+}
+
+.cardLabel {
+  position: absolute;
+
+  left: 17px;
+  top: 12px;
+
+  font-size: 0.52rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.from .cardLabel {
+  color: #e5b946;
+}
+
+.to .cardLabel {
+  color: #80b3f6;
+}
+
+.assetCard img {
+  position: relative;
+  z-index: 2;
+
+  flex: 0 0 auto;
+
+  width: 90px;
+  height: 90px;
+
+  margin-top: 10px;
+
+  object-fit: contain;
 
   mix-blend-mode: screen;
 
   filter:
-    drop-shadow(0 10px 15px rgba(0, 0, 0, 0.35)) saturate(1.1);
+    drop-shadow(0 10px 13px rgba(0, 0, 0, 0.42));
 }
 
-.coinOne {
-  left: 19%;
-  top: 10%;
+.cardInfo {
+  position: relative;
+  z-index: 3;
 
-  animation: floatingCoin 3.8s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.coinTwo {
-  right: 16%;
-  bottom: 11%;
+.cardInfo b {
+  color: #f9fbff;
 
-  width: 35px;
-  height: 35px;
-
-  animation:
-    floatingCoin 4.4s ease-in-out 800ms infinite reverse;
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
 }
 
-/* =========================
-   STATUS
-========================= */
+.cardInfo small {
+  color: #9caec8;
 
-.status {
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.swapButton {
+  position: absolute;
+
+  z-index: 14;
+
+  left: 55%;
+  top: 50%;
+
+  display: grid;
+  place-items: center;
+
+  width: 112px;
+  height: 112px;
+
+  transform: translate(-50%, -50%);
+
+  border: 3px solid rgba(255, 230, 146, 0.8);
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle at 35% 27%,
+      #fff8d8 0%,
+      #f2cd6d 34%,
+      #d39e35 100%);
+
+  color: #131a29;
+
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    0 0 0 9px rgba(227, 183, 68, 0.07),
+    0 0 45px rgba(227, 183, 68, 0.32),
+    inset 0 3px 5px rgba(255, 255, 255, 0.55);
+
+  cursor: pointer;
+
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.swapButton:hover {
+  transform:
+    translate(-50%, -50%) scale(1.07);
+
+  box-shadow:
+    0 30px 58px rgba(0, 0, 0, 0.54),
+    0 0 0 11px rgba(227, 183, 68, 0.08),
+    0 0 55px rgba(227, 183, 68, 0.4),
+    inset 0 3px 5px rgba(255, 255, 255, 0.55);
+}
+
+.swapButton:focus-visible {
+  outline: 2px solid #f6d57c;
+  outline-offset: 5px;
+}
+
+.swapButton svg {
+  width: 48px;
+  height: 48px;
+}
+
+.swapButton span {
+  position: absolute;
+
+  bottom: -28px;
+
+  color: #e9bf51;
+
+  font-size: 0.55rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.flow {
   position: absolute;
 
   z-index: 11;
 
-  left: 51%;
-  bottom: 0;
+  left: 27%;
+  top: 39%;
 
-  display: inline-flex;
+  display: flex;
+  gap: 1px;
+
+  color: #eac05a;
+
+  filter:
+    drop-shadow(0 0 8px rgba(235, 192, 83, 0.28));
+}
+
+.flow svg {
+  width: 22px;
+  height: 22px;
+
+  animation: flow 1.5s ease-in-out infinite;
+}
+
+.flow svg:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.flow svg:nth-child(3) {
+  animation-delay: 0.36s;
+}
+
+.coinPile {
+  position: absolute;
+
+  z-index: 5;
+
+  right: -1%;
+  bottom: -8%;
+
+  width: 230px;
+  height: 160px;
+
+  object-fit: contain;
+
+  mix-blend-mode: normal;
+
+  filter:
+    drop-shadow(0 22px 20px rgba(0, 0, 0, 0.4));
+
+  animation: coinFloat 4.5s ease-in-out infinite;
+}
+
+.status {
+  position: absolute;
+
+  z-index: 18;
+
+  right: 0;
+  bottom: 2%;
+
+  display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 9px;
 
-  transform: translateX(-50%);
+  padding: 10px 14px;
 
-  padding: 7px 11px;
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(90, 139, 213, 0.3);
   border-radius: 999px;
 
-  background: rgba(8, 14, 27, 0.78);
+  background:
+    linear-gradient(145deg,
+      rgba(29, 55, 99, 0.88),
+      rgba(8, 19, 40, 0.94) 72%);
 
-  color: #7887a0;
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
-  font-size: 0.55rem;
-
-  white-space: nowrap;
-
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
 }
 
-.status strong {
-  color: #dce5f4;
+.status > svg:first-child {
+  width: 20px;
+  height: 20px;
+
+  color: #e6bd50;
 }
 
-.status svg {
-  color: #d9b85d;
+.status span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.statusDot {
-  width: 5px;
-  height: 5px;
+.status b {
+  color: #f0f4fb;
 
-  border-radius: 50%;
-
-  background: #7acb8a;
-
-  box-shadow: 0 0 9px rgba(122, 203, 138, 0.6);
+  font-size: 0.59rem;
 }
 
-/* =========================
-   ANIMATIONS
-========================= */
+.status small {
+  color: #7186a5;
 
-@keyframes floatingCoin {
+  font-size: 0.47rem;
+}
+
+.status > svg:last-child {
+  width: 16px;
+  height: 16px;
+
+  color: #79aaf0;
+}
+
+@keyframes flow {
 
   0%,
   100% {
-    transform: translateY(0) rotate(-4deg);
-  }
-
-  50% {
-    transform: translateY(-10px) rotate(5deg);
-  }
-}
-
-@keyframes flowRight {
-
-  0%,
-  100% {
-    transform: translateX(0);
-    opacity: 0.35;
-  }
-
-  50% {
-    transform: translateX(7px);
-    opacity: 0.9;
-  }
-}
-
-@keyframes flowLeft {
-
-  0%,
-  100% {
-    transform: translateX(0) rotate(180deg);
-    opacity: 0.35;
-  }
-
-  50% {
-    transform: translateX(7px) rotate(180deg);
-    opacity: 0.9;
-  }
-}
-
-@keyframes orbitPulse {
-
-  0%,
-  100% {
-    opacity: 0.35;
-
-    transform:
-      translate(-50%, -50%) rotate(12deg) scale(1);
-  }
-
-  50% {
-    opacity: 0.72;
-
-    transform:
-      translate(-50%, -50%) rotate(12deg) scale(1.025);
-  }
-}
-
-@keyframes corePulse {
-
-  0%,
-  100% {
-    opacity: 0.25;
-    transform: scale(0.96);
-  }
-
-  50% {
-    opacity: 0.7;
-    transform: scale(1.05);
-  }
-}
-
-@keyframes progressGlow {
-
-  0%,
-  100% {
-    opacity: 0.65;
+    opacity: 0.3;
+    transform: translateX(-3px);
   }
 
   50% {
     opacity: 1;
+    transform: translateX(4px);
   }
 }
 
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 1100px) {
-  .banner {
-    grid-template-columns:
-      minmax(0, 0.8fr) minmax(500px, 1.2fr);
-
-    padding-inline: 30px;
-  }
-
-  .currencyCard {
-    width: 135px;
-    height: 164px;
-  }
-
-  .coinVisual {
-    width: 80px;
-    height: 80px;
-  }
-
-  .wallet {
-    width: 225px;
+@keyframes orbit {
+  to {
+    transform:
+      translate(-50%, -50%) rotate(361deg);
   }
 }
 
-/* =========================
-   SMALL TABLET
-========================= */
+@keyframes coinFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
 
 @media (max-width: 991px) {
   .banner {
-    min-height: 470px;
+    grid-template-columns: 38% 62%;
+
+    padding: 27px 25px;
   }
 
-  .visual {
-    min-height: 295px;
+  .content h2 {
+    font-size: clamp(2.35rem, 5vw, 3.35rem);
   }
 
-  .fromCard {
-    left: 7%;
+  .content p {
+    max-width: 300px;
+
+    font-size: 0.82rem;
   }
 
-  .toCard {
-    right: 5%;
+  .cta {
+    min-width: 205px;
+
+    padding: 0 17px;
+  }
+
+  .wallet {
+    left: 25%;
+
+    width: 270px;
+    height: 300px;
+  }
+
+  .assetCard {
+    width: 200px;
+    height: 130px;
+  }
+
+  .assetCard img {
+    width: 73px;
+    height: 73px;
+  }
+
+  .cardInfo b {
+    font-size: 1.15rem;
+  }
+
+  .from {
+    left: 4%;
+  }
+
+  .to {
+    right: -4%;
+  }
+
+  .swapButton {
+    width: 90px;
+    height: 90px;
+  }
+
+  .swapButton svg {
+    width: 38px;
+    height: 38px;
+  }
+
+  .coinPile {
+    width: 190px;
+    height: 135px;
   }
 }
-
-/* =========================
-   MOBILE
-========================= */
 
 @media (max-width: 768px) {
   .banner {
     grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
 
-    min-height: 555px;
+    min-height: 690px;
 
-    padding: 28px 22px 20px;
+    padding: 25px 20px 12px;
   }
 
   .content {
     align-items: center;
 
-    max-width: none;
-
-    padding: 0;
+    padding-right: 0;
 
     text-align: center;
   }
 
-  .content p {
-    max-width: 560px;
+  .content h2 {
+    font-size: 3rem;
   }
 
-  .actionRow {
+  .content h2::after {
+    left: 50%;
+
+    transform: translateX(-50%);
+  }
+
+  .content p {
+    max-width: 480px;
+
+    margin: 18px auto 20px;
+  }
+
+  .actions {
     justify-content: center;
   }
 
   .visual {
-    min-height: 285px;
+    min-height: 405px;
 
-    margin-top: 4px;
+    margin-top: 7px;
   }
 
   .wallet {
     left: 50%;
+    top: 0;
 
-    width: 215px;
+    width: 285px;
+    height: 315px;
+
+    transform: translateX(-50%) rotate(-4deg);
   }
 
-  .fromCard {
+  .from {
     left: 5%;
-  }
-
-  .toCard {
-    right: 4%;
-  }
-
-  .status {
-    bottom: -4px;
-  }
-}
-
-/* =========================
-   SMALL MOBILE
-========================= */
-
-@media (max-width: 480px) {
-  .banner {
-    min-height: 590px;
-
-    padding: 25px 15px 15px;
-  }
-
-  .content h2 {
-    font-size: 2.25rem;
-  }
-
-  .content p {
-    font-size: 0.86rem;
-  }
-
-  .actionRow {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .visual {
-    min-height: 285px;
-  }
-
-  .currencyCard {
-    width: 105px;
-    height: 143px;
-
-    padding: 9px;
-  }
-
-  .coinVisual {
-    width: 66px;
-    height: 66px;
-  }
-
-  .cardCurrency strong {
-    font-size: 0.98rem;
-  }
-
-  .cardCurrency span {
-    font-size: 0.45rem;
-  }
-
-  .wallet {
-    width: 190px;
-    height: 140px;
-  }
-
-  .swapCore {
-    width: 54px;
-    height: 54px;
-  }
-
-  .swapCore svg {
-    width: 21px;
-  }
-
-  .fromCard {
-    left: 0;
     top: 31%;
   }
 
-  .toCard {
+  .to {
+    right: 1%;
+    top: 31%;
+  }
+
+  .swapButton {
+    left: 50%;
+    top: 51%;
+
+    width: 92px;
+    height: 92px;
+  }
+
+  .flow {
+    left: 22%;
+    top: 24%;
+  }
+
+  .coinPile {
+    width: 180px;
+    height: 130px;
+
     right: 0;
-    top: 34%;
+    bottom: -1%;
   }
 
-  .orbitOne {
-    width: 320px;
+  .status {
+    right: 50%;
+    bottom: 0;
+
+    transform: translateX(50%);
+  }
+}
+
+@media (max-width: 520px) {
+  .banner {
+    min-height: 510px;
+
+    padding: 14px 13px 8px;
   }
 
-  .orbitTwo {
-    width: 285px;
+  .content h2 {
+    font-size: 2.15rem;
   }
 
-  .floatingCoin {
-    width: 35px;
-    height: 35px;
+  .content p {
+    max-width: 330px;
+
+    margin: 10px auto 13px;
+
+    font-size: 0.72rem;
+    line-height: 1.45;
   }
 
-  .coinOne {
-    left: 12%;
+  .liveNote {
+    display: none;
   }
 
-  .coinTwo {
-    right: 9%;
+  .cta {
+    min-width: 205px;
+    min-height: 45px;
+
+    padding-inline: 18px;
+
+    font-size: 0.67rem;
+  }
+
+  .visual {
+    min-height: 300px;
+  }
+
+  .wallet {
+    width: 210px;
+    height: 235px;
+
+    padding: 12px;
+  }
+
+  .wallet > strong {
+    margin-top: 26px;
+
+    font-size: 1rem;
+  }
+
+  .walletRows {
+    margin-top: 26px;
+  }
+
+  .walletRows i {
+    width: 95px;
+  }
+
+  .assetCard {
+    width: 140px;
+    height: 92px;
+
+    gap: 7px;
+
+    padding: 8px;
+  }
+
+  .assetCard img {
+    width: 49px;
+    height: 49px;
+  }
+
+  .cardInfo b {
+    font-size: 0.79rem;
+  }
+
+  .cardInfo small {
+    font-size: 0.38rem;
+  }
+
+  .from {
+    left: 1%;
+    top: 31%;
+  }
+
+  .to {
+    right: -1%;
+    top: 31%;
+  }
+
+  .swapButton {
+    top: 51%;
+
+    width: 64px;
+    height: 64px;
+  }
+
+  .swapButton svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .swapButton span {
+    bottom: -20px;
+
+    font-size: 0.39rem;
+  }
+
+  .flow {
+    left: 17%;
+    top: 23%;
+  }
+
+  .flow svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .coinPile {
+    width: 125px;
+    height: 91px;
+
+    right: -2%;
+  }
+
+  .status {
+    padding: 6px 9px;
+  }
+
+  .status b {
+    font-size: 0.46rem;
+  }
+
+  .status small {
+    font-size: 0.37rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .ringSmall,
+  .coinPile,
+  .flow svg {
+    animation: none;
+  }
+
+  .cta,
+  .swapButton {
+    transition: none;
   }
 }

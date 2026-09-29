@@ -3,18 +3,16 @@ import {
   Check,
   Copy,
   Gift,
+  ShieldCheck,
   Sparkles,
-  UserRound,
   Users,
-  Zap,
 } from "lucide-react";
 import { useState } from "react";
 
 import RewardBannerShell from "../shared/RewardBannerShell";
 import BannerButton from "../shared/BannerButton";
 
-import gameCoin from "../../assets/images/game_coin.jpeg";
-import multiVEs from "../../assets/images/multi_VEs.jpeg";
+import referEarnHero from "../../assets/images/refer-earn-hero.jpg";
 
 import styles from "./ReferEarnBanner.module.css";
 
@@ -27,7 +25,10 @@ export default function ReferEarnBanner() {
     try {
       await navigator.clipboard.writeText(referralCode);
       setCopied(true);
-      setTimeout(() => setCopied(false), 1800);
+
+      setTimeout(() => {
+        setCopied(false);
+      }, 1800);
     } catch (error) {
       console.error("Unable to copy referral code:", error);
     }
@@ -35,55 +36,94 @@ export default function ReferEarnBanner() {
 
   return (
     <RewardBannerShell className={styles.banner}>
-      {/* LEFT CONTENT */}
+      {/* =========================
+          CONTENT
+      ========================= */}
       <div className={styles.content}>
-        <span className={styles.label}>
-          <Users size={15} />
-          REFER &amp; EARN
-        </span>
+        <div className={styles.eyebrow}>
+          <Users size={15} strokeWidth={2.2} />
+          <span>REFER &amp; EARN</span>
+        </div>
 
-        <h2>
-          Invite Friends.
-          <br />
-          <strong>Unlock Rewards.</strong>
+        <h2 className={styles.heading}>
+          Refer Friends,
+          <span>Earn Rewards.</span>
         </h2>
 
-        <p>
-          Share VELOOP with friends and unlock exciting rewards when they
-          complete eligible activities.
+        <p className={styles.description}>
+          Invite your friends to VELOOP Rewards and unlock exciting rewards
+          when they complete eligible activities.
         </p>
 
         <div className={styles.actions}>
-          <BannerButton to="/refer">Invite Now</BannerButton>
+          <BannerButton to="/refer">
+            Invite Friends
+            <ArrowRight size={17} />
+          </BannerButton>
 
-          <span className={styles.actionHint}>
-            <Zap size={14} />
-            Share &amp; earn together
-          </span>
+          <div className={styles.actionNote}>
+            <Sparkles size={14} />
+            <span>Share the opportunity</span>
+          </div>
+        </div>
+
+        {/* Small value highlights */}
+        <div className={styles.highlights}>
+          <div className={styles.highlight}>
+            <div className={styles.highlightIcon}>
+              <Users size={16} />
+            </div>
+
+            <div>
+              <strong>Invite</strong>
+              <span>Friends</span>
+            </div>
+          </div>
+
+          <div className={styles.highlight}>
+            <div className={styles.highlightIcon}>
+              <Gift size={16} />
+            </div>
+
+            <div>
+              <strong>Unlock</strong>
+              <span>Rewards</span>
+            </div>
+          </div>
+
+          <div className={styles.highlight}>
+            <div className={styles.highlightIcon}>
+              <ShieldCheck size={16} />
+            </div>
+
+            <div>
+              <strong>Secure</strong>
+              <span>Referral</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* RIGHT VISUAL */}
-      <div
-        className={styles.visual}
-        aria-label="Referral rewards illustration"
-      >
-        <div className={styles.ambientGlow} />
+      {/* =========================
+          HERO VISUAL
+      ========================= */}
+      <div className={styles.visual}>
+        <div className={styles.visualGlow} />
 
-        <div
-          className={`${styles.orbit} ${styles.orbitOne}`}
-          aria-hidden="true"
-        />
+        <div className={styles.imageFrame}>
+          <img
+            src={referEarnHero}
+            alt="VELOOP referral experience with friends and a referral reward screen"
+            className={styles.heroImage}
+          />
 
-        <div
-          className={`${styles.orbit} ${styles.orbitTwo}`}
-          aria-hidden="true"
-        />
+          <div className={styles.imageShade} />
+        </div>
 
-        {/* REFERRAL CODE */}
+        {/* Referral code card */}
         <div className={styles.codeCard}>
-          <div className={styles.codeInfo}>
-            <small>Your Referral Code</small>
+          <div className={styles.codeContent}>
+            <span>Your Referral Code</span>
             <strong>{referralCode}</strong>
           </div>
 
@@ -91,115 +131,24 @@ export default function ReferEarnBanner() {
             type="button"
             className={styles.copyButton}
             onClick={handleCopy}
-            aria-label="Copy referral code"
+            aria-label={
+              copied ? "Referral code copied" : "Copy referral code"
+            }
+            title={copied ? "Copied" : "Copy referral code"}
           >
             {copied ? <Check size={17} /> : <Copy size={17} />}
           </button>
         </div>
 
-        {/* YOU */}
-        <div className={`${styles.player} ${styles.playerYou}`}>
-          <div className={`${styles.avatar} ${styles.avatarBlue}`}>
-            <UserRound size={25} />
-          </div>
-
-          <span>You</span>
-        </div>
-
-        {/* FRIEND */}
-        <div className={`${styles.player} ${styles.playerFriend}`}>
-          <div className={`${styles.avatar} ${styles.avatarPurple}`}>
-            <UserRound size={25} />
-          </div>
-
-          <span>Friend</span>
-        </div>
-
-        {/* CONNECTION */}
-        <div className={styles.connectionLine} aria-hidden="true">
-          <span />
-          <span />
-          <span />
-        </div>
-
-        {/* CENTRAL REWARD */}
-        <div className={styles.gift}>
-          <div className={styles.giftGlow} />
-
-          <Gift size={57} strokeWidth={1.65} />
-
-          <span>REWARD</span>
-        </div>
-
-        {/* COIN REWARD */}
-        <div className={styles.rewardCoins}>
-          <img
-            src={multiVEs}
-            alt="Stack of VE reward coins"
-          />
-        </div>
-
-        {/* FLOATING COINS */}
-        <img
-          src={gameCoin}
-          alt="VELOOP game reward coin"
-          className={`${styles.gameCoin} ${styles.gameCoinOne}`}
-        />
-
-        <img
-          src={gameCoin}
-          alt=""
-          aria-hidden="true"
-          className={`${styles.gameCoin} ${styles.gameCoinTwo}`}
-        />
-
-        {/* REWARD BADGE */}
+        {/* Small floating reward badge */}
         <div className={styles.rewardBadge}>
           <Sparkles size={14} />
-          <span>Rewards unlocked</span>
+          <span>Share • Invite • Earn</span>
         </div>
 
-        {/* FLOW ARROW */}
-        <ArrowRight
-          className={styles.flowArrow}
-          size={21}
-          aria-hidden="true"
-        />
-      </div>
-
-      {/* BENEFITS */}
-      <div className={styles.benefits}>
-        <div className={styles.benefit}>
-          <div className={styles.benefitIcon}>
-            <Users size={17} />
-          </div>
-
-          <div>
-            <strong>Invite Friends</strong>
-            <span>Share your referral code</span>
-          </div>
-        </div>
-
-        <div className={styles.benefit}>
-          <div className={styles.benefitIcon}>
-            <Gift size={17} />
-          </div>
-
-          <div>
-            <strong>Unlock Rewards</strong>
-            <span>Earn from eligible referrals</span>
-          </div>
-        </div>
-
-        <div className={styles.benefit}>
-          <div className={styles.benefitIcon}>
-            <Sparkles size={17} />
-          </div>
-
-          <div>
-            <strong>Play Together</strong>
-            <span>Discover more reward activities</span>
-          </div>
+        {/* Decorative VE element */}
+        <div className={styles.veOrb} aria-hidden="true">
+          V
         </div>
       </div>
     </RewardBannerShell>
