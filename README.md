@@ -1,43 +1,35 @@
-# VELOOP Rewards — Promotional & Feature Banner Redesign
+# VELOOP Rewards — Promotional & Feature Banner Experience
 
-A responsive React-based landing page for **VELOOP Rewards**, featuring five distinct promotional banners for earning, swapping, completing tasks, and redeeming rewards.
-
-The project focuses on a polished fintech-inspired visual system, responsive layouts, accessible interactions, and lightweight client-side interactions without requiring a backend.
+A responsive React-based promotional banner experience for **VELOOP Rewards**, featuring five reward-focused banner concepts with interactive UI states, route-based CTA destinations, responsive layouts, and a polished fintech-inspired visual system.
 
 ## ✨ Features
 
-- Five full-width responsive reward banners
-- Distinct visual identity for each reward opportunity
-- Responsive layouts for desktop, tablet, and mobile screens
+- Five responsive reward banners:
+  - Refer & Earn
+  - Swap Center
+  - Bonus VEs
+  - Captcha Tasks
+  - Exchange Center
 - Interactive referral-code copy action
 - Interactive VE ↔ SVE swap-direction control
-- Bonus VE highlight interaction
-- Functional captcha verification with success and error states
-- Interactive reward-option selection in the Exchange Center
-- Dedicated routes for each banner CTA
-- Hover, active, focus, and selected states for interactive controls
-- Keyboard-friendly focus states
-- Accessible labels and status announcements for interactive elements
+- Bonus VE interaction with visual feedback
+- Captcha verification flow with success and error states
+- Exchange Center reward-option selection
+- Dedicated route-level pages for banner CTAs
+- Responsive layouts for desktop, tablet, and mobile
+- Reusable banner shell and CTA components
+- Hover, active, focus, selected, and feedback states
+- Keyboard-friendly interactions
+- Accessible labels and status announcements
 - Reduced-motion support through `prefers-reduced-motion`
-- Reusable banner shell and CTA button components
-- Demo data clearly identified where applicable
+- Frontend-only demo interactions with clearly identified demo data
+- New reward-focused visual assets integrated into the banner experience
 
-## 🎯 Design Requirements
+## 🎯 Project Overview
 
-The redesign follows the VELOOP Rewards assignment direction:
+The project is designed around a set of promotional reward banners that communicate different VELOOP Rewards opportunities.
 
-- Full-width banner layouts within the available content area
-- Premium, modern, trustworthy, reward-focused, fintech-inspired visual language
-- Dark application background compatible with `#161827`
-- Restrained deep navy, blue, gold, purple, white, and neutral accents
-- A large feature-related visual in every banner
-- Meaningful interaction or animation in every banner
-- Clear CTAs with hover, active, and focus states
-- Responsive desktop, tablet, and mobile layouts
-- Meaningful icons and accessible controls
-- Subtle, performance-conscious animation rather than excessive visual effects
-
-## 🎯 Reward Banners
+Each banner has its own visual concept and interaction while following a shared design system for layout, typography, spacing, CTA treatment, and responsive behavior.
 
 ### 1. Refer & Earn
 
@@ -45,24 +37,24 @@ Encourages users to invite friends to VELOOP Rewards.
 
 **Interaction:**
 - Displays a referral code
-- Allows the user to copy the referral code
+- Allows the referral code to be copied
 - Provides an invitation CTA
 
 ### 2. Swap Center
 
-Presents the conversion of supported VE and SVE reward balances.
+Presents the conversion between supported VE and SVE reward balances.
 
 **Interaction:**
 - Users can reverse the displayed swap direction
-- The FROM/TO labels and reward visuals update dynamically
+- FROM/TO labels and reward visuals update dynamically
 
 ### 3. Bonus VEs
 
-Highlights opportunities to earn additional VE rewards through eligible activities.
+Highlights opportunities to earn additional VE rewards.
 
 **Interaction:**
-- Users can interact with the bonus VE visual
-- A temporary highlight message communicates the interaction
+- Users can interact with the reward visual
+- Feedback is displayed after the interaction
 
 ### 4. Captcha Tasks
 
@@ -70,36 +62,36 @@ Represents a task → verification → reward flow.
 
 **Interaction:**
 - Users enter a captcha code
-- Verification provides success or error feedback
-- A successful verification displays a reward-unlocked state
+- Verification returns success or error feedback
+- Successful verification displays a reward-unlocked state
 
 > The captcha is a frontend demonstration only and is not connected to a backend verification service.
 
 ### 5. Exchange Center
 
-Shows a redemption flow from a demo VE balance to supported reward options.
+Demonstrates a redemption flow from a demo VE balance to available reward options.
 
 **Interaction:**
 - Users can select between UPI, Gift Card, and Reward Card options
 - The selected option is visually indicated
-- The current selection is announced in the status area
+- Selection feedback is communicated through the interface
 
-> The displayed VE balance is demo data and does not represent an official reward balance.
+> The displayed VE balance and reward values are demonstration data.
 
 ## 🛠️ Tech Stack
 
 - **React 19** — UI development
-- **Vite 6** — development server and production build tooling
+- **Vite 6** — development server and build tooling
 - **React Router** — client-side routing
 - **CSS Modules** — component-scoped styling
-- **Bootstrap 5** — base CSS utilities/styles
+- **Bootstrap 5** — CSS utilities and base styling
 - **Lucide React** — interface icons
 - **JavaScript (ES Modules)**
 
 ## 📁 Project Structure
 
-veloop-rewards-banners/
-
+```text
+VELOOP-rewards-banners/
 ├── public/
 │   └── screenshots/
 │       ├── desktop-refer.png
@@ -114,6 +106,9 @@ veloop-rewards-banners/
 ├── src/
 │   ├── assets/
 │   │   └── images/
+│   │       ├── SVE_clean.png
+│   │       ├── VE_clean.png
+│   │       └── transparent_coins_preview.png
 │   │
 │   ├── components/
 │   │   ├── BonusVEsBanner/
@@ -145,20 +140,28 @@ veloop-rewards-banners/
 ├── package-lock.json
 ├── vite.config.js
 └── README.md
+```
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js installed on your system
-- npm installed with Node.js
+Make sure the following are installed:
+
+- [Node.js](https://nodejs.org/)
+- npm (included with Node.js)
 
 ### Installation
 
-Clone the repository and enter the project directory:
+Clone the repository:
 
 ```bash
 git clone https://github.com/jainsidharth15/VELOOP-rewards-banners.git
+```
+
+Enter the project directory:
+
+```bash
 cd VELOOP-rewards-banners
 ```
 
@@ -168,21 +171,27 @@ Install dependencies:
 npm install
 ```
 
-### Run the development server
+### Run the Development Server
+
+Start the Vite development server:
 
 ```bash
 npm run dev
 ```
 
-Open the local URL displayed by Vite in your browser.
+Open the local URL shown in the terminal, usually:
 
-### Create a production build
+```text
+http://localhost:5173/
+```
+
+### Create a Production Build
 
 ```bash
 npm run build
 ```
 
-### Preview the production build
+### Preview the Production Build
 
 ```bash
 npm run preview
@@ -193,60 +202,64 @@ npm run preview
 | Route | Purpose |
 |---|---|
 | `/` | Main VELOOP Rewards banner experience |
-| `/refer` | Refer & Earn destination page |
-| `/swap` | Swap Center destination page |
-| `/bonus` | Bonus VEs destination page |
-| `/captcha` | Captcha Tasks destination page |
-| `/exchange` | Exchange Center destination page |
+| `/refer` | Refer & Earn destination |
+| `/swap` | Swap Center destination |
+| `/bonus` | Bonus VEs destination |
+| `/captcha` | Captcha Tasks destination |
+| `/exchange` | Exchange Center destination |
 
-The banner CTAs use React Router navigation to move between the main experience and their respective destination pages.
+The banner CTAs use React Router navigation to move between the main experience and the corresponding destination pages.
 
 ## 📱 Responsive Design
 
 The interface is designed to adapt across:
 
-- Desktop screens
-- Tablet screens
-- Mobile screens
+- Desktop
+- Tablet
+- Mobile
 
-The banner layouts, typography, reward visuals, controls, and supporting content adjust at smaller breakpoints to maintain usability and visual hierarchy.
+Layouts, typography, reward visuals, controls, spacing, and supporting content adjust at responsive breakpoints to maintain usability and visual hierarchy.
 
 ## ♿ Accessibility
 
-Accessibility considerations included in the implementation:
+The implementation includes:
 
-- Meaningful `alt` text for relevant reward imagery
+- Meaningful `alt` text for relevant imagery
 - Accessible labels for icon-only controls
 - Keyboard-visible focus states
 - Semantic buttons for interactive controls
-- `aria-pressed` state for selectable reward options
-- `aria-live` / `role="status"` feedback for captcha verification
+- `aria-pressed` states for selectable options
+- `aria-live` / `role="status"` feedback where appropriate
 - Reduced-motion support using `prefers-reduced-motion`
 - Touch-friendly interactive controls
 
-## 🎞️ Animation & Interaction Design
+## 🎞️ Interaction & Animation
 
-Each banner uses subtle motion or interaction to reinforce its purpose without relying on excessive continuous animation.
+The banners use purposeful interaction and subtle motion rather than excessive continuous animation.
 
-- **Refer & Earn:** floating reward/gift visual treatment and copy interaction
-- **Swap Center:** animated status treatment and interactive swap direction
-- **Bonus VEs:** reward highlight interaction and supporting visual motion
-- **Captcha Tasks:** verification state transitions
-- **Exchange Center:** balance/reward visual treatment and selectable redemption options
+| Banner | Interaction |
+|---|---|
+| Refer & Earn | Referral-code copy interaction and reward-focused visual treatment |
+| Swap Center | Interactive swap direction and dynamic FROM/TO states |
+| Bonus VEs | Reward highlight interaction and visual feedback |
+| Captcha Tasks | Verification state transitions |
+| Exchange Center | Selectable redemption options and balance/reward feedback |
 
-A reduced-motion media query is included so users who prefer reduced motion receive a less animated experience.
+Users who prefer reduced motion receive a less animated experience through the included `prefers-reduced-motion` handling.
 
 ## 🎨 Design Approach
 
-The visual system uses a dark fintech-inspired foundation with gold, blue, and purple accents. Each banner has its own visual concept while sharing common layout, typography, CTA, spacing, and interaction patterns.
+The project uses a dark, fintech-inspired visual foundation with blue, gold, purple, white, and neutral accents.
 
-The five concepts are intentionally separated as:
+The five banner concepts are intentionally differentiated:
 
 - **Refer & Earn** → sharing and rewards
 - **Swap Center** → conversion
 - **Bonus VEs** → additional rewards
 - **Captcha Tasks** → verification
 - **Exchange Center** → redemption
+
+Despite their individual visual identities, the banners share consistent CTA styling, spacing, typography, interaction patterns, and responsive behavior.
 
 ## 🖼️ Screenshots
 
@@ -262,9 +275,9 @@ The five concepts are intentionally separated as:
 
 ![VELOOP Rewards - Bonus VEs](./public/screenshots/desktop-bonus.png)
 
-### Captcha Banner
+### Captcha Tasks
 
-![VELOOP Rewards - Bonus VEs](./public/screenshots/desktop-captcha.png)
+![VELOOP Rewards - Captcha Tasks](./public/screenshots/desktop-captcha.png)
 
 ### Exchange Center
 
@@ -284,26 +297,30 @@ The five concepts are intentionally separated as:
 
 ## 🌐 Live Demo
 
-[View Live Demo](https://veloop-rewards-banners.netlify.app)
+**Live Website:**  
+https://veloop-rewards-banners.netlify.app
 
 ## 📦 Repository
 
-**GitHub Repository:** [VELOOP Rewards Banners](https://github.com/jainsidharth15/VELOOP-rewards-banners)
+**GitHub Repository:**  
+https://github.com/jainsidharth15/VELOOP-rewards-banners
 
-## 🔮 Scope & Notes
+## 🔒 Scope & Notes
 
-- This project is a frontend implementation and does not include a backend.
-- Reward values and redemption information shown in the interface are demonstration data where applicable.
+- This is a frontend implementation and does not include a backend.
+- Reward values and redemption information are demonstration data.
 - The captcha interaction is a frontend simulation and is not a production security mechanism.
-- The dedicated destination pages currently provide basic route-level content and navigation back to the main rewards experience.
+- The displayed reward balance is demo data and does not represent an official VELOOP account balance.
+- External services are not required for the core banner interactions.
 
 ## 👤 Author
 
-**Name:** Sidharth Jain  
-**Role:** Frontend Developer / Computer Science Graduate  
-**GitHub:** https://github.com/jainsidharth15
-**LinkedIn:** https://www.linkedin.com/in/sidharth-jain-r15
+**Sidharth Jain**  
+Frontend Developer / Computer Science Graduate
+
+- GitHub: https://github.com/jainsidharth15
+- LinkedIn: https://www.linkedin.com/in/sidharth-jain-r15
 
 ---
 
-Built as a frontend development assignment for the VELOOP Rewards experience.
+Built as a frontend development project for the **VELOOP Rewards** promotional banner experience.
