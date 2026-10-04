@@ -6,15 +6,13 @@ import {
   Sparkles,
   WalletCards,
 } from "lucide-react";
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import RewardBannerShell from "../shared/RewardBannerShell";
 
-import singleVEs from "../../assets/images/single_VEs.jpeg";
-import singleSVEs from "../../assets/images/single_SVEs.jpeg";
-import multiVEs from "../../assets/images/multi_VEs_transparent.webp";
+import singleVEs from "../../assets/images/VE_clean.png";
+import singleSVEs from "../../assets/images/SVE_clean.png";
 
 import styles from "./SwapCenterBanner.module.css";
 
@@ -34,18 +32,25 @@ export default function SwapCenterBanner() {
 
   return (
     <RewardBannerShell className={styles.banner}>
-      {/* =====================================================
-          CONTENT
-      ===================================================== */}
+      <div className={styles.grid} aria-hidden="true" />
+      <div className={styles.glow} aria-hidden="true" />
 
       <div className={styles.content}>
-        <h2>
-          Swap <strong>Center</strong>
+        <div className={styles.eyebrow}>
+          <span className={styles.eyebrowDot} />
+          <span>VELOOP REWARDS</span>
+          <span className={styles.eyebrowDivider} />
+          <span className={styles.eyebrowAccent}>SWAP CENTER</span>
+        </div>
+
+        <h2 className={styles.heading}>
+          Move your
+          <span>rewards.</span>
         </h2>
 
-        <p>
-          Convert eligible reward balances between supported
-          currencies.
+        <p className={styles.description}>
+          Convert eligible VE and SVE balances in a simple two-way swap flow.
+          Move your rewards when you need them.
         </p>
 
         <div className={styles.actions}>
@@ -55,84 +60,97 @@ export default function SwapCenterBanner() {
             onClick={() => navigate("/swap")}
           >
             <span>OPEN SWAP CENTER</span>
-            <ArrowRight
-              size={22}
-              strokeWidth={2.2}
-              aria-hidden="true"
-            />
+            <span className={styles.ctaIcon}>
+              <ArrowRight size={18} strokeWidth={2.5} />
+            </span>
           </button>
 
           <span className={styles.liveNote}>
-            <RefreshCw
-              size={16}
-              strokeWidth={2.2}
-              aria-hidden="true"
-            />
+            <RefreshCw size={14} strokeWidth={2.2} />
             Live conversion preview
           </span>
         </div>
+
+        <div className={styles.infoRail}>
+          <div className={styles.infoItem}>
+            <span className={styles.infoIcon}>
+              <WalletCards size={15} />
+            </span>
+            <span>
+              <strong>Supported</strong>
+              <small>VE ↔ SVE</small>
+            </span>
+          </div>
+
+          <span className={styles.infoDivider} />
+
+          <div className={styles.infoItem}>
+            <span className={`${styles.infoIcon} ${styles.goldIcon}`}>
+              <ArrowLeftRight size={15} />
+            </span>
+            <span>
+              <strong>Two-way</strong>
+              <small>Swap anytime</small>
+            </span>
+          </div>
+
+          <span className={styles.infoDivider} />
+
+          <div className={styles.infoItem}>
+            <span className={`${styles.infoIcon} ${styles.purpleIcon}`}>
+              <CheckCircle2 size={15} />
+            </span>
+            <span>
+              <strong>Eligible</strong>
+              <small>Ready to convert</small>
+            </span>
+          </div>
+        </div>
       </div>
 
-      {/* =====================================================
-          HERO VISUAL
-      ===================================================== */}
-
       <div className={styles.visual}>
-        <div className={styles.glow} />
-        <div className={styles.ring} />
-        <div className={styles.ringSmall} />
+        <div className={styles.visualOrb} aria-hidden="true" />
 
-        {/* Large wallet behind everything */}
-        <div className={styles.wallet}>
-          <div className={styles.walletTop}>
-            <span>REWARD WALLET</span>
+        <div className={styles.previewLabel}>
+          <span>REWARD WALLET</span>
+          <strong>Conversion preview</strong>
+          <span className={styles.walletIcon}>
+            <WalletCards size={16} />
+          </span>
+        </div>
 
-            <WalletCards
-              size={24}
-              strokeWidth={2}
-              aria-hidden="true"
-            />
+        <div className={styles.balanceCard}>
+          <span className={styles.balanceEyebrow}>SUPPORTED BALANCES</span>
+
+          <div className={styles.balanceTitle}>
+            <span>Reward wallet</span>
+            <b>VE / SVE</b>
           </div>
 
-          <strong>Eligible Balances</strong>
-
-          <small>
-            Supported rewards · ready to swap
-          </small>
-
-          <div className={styles.walletRows}>
-            <div>
-              <span className={styles.walletDotGold} />
-              <i />
-            </div>
-
-            <div>
-              <span className={styles.walletDotBlue} />
-              <i />
-            </div>
+          <div className={styles.balanceLine}>
+            <span className={styles.balanceDotGold} />
+            <span>VE</span>
+            <i />
           </div>
 
-          <div className={styles.bar}>
+          <div className={styles.balanceLine}>
+            <span className={styles.balanceDotBlue} />
+            <span>SVE</span>
             <i />
           </div>
         </div>
 
-        {/* FROM / VE */}
         <div className={`${styles.assetCard} ${styles.from}`}>
           <span className={styles.cardLabel}>FROM</span>
-
-          <img
-            src={from}
-            alt={`${fromName} reward currency`}
-          />
-
-          <div className={styles.cardInfo}>
-            <b>{fromName}</b>
-            <small>REWARD CURRENCY</small>
+          <div className={styles.assetBody}>
+            <img src={from} alt={`${fromName} reward currency`} />
+            <div>
+              <strong>{fromName}</strong>
+              <small>REWARD CURRENCY</small>
+            </div>
           </div>
         </div>
 
-        {/* Central swap */}
         <button
           type="button"
           className={styles.swapButton}
@@ -140,66 +158,30 @@ export default function SwapCenterBanner() {
           aria-label={`Swap ${fromName} and ${toName}`}
           title={`Swap ${fromName} and ${toName}`}
         >
-          <ArrowLeftRight
-            size={45}
-            strokeWidth={2.1}
-            aria-hidden="true"
-          />
-
+          <ArrowLeftRight size={27} strokeWidth={2.2} />
           <span>SWAP</span>
         </button>
 
-        {/* TO / SVE */}
         <div className={`${styles.assetCard} ${styles.to}`}>
           <span className={styles.cardLabel}>TO</span>
-
-          <img
-            src={to}
-            alt={`${toName} reward currency`}
-          />
-
-          <div className={styles.cardInfo}>
-            <b>{toName}</b>
-            <small>REWARD CURRENCY</small>
+          <div className={styles.assetBody}>
+            <img src={to} alt={`${toName} reward currency`} />
+            <div>
+              <strong>{toName}</strong>
+              <small>REWARD CURRENCY</small>
+            </div>
           </div>
         </div>
 
-        {/* Conversion arrows */}
-        <div className={styles.flow} aria-hidden="true">
-          <ArrowRight size={25} />
-          <ArrowRight size={25} />
-          <ArrowRight size={25} />
-        </div>
-
-        {/* Transparent coin pile */}
-        <img
-          src={multiVEs}
-          alt=""
-          className={styles.coinPile}
-          aria-hidden="true"
-        />
-
-        {/* Status */}
         <div className={styles.status}>
-          <CheckCircle2
-            size={20}
-            strokeWidth={2.3}
-            aria-hidden="true"
-          />
-
+          <CheckCircle2 size={15} />
           <span>
-            <b>
-              {fromName} → {toName}
-            </b>
-
+            <strong>
+              {fromName} <b>→</b> {toName}
+            </strong>
             <small>Ready to convert</small>
           </span>
-
-          <Sparkles
-            size={17}
-            strokeWidth={2}
-            aria-hidden="true"
-          />
+          <Sparkles size={14} />
         </div>
       </div>
     </RewardBannerShell>

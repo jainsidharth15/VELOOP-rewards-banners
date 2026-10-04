@@ -1,157 +1,1463 @@
-.page {
-  width: 100%;
-  min-height: 100vh;
+/* =========================================
+   GLOBAL PAGE
+========================================= */
 
-  padding: 52px 24px 84px;
+.page {
+  min-height: 100vh;
+  padding: 0 32px 90px;
 
   background:
     radial-gradient(
-      circle at 50% -8%,
-      rgba(79, 105, 220, 0.17),
-      transparent 29%
+      circle at 78% 12%,
+      rgba(57, 91, 160, 0.18),
+      transparent 28%
     ),
     radial-gradient(
-      circle at 0% 55%,
-      rgba(120, 78, 203, 0.055),
+      circle at 15% 55%,
+      rgba(239, 191, 72, 0.045),
       transparent 25%
     ),
-    radial-gradient(
-      circle at 100% 75%,
-      rgba(224, 185, 78, 0.045),
-      transparent 24%
-    ),
-    #161827;
+    #0a1122;
+
+  color: #f6f8fc;
 }
 
-.header {
-  position: relative;
 
-  max-width: 1240px;
+/* =========================================
+   NAVBAR
+========================================= */
 
-  margin: 0 auto 30px;
+.navbar {
+  width: min(1240px, 100%);
+  height: 78px;
+  margin: 0 auto;
 
-  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid rgba(130, 153, 194, 0.12);
 }
 
-.header::after {
-  content: "";
 
-  position: absolute;
+/* Logo */
 
-  right: 0;
-  top: 20px;
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
 
-  width: 220px;
-  height: 1px;
+  color: #ffffff;
+
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+
+  text-decoration: none;
+}
+
+.logoMark {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 205, 76, 0.5);
+  border-radius: 10px;
 
   background:
     linear-gradient(
-      90deg,
-      transparent,
-      rgba(231, 192, 91, 0.22)
+      145deg,
+      #f8cc58,
+      #c89527
     );
 
+  color: #091426;
+
+  font-size: 0.95rem;
+  font-weight: 950;
+
   box-shadow:
-    0 0 20px rgba(231, 192, 91, 0.08);
+    0 7px 20px rgba(224, 177, 57, 0.15);
 }
 
-.eyebrow {
+
+/* Navigation links */
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  margin-left: 80px;
+}
+
+.navLinks a {
+  position: relative;
+
+  color: #8e9bb5;
+
+  font-size: 0.86rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    color 180ms ease;
+}
+
+.navLinks a:hover {
+  color: #ffffff;
+}
+
+.navLinks a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -9px;
+
+  width: 0;
+  height: 2px;
+
+  background: #f2c64e;
+
+  transition: width 180ms ease;
+}
+
+.navLinks a:hover::after {
+  width: 100%;
+}
+
+
+/* Navbar actions */
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.loginButton {
+  padding: 10px 16px;
+
+  border: 0;
+  background: transparent;
+
+  color: #aebbd1;
+
+  font-size: 0.84rem;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.navCta {
+  padding: 11px 19px;
+
+  border: 1px solid rgba(244, 202, 82, 0.5);
+  border-radius: 10px;
+
+  background: #f2c64e;
+
+  color: #0a152a;
+
+  font-size: 0.82rem;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.navCta:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 24px rgba(242, 198, 78, 0.18);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  position: relative;
+
+  width: min(1240px, 100%);
+  min-height: 620px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.03fr 0.97fr;
+  align-items: center;
+  gap: 70px;
+
+  overflow: hidden;
+}
+
+
+/* Very subtle grid */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.014) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.014) 1px,
+      transparent 1px
+    );
+
+  background-size: 52px 52px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 90%
+    );
+}
+
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+
+  padding: 70px 0;
+}
+
+.heroPill {
   display: inline-flex;
   align-items: center;
   gap: 9px;
 
-  margin-bottom: 13px;
+  padding: 8px 13px;
 
-  color: #e9c45f;
+  border: 1px solid rgba(111, 146, 207, 0.24);
+  border-radius: 999px;
+
+  background: rgba(20, 35, 65, 0.62);
+
+  color: #9db5dc;
 
   font-size: 0.66rem;
   font-weight: 900;
-
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  letter-spacing: 0.16em;
 }
 
-.eyebrow::before {
-  content: "";
+.statusDot {
+  width: 7px;
+  height: 7px;
 
-  width: 30px;
-  height: 1px;
+  border-radius: 50%;
 
-  background: #e9c45f;
+  background: #f3c94f;
 
   box-shadow:
-    0 0 12px rgba(233, 196, 95, 0.45);
+    0 0 10px rgba(243, 201, 79, 0.6);
 }
 
-.header h1 {
+.hero h1 {
+  max-width: 700px;
+
+  margin: 24px 0 24px;
+
+  font-size: clamp(4rem, 6vw, 6.1rem);
+  line-height: 0.91;
+  letter-spacing: -0.075em;
+}
+
+.hero h1 span {
+  color: #f4c94f;
+}
+
+.heroDescription {
+  max-width: 600px;
+
   margin: 0;
+
+  color: #94a3bd;
+
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   HERO BUTTONS
+========================================= */
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  margin-top: 34px;
+}
+
+.primaryButton {
+  min-width: 235px;
+  height: 64px;
+
+  padding: 7px 8px 7px 23px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid rgba(255, 218, 112, 0.65);
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffd967,
+      #e7b93f
+    );
+
+  color: #091528;
+
+  font-size: 0.92rem;
+  font-weight: 900;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 12px 30px rgba(226, 177, 52, 0.13);
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.primaryButton:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 17px 34px rgba(226, 177, 52, 0.22);
+}
+
+.buttonArrow {
+  width: 49px;
+  height: 49px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #0b1a34;
+
+  font-size: 1.3rem;
+}
+
+
+/* Secondary */
+
+.secondaryButton {
+  height: 64px;
+
+  padding: 0 25px;
+
+  display: inline-flex;
+  align-items: center;
+
+  border: 1px solid rgba(112, 140, 193, 0.22);
+  border-radius: 15px;
+
+  background: rgba(16, 29, 54, 0.5);
+
+  color: #aebbd1;
+
+  font-size: 0.88rem;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.secondaryButton:hover {
+  background: rgba(28, 47, 82, 0.65);
+  border-color: rgba(112, 150, 215, 0.42);
+  color: #ffffff;
+}
+
+
+/* =========================================
+   TRUST / STATS
+========================================= */
+
+.trustRow {
+  max-width: 590px;
+
+  margin-top: 42px;
+  padding-top: 22px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  border-top: 1px solid rgba(125, 149, 193, 0.13);
+}
+
+.trustRow > div {
+  padding-right: 25px;
+
+  border-right: 1px solid rgba(125, 149, 193, 0.1);
+}
+
+.trustRow > div:not(:first-child) {
+  padding-left: 25px;
+}
+
+.trustRow > div:last-child {
+  border-right: 0;
+}
+
+.trustRow strong {
+  display: block;
 
   color: #f7f8fc;
 
-  font-size: clamp(2.4rem, 4.7vw, 4rem);
-
-  line-height: 0.94;
-
-  letter-spacing: -0.065em;
+  font-size: 1.35rem;
+  font-weight: 900;
 }
 
-.header h1 span {
+.trustRow span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #687995;
+
+  font-size: 0.73rem;
+  font-weight: 700;
+}
+
+
+/* =========================================
+   HERO PRODUCT PREVIEW
+========================================= */
+
+.heroPreview {
+  position: relative;
+
+  min-height: 490px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewGlow {
+  position: absolute;
+
+  width: 430px;
+  height: 430px;
+
+  border-radius: 50%;
+
   background:
-    linear-gradient(
-      100deg,
-      #f2cb68,
-      #fff2ba
+    radial-gradient(
+      circle,
+      rgba(60, 102, 181, 0.2),
+      transparent 68%
     );
 
-  -webkit-background-clip: text;
-  background-clip: text;
-
-  color: transparent;
+  filter: blur(8px);
 }
 
-.header p {
-  max-width: 650px;
 
-  margin: 14px 0 0;
+/* Main balance card */
 
-  color: #8f9ab1;
+.balanceCard {
+  position: relative;
+  z-index: 3;
 
+  width: 430px;
+
+  padding: 29px;
+
+  border: 1px solid rgba(129, 159, 216, 0.22);
+  border-radius: 23px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(28, 50, 88, 0.96),
+      rgba(11, 23, 46, 0.97)
+    );
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045);
+
+  transform: rotate(-4deg);
+}
+
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardLabel {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #6f82a1;
+
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+
+.cardHeader strong {
   font-size: 0.94rem;
-
-  line-height: 1.6;
 }
 
-.bannerList {
+.cardIcon {
+  width: 42px;
+  height: 42px;
+
   display: grid;
-  gap: 22px;
+  place-items: center;
 
-  max-width: 1240px;
+  border: 1px solid rgba(243, 198, 76, 0.35);
+  border-radius: 12px;
 
+  background: rgba(241, 195, 71, 0.08);
+
+  color: #f3c64f;
+
+  font-weight: 900;
+}
+
+
+.balanceAmount {
+  margin-top: 42px;
+
+  color: #ffffff;
+
+  font-size: 3.25rem;
+  font-weight: 900;
+  letter-spacing: -0.055em;
+}
+
+.balanceAmount span {
+  color: #f2c64e;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+
+.balanceMeta {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-top: 9px;
+}
+
+.balanceMeta span {
+  color: #7fd49a;
+
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.balanceMeta small {
+  color: #64738e;
+  font-size: 0.72rem;
+}
+
+
+.progressTrack {
+  height: 7px;
+
+  margin-top: 34px;
+
+  overflow: hidden;
+
+  border-radius: 99px;
+
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.progressTrack span {
+  display: block;
+
+  width: 78%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #f0bc3e,
+      #f8d66b
+    );
+}
+
+
+.progressInfo {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 10px;
+
+  color: #70819e;
+
+  font-size: 0.7rem;
+}
+
+.progressInfo strong {
+  color: #dbe3f2;
+}
+
+
+/* =========================================
+   FLOATING MINI CARD
+========================================= */
+
+.miniCard {
+  position: absolute;
+  z-index: 5;
+
+  right: -5px;
+  bottom: 54px;
+
+  width: 330px;
+
+  padding: 17px;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  border: 1px solid rgba(120, 150, 210, 0.2);
+  border-radius: 16px;
+
+  background: rgba(10, 21, 42, 0.9);
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.28);
+
+  backdrop-filter: blur(18px);
+}
+
+.miniIcon {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 11px;
+
+  background: rgba(242, 198, 78, 0.1);
+
+  color: #f2c64e;
+}
+
+.miniCard div:nth-child(2) {
+  flex: 1;
+}
+
+.miniCard span {
+  display: block;
+
+  color: #6f809d;
+
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+.miniCard strong {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #eef2fa;
+
+  font-size: 0.76rem;
+}
+
+.miniReward {
+  color: #f1c64e !important;
+  font-size: 0.7rem !important;
+  font-weight: 900 !important;
+}
+
+
+/* =========================================
+   FLOATING REWARD
+========================================= */
+
+.floatingReward {
+  position: absolute;
+  z-index: 6;
+
+  top: 46px;
+  right: 30px;
+
+  padding: 14px 17px;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid rgba(112, 145, 207, 0.22);
+  border-radius: 13px;
+
+  background: rgba(10, 22, 44, 0.88);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.floatingReward span {
+  color: #71839f;
+
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.floatingReward strong {
+  margin-top: 4px;
+
+  color: #f4c84f;
+
+  font-size: 1rem;
+}
+
+
+/* Decorative VE orb */
+
+.previewOrb {
+  position: absolute;
+
+  left: 45px;
+  bottom: 85px;
+
+  width: 76px;
+  height: 76px;
+
+  display: grid;
+  place-items: center;
+
+  border: 2px solid rgba(243, 198, 78, 0.7);
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #3d5d91,
+      #101f3c
+    );
+
+  color: #f2c64e;
+
+  font-size: 1.2rem;
+  font-weight: 900;
+
+  box-shadow:
+    0 0 35px rgba(62, 106, 184, 0.25);
+}
+
+
+/* =========================================
+   QUICK ACTIONS
+========================================= */
+
+.quickActions {
+  width: min(1240px, 100%);
+  margin: 35px auto 100px;
+
+  display: grid;
+  grid-template-columns: 1.1fr repeat(3, 1fr);
+
+  border: 1px solid rgba(112, 141, 194, 0.13);
+  border-radius: 18px;
+
+  background: rgba(12, 24, 46, 0.62);
+}
+
+.quickIntro,
+.actionCard {
+  min-height: 125px;
+}
+
+.quickIntro {
+  padding: 27px 28px;
+}
+
+.quickIntro span,
+.sectionHeading span {
+  color: #eec34c;
+
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+
+.quickIntro h2 {
+  margin: 9px 0 0;
+
+  font-size: 1.45rem;
+  letter-spacing: -0.04em;
+}
+
+.actionCard {
+  position: relative;
+
+  padding: 27px 23px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+
+  border-left: 1px solid rgba(112, 141, 194, 0.1);
+
+  color: inherit;
+  text-decoration: none;
+
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.actionCard:hover {
+  background: rgba(28, 48, 83, 0.45);
+}
+
+.actionNumber {
+  color: #536783;
+
+  font-size: 0.64rem;
+  font-weight: 900;
+}
+
+.actionCard strong {
+  display: block;
+
+  font-size: 0.82rem;
+}
+
+.actionCard p {
+  margin: 5px 0 0;
+
+  color: #687995;
+
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+.actionArrow {
+  position: absolute;
+  right: 20px;
+  top: 24px;
+
+  color: #7689aa;
+}
+
+
+/* =========================================
+   REWARDS SECTION
+========================================= */
+
+.rewardsSection {
+  width: min(1240px, 100%);
   margin: 0 auto;
 }
 
-.bannerList > article {
-  scroll-margin-top: 20px;
+.sectionHeading {
+  margin-bottom: 30px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
 }
 
-@media (max-width: 576px) {
+.sectionHeading h2 {
+  margin: 9px 0 0;
+
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.sectionHeading p {
+  max-width: 380px;
+  margin: 0;
+
+  color: #7888a3;
+
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+
+/* Existing banners */
+
+.bannerList {
+  display: grid;
+  gap: 24px;
+}
+
+.bannerList > article {
+  scroll-margin-top: 100px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+/*
+   Responsive strategy:
+   - Desktop remains unchanged.
+   - Tablet stacks the hero naturally.
+   - Mobile uses real element widths instead of shrinking the
+     entire preview with transform, preventing clipping/empty space.
+*/
+
+@media (max-width: 1000px) {
+  .navLinks {
+    margin-left: 20px;
+    gap: 22px;
+  }
+
+  .hero {
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 12px;
+    min-height: 0;
+  }
+
+  .heroContent {
+    min-width: 0;
+    padding: 58px 0 12px;
+  }
+
+  .heroPreview {
+    min-width: 0;
+    min-height: 455px;
+    margin: 0;
+    transform: none;
+  }
+
+  .quickActions {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .quickIntro {
+    grid-column: 1 / -1;
+  }
+
+  .actionCard {
+    min-height: 118px;
+    padding: 24px 18px;
+    border-left: 1px solid rgba(112, 141, 194, 0.1);
+  }
+
+  .actionCard:nth-child(3) {
+    border-left: 1px solid rgba(112, 141, 194, 0.1);
+  }
+
+  .actionArrow {
+    right: 16px;
+    top: 22px;
+  }
+}
+
+@media (max-width: 700px) {
   .page {
-    padding: 30px 12px 55px;
+    padding: 0 16px 60px;
+    overflow-x: hidden;
   }
 
-  .header {
-    margin-bottom: 23px;
+  .navbar {
+    height: 70px;
+    gap: 8px;
+    min-width: 0;
   }
 
-  .header::after {
-    display: none;
+  .navLinks {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-left: auto;
+    min-width: 0;
   }
 
-  .header h1 {
-    font-size: 2.15rem;
+  .navLinks a {
+    font-size: 0.62rem;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
   }
 
-  .header p {
+  .navLinks a::after {
+    bottom: -5px;
+  }
+
+  .navActions {
+    gap: 0;
+    flex: 0 0 auto;
+  }
+
+  /* Login remains visible on mobile */
+  .loginButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 6px;
+    font-size: 0.56rem;
+    white-space: nowrap;
+  }
+
+  .navCta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px;
+    min-height: 34px;
+    border-radius: 9px;
+    font-size: 0.62rem;
+    white-space: nowrap;
+  }
+
+  .hero {
+    width: 100%;
+    gap: 0;
+    overflow: visible;
+  }
+
+  .heroContent {
+    width: 100%;
+    min-width: 0;
+    padding: 42px 0 8px;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    margin: 20px 0 20px;
+    font-size: clamp(2.9rem, 10.8vw, 4.2rem);
+    line-height: 0.95;
+    letter-spacing: -0.065em;
+  }
+
+  .heroDescription {
+    max-width: 100%;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .heroActions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .primaryButton {
+    height: 60px;
+    padding-left: 20px;
+  }
+
+  .buttonArrow {
+    width: 45px;
+    height: 45px;
+    flex-basis: 45px;
+  }
+
+  .secondaryButton {
+    height: 58px;
+  }
+
+  .trustRow {
+    width: 100%;
+    max-width: none;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    margin-top: 28px;
+    padding-top: 18px;
+  }
+
+  .trustRow > div,
+  .trustRow > div:not(:first-child) {
+    min-width: 0;
+    padding: 0 10px;
+  }
+
+  .trustRow > div:first-child {
+    padding-left: 0;
+  }
+
+  .trustRow > div:last-child {
+    padding-right: 0;
+  }
+
+  .trustRow strong {
+    font-size: 1.15rem;
+  }
+
+  .trustRow span {
+    font-size: 0.65rem;
+    line-height: 1.35;
+  }
+
+  /*
+     The preview is no longer scaled as one giant object.
+     Each element gets a real mobile size instead.
+  */
+  .heroPreview {
+    width: 100%;
+    min-height: 350px;
+    margin: 10px 0 0;
+    transform: none;
+    overflow: visible;
+  }
+
+  .previewGlow {
+    width: 330px;
+    height: 330px;
+  }
+
+  .balanceCard {
+    width: min(360px, 88vw);
+    box-sizing: border-box;
+    padding: 22px;
+    border-radius: 20px;
+    transform: rotate(-3deg);
+  }
+
+  .cardIcon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .balanceAmount {
+    margin-top: 30px;
+    font-size: clamp(2.45rem, 11vw, 3rem);
+  }
+
+  .progressTrack {
+    margin-top: 26px;
+  }
+
+  .miniCard {
+    right: max(0px, 2vw);
+    bottom: 30px;
+    width: min(245px, 67vw);
+    box-sizing: border-box;
+    padding: 13px;
+    gap: 9px;
+  }
+
+  .miniIcon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .floatingReward {
+    top: 32px;
+    right: max(0px, 2vw);
+    padding: 11px 13px;
+  }
+
+  .previewOrb {
+    left: max(0px, 3vw);
+    bottom: 45px;
+    width: 60px;
+    height: 60px;
+    font-size: 1rem;
+  }
+
+  .quickActions {
+    margin-top: 28px;
+    margin-bottom: 70px;
+    grid-template-columns: 1fr;
+  }
+
+  .quickIntro {
+    grid-column: auto;
+    min-height: auto;
+    padding: 22px 20px;
+  }
+
+  .actionCard {
+    min-height: 92px;
+    padding: 22px 20px;
+    border-left: 0;
+    border-top: 1px solid rgba(112, 141, 194, 0.1);
+  }
+
+  .actionArrow {
+    right: 18px;
+    top: 22px;
+  }
+
+  .sectionHeading {
+    display: block;
+  }
+
+  .sectionHeading p {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    gap: 6px;
+  }
+
+  .logo {
+    gap: 7px;
+    font-size: 0.78rem;
+    letter-spacing: 0.07em;
+    flex: 0 0 auto;
+  }
+
+  .logoMark {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+  }
+
+  .navLinks {
+    gap: 7px;
+  }
+
+  .navLinks a {
+    font-size: 0.56rem;
+    font-weight: 800;
+  }
+
+  .navCta {
+    padding: 7px 8px;
+    min-height: 32px;
+    font-size: 0.56rem;
+  }
+
+  /* Keep Login visible at 390px */
+  .loginButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 6px;
+    font-size: 0.56rem;
+    white-space: nowrap;
+  }
+
+  .heroContent {
+    padding-top: 34px;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(2.55rem, 11.5vw, 3.15rem);
+    line-height: 0.97;
+    letter-spacing: -0.06em;
+  }
+
+  .heroDescription {
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .heroActions {
+    margin-top: 22px;
+  }
+
+  .primaryButton {
+    height: 58px;
     font-size: 0.86rem;
+  }
+
+  .secondaryButton {
+    height: 54px;
+    font-size: 0.84rem;
+  }
+
+  .trustRow {
+    margin-top: 24px;
+    padding-top: 16px;
+  }
+
+  .trustRow > div,
+  .trustRow > div:not(:first-child) {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .trustRow strong {
+    font-size: 1.05rem;
+  }
+
+  .trustRow span {
+    margin-top: 3px;
+    font-size: 0.59rem;
+  }
+
+  .heroPreview {
+    min-height: 320px;
+    margin-top: 6px;
+  }
+
+  .previewGlow {
+    width: 285px;
+    height: 285px;
+  }
+
+  .balanceCard {
+    width: min(325px, 86vw);
+    padding: 19px;
+    border-radius: 18px;
+  }
+
+  .cardLabel {
+    font-size: 0.55rem;
+  }
+
+  .cardHeader strong {
+    font-size: 0.82rem;
+  }
+
+  .cardIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .balanceAmount {
+    margin-top: 25px;
+    font-size: 2.25rem;
+  }
+
+  .balanceAmount span {
+    font-size: 0.8rem;
+  }
+
+  .balanceMeta {
+    gap: 6px;
+    margin-top: 7px;
+  }
+
+  .balanceMeta span,
+  .balanceMeta small {
+    font-size: 0.62rem;
+  }
+
+  .progressTrack {
+    height: 6px;
+    margin-top: 22px;
+  }
+
+  .miniCard {
+    right: 0;
+    bottom: 24px;
+    width: min(215px, 62vw);
+    padding: 11px;
+  }
+
+  .miniIcon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .miniCard span {
+    font-size: 0.52rem;
+  }
+
+  .miniCard strong {
+    font-size: 0.66rem;
+  }
+
+  .miniReward {
+    font-size: 0.58rem !important;
+  }
+
+  .floatingReward {
+    top: 24px;
+    right: 0;
+    padding: 9px 11px;
+  }
+
+  .floatingReward span {
+    font-size: 0.5rem;
+  }
+
+  .floatingReward strong {
+    font-size: 0.82rem;
+  }
+
+  .previewOrb {
+    left: 0;
+    bottom: 38px;
+    width: 52px;
+    height: 52px;
+    font-size: 0.85rem;
+  }
+
+  .quickActions {
+    margin-top: 22px;
+  }
+
+  .quickIntro {
+    padding: 20px 18px;
+  }
+
+  .quickIntro h2 {
+    font-size: 1.3rem;
+  }
+
+  .actionCard {
+    min-height: 84px;
+    padding: 19px 18px;
+  }
+
+  .actionCard strong {
+    font-size: 0.78rem;
+  }
+
+  .actionCard p {
+    font-size: 0.64rem;
   }
 }

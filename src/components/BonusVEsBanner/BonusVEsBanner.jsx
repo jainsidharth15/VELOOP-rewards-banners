@@ -14,9 +14,8 @@ import { useNavigate } from "react-router-dom";
 
 import RewardBannerShell from "../shared/RewardBannerShell";
 
-import singleVEs from "../../assets/images/single_VEs.jpeg";
+import singleVEs from "../../assets/images/VE_clean.png";
 import multiVEsTransparent from "../../assets/images/multi_VEs_transparent.webp";
-import gameCoin from "../../assets/images/game_coin.jpeg";
 
 import styles from "./BonusVEsBanner.module.css";
 
@@ -37,14 +36,13 @@ export default function BonusVEsBanner() {
           <strong>VE Balance</strong>
         </h2>
 
-        <div className={styles.headingLine}>
+        <div className={styles.headingLine} aria-hidden="true">
           <span />
-          <b>›››</b>
         </div>
 
         <p>
-          Complete eligible activities and unlock additional VEs
-          through special bonus opportunities.
+          Complete eligible activities and unlock bonus VEs
+          through daily tasks, referrals, and special opportunities.
         </p>
 
         <div className={styles.actions}>
@@ -222,13 +220,6 @@ export default function BonusVEsBanner() {
           aria-hidden="true"
         />
 
-        <img
-          src={gameCoin}
-          alt=""
-          className={`${styles.floatingCoin} ${styles.coinThree}`}
-          aria-hidden="true"
-        />
-
         <Sparkles
           className={styles.sparkleOne}
           size={19}
@@ -245,7 +236,7 @@ export default function BonusVEsBanner() {
 
         <div className={`${styles.status} ${active ? styles.statusActive : ""}`}>
           <Sparkles size={16} strokeWidth={2} aria-hidden="true" />
-          <span>{active ? "Bonus opportunity active" : "Tap bonus to preview"}</span>
+          <span>{active ? "Bonus opportunity active" : "Tap VE to preview"}</span>
         </div>
       </div>
     </RewardBannerShell>

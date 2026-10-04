@@ -492,9 +492,9 @@
   z-index: 12;
 
   left: 250px;
-  top: 49%;
+  top: 50%;
 
-  width: 148px;
+  width: 150px;
   height: 70px;
 
   transform: translateY(-50%);
@@ -552,45 +552,35 @@
 .flowArrow {
   position: absolute;
 
+  left: 58%;
   top: 50%;
 
   display: grid;
   place-items: center;
 
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
 
   transform: translate(-50%, -50%);
 
-  color: #e8bd53;
+  border: 1px solid rgba(232, 189, 83, 0.38);
+  border-radius: 50%;
 
-  filter:
-    drop-shadow(0 0 8px rgba(233, 190, 82, 0.34));
+  color: #f0c95f;
+  background: rgba(7, 16, 31, 0.72);
 
-  animation: travelArrow 1.8s ease-in-out infinite;
-}
+  box-shadow:
+    0 0 18px rgba(233, 190, 82, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
-.flowArrowOne {
-  left: 30%;
-}
-
-.flowArrowTwo {
-  left: 57%;
-
-  animation-delay: 0.25s;
-}
-
-.flowArrowThree {
-  left: 84%;
-
-  animation-delay: 0.5s;
+  filter: drop-shadow(0 0 8px rgba(233, 190, 82, 0.20));
 }
 
 .flowLabel {
   position: absolute;
 
-  left: 50%;
-  top: calc(50% + 23px);
+  left: 58%;
+  top: calc(50% + 27px);
 
   transform: translateX(-50%);
 
@@ -656,8 +646,8 @@
 
   z-index: 14;
 
-  left: 33%;
-  top: 70%;
+  left: 34%;
+  top: 75%;
 
   width: 205px;
 
@@ -752,98 +742,13 @@
   text-align: center;
 }
 
-.rewardVisual {
-  position: absolute;
-
-  z-index: 6;
-
-  left: 20%;
-  top: -2%;
-
-  width: 132px;
-  height: 132px;
-
-  display: grid;
-  place-items: center;
-
-  pointer-events: none;
-}
-
-.rewardGlow {
-  position: absolute;
-
-  inset: -4px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(70, 126, 228, 0.20),
-      rgba(224, 182, 73, 0.07) 46%,
-      transparent 72%
-    );
-
-  filter: blur(9px);
-}
-
-.gem {
-  position: relative;
-  z-index: 2;
-
-  width: 132px;
-  height: 132px;
-
-  object-fit: contain;
-
-  opacity: 0.96;
-
-  filter:
-    drop-shadow(0 20px 20px rgba(0, 0, 0, 0.34))
-    drop-shadow(0 0 20px rgba(65, 117, 220, 0.14));
-}
-
-.rewardBadge {
-  position: absolute;
-
-  z-index: 4;
-
-  left: 50%;
-  bottom: -1px;
-
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-
-  transform: translateX(-50%);
-
-  padding: 6px 9px;
-
-  border: 1px solid rgba(225, 185, 78, 0.20);
-  border-radius: 999px;
-
-  background: rgba(8, 16, 32, 0.86);
-
-  color: #b4bfd3;
-
-  font-size: 0.40rem;
-  font-weight: 900;
-  white-space: nowrap;
-
-  backdrop-filter: blur(9px);
-}
-
-.rewardBadge svg {
-  color: #e6bd52;
-}
-
 .rewardStack {
   position: absolute;
 
   z-index: 15;
 
   right: 0;
-  top: 5%;
+  top: 7%;
 
   width: 270px;
 }
@@ -879,7 +784,7 @@
   display: grid;
   gap: 9px;
 
-  width: 255px;
+  width: 250px;
 
   margin-left: auto;
 }
@@ -1032,99 +937,6 @@
   border-radius: 50%;
 }
 
-.status {
-  position: absolute;
-
-  z-index: 25;
-
-  right: 0;
-  bottom: 1%;
-
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  min-width: 190px;
-
-  padding: 9px 12px;
-
-  border: 1px solid rgba(255,255,255,0.09);
-  border-radius: 999px;
-
-  background: rgba(7, 13, 26, 0.92);
-
-  color: #9eabc0;
-
-  font-size: 0.51rem;
-
-  box-shadow:
-    0 12px 25px rgba(0,0,0,0.25),
-    inset 0 1px 0 rgba(255,255,255,0.04);
-
-  backdrop-filter: blur(10px);
-}
-
-.statusIcon {
-  display: grid;
-  place-items: center;
-
-  width: 22px;
-  height: 22px;
-  flex: 0 0 22px;
-
-  border: 1px solid rgba(229,190,83,0.45);
-  border-radius: 50%;
-
-  color: #e7bd52;
-  background: rgba(226,185,77,0.08);
-}
-
-.statusText {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-
-  min-width: 0;
-  flex: 1;
-}
-
-.statusText b {
-  color: #eef3ff;
-
-  font-size: 0.56rem;
-  font-weight: 850;
-}
-
-.statusText small {
-  color: #71819b;
-
-  font-size: 0.44rem;
-}
-
-.status > svg {
-  flex: 0 0 auto;
-  color: #8fb9ff;
-}
-
-@keyframes travelArrow {
-  0%,
-  100% {
-    opacity: 0.28;
-    filter:
-      drop-shadow(
-        0 0 4px rgba(233, 190, 82, 0.14)
-      );
-  }
-
-  50% {
-    opacity: 1;
-    filter:
-      drop-shadow(
-        0 0 12px rgba(233, 190, 82, 0.50)
-      );
-  }
-}
-
 @media (max-width: 991px) {
   .banner {
     grid-template-columns: 42% 58%;
@@ -1153,18 +965,6 @@
 
   .balanceCopy strong {
     font-size: 1.3rem;
-  }
-
-  .rewardVisual {
-    left: 21%;
-    top: 1%;
-    width: 112px;
-    height: 112px;
-  }
-
-  .gem {
-    width: 112px;
-    height: 112px;
   }
 
   .rewardStack {
@@ -1197,15 +997,19 @@
   }
 }
 
+/* =========================================================
+   RESPONSIVE STACK
+   Tablet and below use normal document flow so the
+   content and artwork cannot be vertically cropped.
+   ========================================================= */
+
 @media (max-width: 768px) {
   .banner {
     grid-template-columns: 1fr;
-    grid-template-rows: auto minmax(0, 1fr);
-
-    min-height: 520px;
-    height: 520px;
-
-    padding: 18px 18px 10px;
+    grid-template-rows: auto auto;
+    min-height: 0;
+    height: auto;
+    padding: 24px 18px 20px;
   }
 
   .content {
@@ -1214,7 +1018,7 @@
   }
 
   .content h2 {
-    font-size: 2.5rem;
+    font-size: clamp(2.2rem, 7vw, 2.7rem);
   }
 
   .content h2::after {
@@ -1223,12 +1027,14 @@
   }
 
   .content p {
-    margin: 9px auto 12px;
+    max-width: 540px;
+    margin: 12px auto 15px;
     font-size: 0.82rem;
   }
 
   .actions {
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .micro {
@@ -1237,50 +1043,49 @@
   }
 
   .visual {
-    min-height: 0;
-    margin-top: 2px;
+    min-height: 390px;
+    margin-top: 12px;
+    overflow: visible;
   }
 
   .wallet {
     left: 0;
-    top: 9%;
-
-    width: 195px;
-    min-height: 135px;
-
-    padding: 11px;
+    top: 10%;
+    width: 205px;
+    min-height: 145px;
+    padding: 12px;
   }
 
   .walletTop strong {
-    font-size: 0.60rem;
+    font-size: 0.62rem;
   }
 
   .walletIcon {
-    width: 31px;
-    height: 31px;
+    width: 32px;
+    height: 32px;
   }
 
   .balanceRow {
-    margin-top: 11px;
+    margin-top: 12px;
   }
 
   .coinFrame {
-    width: 46px;
-    height: 46px;
-    flex-basis: 46px;
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
   }
 
   .coinFrame img {
-    width: 41px;
-    height: 41px;
+    width: 43px;
+    height: 43px;
   }
 
   .balanceCopy strong {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
   .balanceCopy span {
-    font-size: 0.42rem;
+    font-size: 0.43rem;
   }
 
   .progress {
@@ -1289,52 +1094,33 @@
 
   .walletFoot {
     margin-top: 6px;
-    font-size: 0.38rem;
+    font-size: 0.39rem;
   }
 
   .flowRail {
-    left: 165px;
+    left: 180px;
     top: 50%;
-    width: 95px;
+    width: 105px;
   }
 
   .flowArrow {
-    width: 27px;
-    height: 27px;
+    width: 35px;
+    height: 35px;
   }
 
   .flowArrow svg {
-    width: 19px;
-    height: 19px;
+    width: 21px;
+    height: 21px;
   }
 
   .flowLabel {
-    top: calc(50% + 19px);
-  }
-
-  .rewardVisual {
-    left: 23%;
-    top: 0;
-
-    width: 88px;
-    height: 88px;
-  }
-
-  .gem {
-    width: 88px;
-    height: 88px;
-  }
-
-  .rewardBadge {
-    bottom: -3px;
-    font-size: 0.32rem;
-    padding: 4px 6px;
+    top: calc(50% + 22px);
   }
 
   .rewardStack {
     right: 0;
-    top: 5%;
-    width: 190px;
+    top: 7%;
+    width: 205px;
   }
 
   .rewardLabel {
@@ -1342,27 +1128,27 @@
   }
 
   .options {
-    width: 168px;
+    width: 180px;
   }
 
   .option {
-    min-height: 48px;
-    padding: 6px 7px;
+    min-height: 50px;
+    padding: 6px 8px;
   }
 
   .optionIcon {
-    width: 31px;
-    height: 31px;
-    flex-basis: 31px;
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
   }
 
   .optionIcon svg {
-    width: 16px;
-    height: 16px;
+    width: 17px;
+    height: 17px;
   }
 
   .optionText b {
-    font-size: 0.52rem;
+    font-size: 0.54rem;
   }
 
   .optionText small {
@@ -1370,11 +1156,9 @@
   }
 
   .exchangeRate {
-    left: 24%;
-    top: 67%;
-
-    width: 165px;
-
+    left: 27%;
+    top: 69%;
+    width: 170px;
     padding: 7px 9px;
   }
 
@@ -1394,38 +1178,27 @@
   .rateAsset span {
     font-size: 0.46rem;
   }
-
-  .status {
-    right: 50%;
-    bottom: 0;
-
-    transform: translateX(50%);
-  }
 }
 
 @media (max-width: 520px) {
   .banner {
-    min-height: 500px;
-    height: 500px;
-    padding: 14px 10px 8px;
+    padding: 20px 12px 16px;
   }
 
   .content h2 {
-    font-size: 1.9rem;
+    font-size: 1.95rem;
   }
 
   .content p {
-    max-width: 320px;
-
-    margin: 7px auto 9px;
-
+    max-width: 330px;
+    margin: 8px auto 10px;
     font-size: 0.70rem;
-    line-height: 1.38;
+    line-height: 1.42;
   }
 
   .actions {
     flex-direction: column;
-    gap: 6px;
+    gap: 7px;
   }
 
   .actions .actionNote {
@@ -1437,16 +1210,15 @@
   }
 
   .visual {
-    min-height: 0;
+    min-height: 305px;
+    margin-top: 6px;
   }
 
   .wallet {
     left: 0;
-    top: 13%;
-
+    top: 8%;
     width: 150px;
     min-height: 104px;
-
     padding: 8px;
   }
 
@@ -1512,36 +1284,18 @@
   }
 
   .flowArrow {
-    width: 22px;
-    height: 22px;
+    width: 28px;
+    height: 28px;
   }
 
   .flowArrow svg {
-    width: 15px;
-    height: 15px;
+    width: 17px;
+    height: 17px;
   }
 
   .flowLabel {
-    top: calc(50% + 16px);
+    top: calc(50% + 18px);
     font-size: 0.33rem;
-  }
-
-  .rewardVisual {
-    left: 22%;
-    top: 0;
-
-    width: 70px;
-    height: 70px;
-  }
-
-  .gem {
-    width: 70px;
-    height: 70px;
-  }
-
-  .rewardBadge {
-    font-size: 0.28rem;
-    padding: 3px 5px;
   }
 
   .rewardStack {
@@ -1605,9 +1359,7 @@
   .exchangeRate {
     left: 20%;
     top: 66%;
-
     width: 145px;
-
     padding: 6px 7px;
   }
 
@@ -1634,40 +1386,10 @@
     margin-top: 4px;
     font-size: 0.31rem;
   }
-
-  .status {
-    min-width: 150px;
-    padding: 5px 7px;
-  }
-
-  .statusIcon {
-    width: 17px;
-    height: 17px;
-    flex-basis: 17px;
-  }
-
-  .statusIcon svg {
-    width: 11px;
-    height: 11px;
-  }
-
-  .statusText b {
-    font-size: 0.42rem;
-  }
-
-  .statusText small {
-    font-size: 0.32rem;
-  }
-
-  .status > svg {
-    width: 12px;
-    height: 12px;
-  }
 }
 
 
 @media (prefers-reduced-motion: reduce) {
-  .gem,
   .flowArrow {
     animation: none;
   }
@@ -1675,4 +1397,23 @@
   .option {
     transition: none;
   }
+}
+
+
+/* Final redemption-preview cleanup */
+.rewardMark {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #f4c95d;
+  background: rgba(244, 201, 93, 0.08);
+  border: 1px solid rgba(244, 201, 93, 0.18);
+  flex: 0 0 32px;
+}
+
+.rateFlow .rewardMark + span {
+  color: rgba(244, 246, 252, 0.92);
 }

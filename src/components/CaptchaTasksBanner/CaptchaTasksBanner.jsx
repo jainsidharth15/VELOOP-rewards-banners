@@ -116,6 +116,10 @@ export default function CaptchaTasksBanner() {
       <div className={styles.visual}>
         <div className={styles.glow} />
         <div className={styles.purpleRing} />
+        <div className={styles.visualGrid} aria-hidden="true" />
+        <div className={styles.rewardOrb} aria-hidden="true">
+          <span>+ GEMS</span>
+        </div>
 
         {/* =================================================
             GEM HERO

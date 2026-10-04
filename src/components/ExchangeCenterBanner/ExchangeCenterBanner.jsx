@@ -17,8 +17,6 @@ import RewardBannerShell from "../shared/RewardBannerShell";
 import BannerButton from "../shared/BannerButton";
 
 import singleVE from "../../assets/images/single_VEs.jpeg";
-import singleGem from "../../assets/images/single_gem_transparent_v2.webp";
-import multiGems from "../../assets/images/multi_gems_transparent_v2.webp";
 
 import styles from "./ExchangeCenterBanner.module.css";
 
@@ -59,16 +57,16 @@ export default function ExchangeCenterBanner() {
             strokeWidth={2.1}
             aria-hidden="true"
           />
-          <span>REDEEM YOUR REWARDS</span>
+          <span>REDEEM • EXCHANGE • REWARD</span>
         </span>
 
         <h2>
-          Exchange <strong>Center</strong>
+          Turn VE Into <strong>Rewards.</strong>
         </h2>
 
         <p>
-          Explore available redemption options and exchange
-          eligible VEs for supported rewards.
+          Redeem eligible VEs through supported payout options and
+          choose the reward that works for you.
         </p>
 
         <div className={styles.actions}>
@@ -82,7 +80,7 @@ export default function ExchangeCenterBanner() {
               strokeWidth={2}
               aria-hidden="true"
             />
-            <span>Choose how to redeem</span>
+            <span>Choose your reward method</span>
           </span>
         </div>
 
@@ -174,22 +172,8 @@ export default function ExchangeCenterBanner() {
 
           <span className={styles.flowLine} />
 
-          <span
-            className={`${styles.flowArrow} ${styles.flowArrowOne}`}
-          >
-            <ArrowRight size={24} strokeWidth={2.2} />
-          </span>
-
-          <span
-            className={`${styles.flowArrow} ${styles.flowArrowTwo}`}
-          >
-            <ArrowRight size={24} strokeWidth={2.2} />
-          </span>
-
-          <span
-            className={`${styles.flowArrow} ${styles.flowArrowThree}`}
-          >
-            <ArrowRight size={24} strokeWidth={2.2} />
+          <span className={styles.flowArrow}>
+            <ArrowRight size={25} strokeWidth={2.2} />
           </span>
 
           <span className={styles.flowLabel}>REDEEM</span>
@@ -206,7 +190,7 @@ export default function ExchangeCenterBanner() {
               strokeWidth={2.1}
               aria-hidden="true"
             />
-            <span>EXCHANGE RATE</span>
+            <span>REDEMPTION PREVIEW</span>
           </div>
 
           <div className={styles.rateFlow}>
@@ -219,46 +203,21 @@ export default function ExchangeCenterBanner() {
               <span>VE</span>
             </div>
 
-            <ArrowLeftRight
+            <ArrowRight
               size={25}
               strokeWidth={2}
               aria-hidden="true"
             />
 
             <div className={styles.rateAsset}>
-              <img
-                src={singleGem}
-                alt=""
-                aria-hidden="true"
-              />
+              <span className={styles.rewardMark} aria-hidden="true">
+                <Gift size={18} strokeWidth={2} />
+              </span>
               <span>REWARD</span>
             </div>
           </div>
 
           <small>Rate preview shown at redemption</small>
-        </div>
-
-        {/* =================================================
-            REWARD VISUAL
-        ================================================= */}
-
-        <div className={styles.rewardVisual}>
-          <div className={styles.rewardGlow} />
-
-          <img
-            src={multiGems}
-            alt="Reward gems"
-            className={styles.gem}
-          />
-
-          <div className={styles.rewardBadge}>
-            <Sparkles
-              size={13}
-              strokeWidth={2}
-              aria-hidden="true"
-            />
-            <span>REWARD VALUE</span>
-          </div>
         </div>
 
         {/* =================================================
@@ -326,30 +285,6 @@ export default function ExchangeCenterBanner() {
           </div>
         </div>
 
-        {/* =================================================
-            SELECTED STATUS
-        ================================================= */}
-
-        <div className={styles.status}>
-          <span className={styles.statusIcon}>
-            <Check
-              size={15}
-              strokeWidth={2.8}
-              aria-hidden="true"
-            />
-          </span>
-
-          <span className={styles.statusText}>
-            <b>{selected}</b>
-            <small>Selected for redemption</small>
-          </span>
-
-          <Sparkles
-            size={17}
-            strokeWidth={2}
-            aria-hidden="true"
-          />
-        </div>
       </div>
     </RewardBannerShell>
   );

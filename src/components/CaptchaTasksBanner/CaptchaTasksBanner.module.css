@@ -1004,3 +1004,622 @@
     transition: none;
   }
 }
+
+
+/* =========================================================
+   FINAL PREMIUM REFINEMENT
+   Captcha Tasks banner
+========================================================= */
+
+.banner {
+  position: relative;
+  overflow: hidden;
+  grid-template-columns: 43% 57%;
+  min-height: 360px;
+  padding: 34px 42px;
+  border: 1px solid rgba(158, 121, 255, 0.22);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 82% 44%, rgba(127, 77, 242, 0.20), transparent 27%),
+    radial-gradient(circle at 68% 92%, rgba(91, 67, 194, 0.13), transparent 28%),
+    linear-gradient(118deg, #080c1b 0%, #11142b 58%, #0b1023 100%);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  border-radius: 21px;
+  pointer-events: none;
+}
+
+.banner::after {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  right: -150px;
+  top: -170px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(174, 111, 255, 0.11), transparent 68%);
+  pointer-events: none;
+}
+
+.content {
+  z-index: 20;
+  padding-left: 4px;
+}
+
+.label {
+  margin-bottom: 17px;
+  padding: 8px 12px;
+  border: 1px solid rgba(166, 127, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(102, 70, 180, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+  color: #bba5ff;
+}
+
+.content h2 {
+  max-width: 470px;
+  font-size: clamp(2.8rem, 4.6vw, 4rem);
+  line-height: 0.91;
+  letter-spacing: -0.068em;
+}
+
+.content h2 strong {
+  background:
+    linear-gradient(100deg, #d9c7ff 0%, #aa75ff 48%, #7246dc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.content p {
+  max-width: 455px;
+  margin: 19px 0 22px;
+  color: #aeb3cc;
+  font-size: 0.94rem;
+  line-height: 1.62;
+}
+
+.actions {
+  gap: 15px;
+}
+
+.actions > span {
+  padding: 8px 10px;
+  border: 1px solid rgba(255,255,255,0.055);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.018);
+}
+
+.steps {
+  margin-top: 21px;
+  padding: 9px 12px;
+  border: 1px solid rgba(255,255,255,0.055);
+  border-radius: 999px;
+  background: rgba(5, 8, 19, 0.34);
+}
+
+/* RIGHT VISUAL STAGE */
+
+.visual {
+  min-height: 320px;
+  isolation: isolate;
+}
+
+.visualGrid {
+  position: absolute;
+  inset: 7% 1% 3% 4%;
+  z-index: 1;
+  border-radius: 30px;
+  opacity: 0.30;
+  background:
+    linear-gradient(rgba(157, 119, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(157, 119, 255, 0.035) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at 58% 48%, black 0%, transparent 73%);
+  pointer-events: none;
+}
+
+.glow {
+  z-index: 0;
+  left: 61%;
+  top: 51%;
+  width: 520px;
+  height: 330px;
+  background:
+    radial-gradient(
+      circle,
+      rgba(139, 77, 255, 0.27),
+      rgba(91, 54, 179, 0.08) 50%,
+      transparent 74%
+    );
+  filter: blur(12px);
+}
+
+.purpleRing {
+  z-index: 2;
+  left: 67%;
+  top: 51%;
+  width: 305px;
+  height: 305px;
+  border-color: rgba(169, 122, 255, 0.17);
+  box-shadow:
+    0 0 65px rgba(125, 73, 235, 0.10),
+    inset 0 0 35px rgba(151, 101, 255, 0.04);
+}
+
+/* Small decorative reward orb */
+.rewardOrb {
+  position: absolute;
+  z-index: 7;
+  right: 9%;
+  top: 13%;
+  width: 66px;
+  height: 66px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(195, 154, 255, 0.28);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(194, 157, 255, 0.22), rgba(21, 16, 48, 0.96) 63%);
+  box-shadow:
+    0 16px 30px rgba(0,0,0,0.26),
+    0 0 26px rgba(147, 79, 255, 0.18),
+    inset 0 1px 0 rgba(255,255,255,0.10);
+  color: #c9a8ff;
+  transform: rotate(8deg);
+}
+
+.rewardOrb::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(194, 155, 255, 0.13);
+  border-radius: 50%;
+}
+
+.rewardOrb span {
+  position: relative;
+  font-size: 0.47rem;
+  font-weight: 900;
+  letter-spacing: 0.10em;
+}
+
+/* GEM HERO */
+
+.gemHero {
+  z-index: 6;
+  right: 0%;
+  top: 0%;
+  width: 245px;
+  height: 245px;
+}
+
+.gemHero > img {
+  width: 238px;
+  height: 238px;
+  filter:
+    drop-shadow(0 25px 28px rgba(0,0,0,0.42))
+    drop-shadow(0 0 28px rgba(157, 81, 255, 0.24));
+}
+
+.gemHero::before {
+  inset: 18%;
+  background: rgba(139, 80, 246, 0.14);
+  filter: blur(28px);
+}
+
+.gemBadge {
+  right: -1%;
+  bottom: 4%;
+  padding: 8px 11px;
+  background: rgba(7, 9, 20, 0.88);
+  border-color: rgba(172, 128, 255, 0.32);
+  backdrop-filter: blur(12px);
+}
+
+/* CAPTCHA CARD — make it the visual anchor */
+
+.taskCard {
+  z-index: 14;
+  left: 4%;
+  top: 20%;
+  width: 330px;
+  padding: 17px;
+  border-color: rgba(185, 145, 255, 0.38);
+  border-radius: 22px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(34, 34, 72, 0.97),
+      rgba(16, 17, 40, 0.98) 55%,
+      rgba(7, 10, 24, 0.98)
+    );
+  box-shadow:
+    0 32px 65px rgba(0,0,0,0.46),
+    0 0 42px rgba(125, 67, 239, 0.16),
+    inset 0 1px 0 rgba(255,255,255,0.10);
+}
+
+.taskCard::before {
+  inset: 8px -10px -11px 8px;
+  opacity: 0.62;
+}
+
+.cardTop {
+  gap: 11px;
+}
+
+.shield {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: linear-gradient(145deg, rgba(137,91,246,0.18), rgba(77,53,151,0.10));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.captchaDisplay {
+  margin-top: 16px;
+  min-height: 67px;
+  padding: 13px 16px;
+  border-color: rgba(184, 144, 255, 0.22);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(161,105,255,0.12), transparent 35%),
+    linear-gradient(145deg, rgba(47,44,73,0.98), rgba(21,21,45,0.98));
+}
+
+.captchaDisplay span {
+  font-size: 1.75rem;
+  letter-spacing: 0.23em;
+  text-shadow:
+    0 0 16px rgba(188, 145, 255, 0.18),
+    1px 1px 0 rgba(0,0,0,0.5);
+}
+
+.inputRow {
+  margin-top: 11px;
+}
+
+.inputRow input,
+.inputRow button {
+  height: 44px;
+}
+
+.inputRow button {
+  min-width: 88px;
+}
+
+/* FLOW / STATUS */
+
+.flow {
+  z-index: 16;
+  right: 4%;
+  bottom: 4%;
+  padding: 10px 13px;
+  background: rgba(6, 9, 20, 0.82);
+  border-color: rgba(255,255,255,0.09);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+  backdrop-filter: blur(12px);
+}
+
+.rewardPill {
+  z-index: 16;
+  left: 4%;
+  bottom: 3%;
+  padding: 9px 12px;
+  background: rgba(7, 9, 20, 0.78);
+  border-color: rgba(160, 122, 255, 0.22);
+  backdrop-filter: blur(12px);
+}
+
+/* Verified state should feel like a deliberate reward moment. */
+.taskCardSuccess {
+  border-color: rgba(195, 153, 255, 0.70);
+  box-shadow:
+    0 34px 72px rgba(0,0,0,0.48),
+    0 0 52px rgba(144, 73, 245, 0.30),
+    inset 0 1px 0 rgba(255,255,255,0.13);
+}
+
+.gemHeroActive {
+  transform: scale(1.04);
+  filter: drop-shadow(0 0 30px rgba(165,88,255,0.24));
+}
+
+/* Responsive cleanup */
+
+@media (max-width: 991px) {
+  .banner {
+    grid-template-columns: 44% 56%;
+    padding: 28px 30px;
+  }
+
+  .taskCard {
+    left: 0;
+    width: 315px;
+  }
+
+  .rewardOrb {
+    right: 2%;
+    width: 62px;
+    height: 62px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    grid-template-columns: 1fr;
+    padding: 22px 20px 14px;
+  }
+
+  .visual {
+    min-height: 305px;
+    margin-top: 4px;
+  }
+
+  .taskCard {
+    left: 2%;
+    top: 11%;
+    width: min(300px, 72%);
+  }
+
+  .gemHero {
+    right: 0;
+    top: 1%;
+    width: 190px;
+    height: 190px;
+  }
+
+  .gemHero > img {
+    width: 185px;
+    height: 185px;
+  }
+
+  .rewardOrb {
+    right: 1%;
+    top: 4%;
+  }
+
+  .flow {
+    right: 0;
+    bottom: 1%;
+  }
+
+  .rewardPill {
+    left: 0;
+    bottom: 1%;
+  }
+}
+
+@media (max-width: 520px) {
+  .banner {
+    border-radius: 21px;
+    padding: 17px 13px 10px;
+  }
+
+  .visual {
+    min-height: 285px;
+  }
+
+  .taskCard {
+    width: 245px;
+    left: 0;
+    top: 10%;
+    padding: 11px;
+  }
+
+  .gemHero {
+    width: 142px;
+    height: 142px;
+    right: -2%;
+  }
+
+  .gemHero > img {
+    width: 138px;
+    height: 138px;
+  }
+
+  .rewardOrb {
+    width: 52px;
+    height: 52px;
+    right: 1%;
+    top: 1%;
+  }
+
+  .rewardOrb span {
+    font-size: 0.39rem;
+  }
+
+  .flow {
+    font-size: 0.37rem;
+    padding: 6px 8px;
+  }
+
+  .rewardPill {
+    font-size: 0.36rem;
+    padding: 6px 8px;
+  }
+
+  .visualGrid {
+    background-size: 24px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rewardOrb {
+    transform: none;
+  }
+}
+
+
+/* Final CTA refinement: cohesive violet/gem palette */
+.cta,
+.primaryButton,
+.actions button {
+  background: linear-gradient(135deg, #7554e8 0%, #9a62f5 55%, #b17cff 100%);
+  border-color: rgba(190, 153, 255, 0.48);
+  box-shadow:
+    0 12px 26px rgba(103, 65, 212, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.cta:hover,
+.primaryButton:hover,
+.actions button:hover {
+  background: linear-gradient(135deg, #8363ee 0%, #a66df7 55%, #ba8aff 100%);
+  box-shadow:
+    0 15px 30px rgba(103, 65, 212, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20);
+}
+
+@media (max-width: 991px) {
+  .taskCard {
+    left: 2%;
+    width: 305px;
+  }
+
+  .rewardOrb {
+    right: 6%;
+    top: 12%;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .taskCard {
+    left: 2%;
+    width: min(290px, 72%);
+  }
+
+  .rewardOrb {
+    right: 5%;
+    top: 8%;
+  }
+}
+
+@media (max-width: 520px) {
+  .taskCard {
+    width: 238px;
+  }
+
+  .rewardOrb {
+    right: 2%;
+    top: 5%;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* =========================================================
+   FINAL RESPONSIVE LAYOUT FIX
+   The shared RewardBannerShell has fixed heights at tablet/mobile.
+   Override those heights so the CAPTCHA content can determine the
+   banner height instead of being clipped by the shell.
+   ========================================================= */
+
+@media (max-width: 991px) {
+  .banner {
+    height: auto !important;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    height: auto !important;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-content: start;
+    padding: 22px 20px 18px;
+  }
+
+  .visual {
+    min-height: 360px;
+    height: 360px;
+    margin-top: 8px;
+  }
+
+  .taskCard {
+    left: 2%;
+    top: 3%;
+    width: min(290px, 72%);
+  }
+
+  .gemHero {
+    right: 0;
+    top: 1%;
+  }
+
+  .rewardOrb {
+    right: 5%;
+    top: 4%;
+  }
+
+  .flow {
+    right: 0;
+    bottom: 1%;
+  }
+
+  .rewardPill {
+    left: 0;
+    bottom: 1%;
+  }
+}
+
+@media (max-width: 520px) {
+  .banner {
+    height: auto !important;
+    min-height: 0;
+    padding: 17px 13px 14px;
+  }
+
+  .visual {
+    min-height: 350px;
+    height: 350px;
+    margin-top: 8px;
+  }
+
+  .taskCard {
+    width: 238px;
+    left: 0;
+    top: 2%;
+  }
+
+  .gemHero {
+    width: 142px;
+    height: 142px;
+    right: -2%;
+    top: 1%;
+  }
+
+  .gemHero > img {
+    width: 138px;
+    height: 138px;
+  }
+
+  .rewardOrb {
+    width: 50px;
+    height: 50px;
+    right: 2%;
+    top: 2%;
+  }
+
+  .flow {
+    right: 0;
+    bottom: 1%;
+  }
+
+  .rewardPill {
+    left: 0;
+    bottom: 1%;
+  }
+}

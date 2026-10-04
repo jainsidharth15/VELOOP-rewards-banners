@@ -4,8 +4,10 @@ import {
   Copy,
   Gift,
   ShieldCheck,
+  Share2,
   Sparkles,
   Users,
+  Zap,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -36,17 +38,23 @@ export default function ReferEarnBanner() {
 
   return (
     <RewardBannerShell className={styles.banner}>
-      {/* =========================
-          CONTENT
-      ========================= */}
+      <div className={styles.backgroundGrid} aria-hidden="true" />
+      <div className={styles.backgroundOrbOne} aria-hidden="true" />
+      <div className={styles.backgroundOrbTwo} aria-hidden="true" />
+
+      {/* LEFT: message + CTA */}
       <div className={styles.content}>
         <div className={styles.eyebrow}>
-          <Users size={15} strokeWidth={2.2} />
+          <span className={styles.eyebrowIcon}>
+            <Users size={14} strokeWidth={2.4} />
+          </span>
           <span>REFER &amp; EARN</span>
+          <span className={styles.eyebrowDot} />
+          <span className={styles.eyebrowStatus}>REWARDS</span>
         </div>
 
         <h2 className={styles.heading}>
-          Refer Friends,
+          Refer Friends.
           <span>Earn Rewards.</span>
         </h2>
 
@@ -58,57 +66,60 @@ export default function ReferEarnBanner() {
         <div className={styles.actions}>
           <BannerButton to="/refer">
             Invite Friends
-            <ArrowRight size={17} />
           </BannerButton>
 
           <div className={styles.actionNote}>
-            <Sparkles size={14} />
-            <span>Share the opportunity</span>
+            <Share2 size={14} />
+            <span>Share your referral. Grow together.</span>
           </div>
         </div>
 
-        {/* Small value highlights */}
-        <div className={styles.highlights}>
-          <div className={styles.highlight}>
-            <div className={styles.highlightIcon}>
-              <Users size={16} />
-            </div>
-
-            <div>
-              <strong>Invite</strong>
-              <span>Friends</span>
-            </div>
+        {/* Value proposition rail */}
+        <div className={styles.valueRail}>
+          <div className={styles.valueItem}>
+            <span className={styles.valueIcon}>
+              <Share2 size={15} />
+            </span>
+            <span>
+              <strong>Easy to share</strong>
+              <small>Send your code</small>
+            </span>
           </div>
 
-          <div className={styles.highlight}>
-            <div className={styles.highlightIcon}>
-              <Gift size={16} />
-            </div>
+          <div className={styles.valueDivider} />
 
-            <div>
-              <strong>Unlock</strong>
-              <span>Rewards</span>
-            </div>
+          <div className={styles.valueItem}>
+            <span className={styles.valueIcon}>
+              <Gift size={15} />
+            </span>
+            <span>
+              <strong>Unlock rewards</strong>
+              <small>Earn when eligible</small>
+            </span>
           </div>
 
-          <div className={styles.highlight}>
-            <div className={styles.highlightIcon}>
-              <ShieldCheck size={16} />
-            </div>
+          <div className={styles.valueDivider} />
 
-            <div>
-              <strong>Secure</strong>
-              <span>Referral</span>
-            </div>
+          <div className={styles.valueItem}>
+            <span className={styles.valueIcon}>
+              <ShieldCheck size={15} />
+            </span>
+            <span>
+              <strong>Secure referral</strong>
+              <small>Built into VELOOP</small>
+            </span>
           </div>
         </div>
       </div>
 
-      {/* =========================
-          HERO VISUAL
-      ========================= */}
+      {/* RIGHT: large referral visual */}
       <div className={styles.visual}>
-        <div className={styles.visualGlow} />
+        <div className={styles.visualGlow} aria-hidden="true" />
+
+        <div className={styles.visualLabel}>
+          <Sparkles size={13} />
+          <span>SHARE • INVITE • EARN</span>
+        </div>
 
         <div className={styles.imageFrame}>
           <img
@@ -116,40 +127,85 @@ export default function ReferEarnBanner() {
             alt="VELOOP referral experience with friends and a referral reward screen"
             className={styles.heroImage}
           />
-
-          <div className={styles.imageShade} />
+          <div className={styles.imageOverlay} />
+          <div className={styles.imageVignette} />
         </div>
 
-        {/* Referral code card */}
+        {/* Referral code floating card */}
         <div className={styles.codeCard}>
-          <div className={styles.codeContent}>
+          <div className={styles.codeTopline}>
             <span>Your Referral Code</span>
-            <strong>{referralCode}</strong>
+            <span className={styles.liveDot} />
           </div>
 
-          <button
-            type="button"
-            className={styles.copyButton}
-            onClick={handleCopy}
-            aria-label={
-              copied ? "Referral code copied" : "Copy referral code"
-            }
-            title={copied ? "Copied" : "Copy referral code"}
-          >
-            {copied ? <Check size={17} /> : <Copy size={17} />}
-          </button>
+          <div className={styles.codeRow}>
+            <strong>{referralCode}</strong>
+
+            <button
+              type="button"
+              className={styles.copyButton}
+              onClick={handleCopy}
+              aria-label={
+                copied ? "Referral code copied" : "Copy referral code"
+              }
+              title={copied ? "Copied" : "Copy referral code"}
+            >
+              {copied ? <Check size={16} /> : <Copy size={16} />}
+            </button>
+          </div>
         </div>
 
-        {/* Small floating reward badge */}
-        <div className={styles.rewardBadge}>
-          <Sparkles size={14} />
-          <span>Share • Invite • Earn</span>
+        {/* Reward journey overlay */}
+        <div className={styles.rewardJourney}>
+          <div className={styles.journeyStep}>
+            <span className={styles.journeyIcon}>
+              <Users size={14} />
+            </span>
+            <span>
+              <small>1</small>
+              <strong>Invite</strong>
+            </span>
+          </div>
+
+          <span className={styles.journeyArrow}>
+            <ArrowRight size={14} />
+          </span>
+
+          <div className={styles.journeyStep}>
+            <span className={styles.journeyIcon}>
+              <Zap size={14} />
+            </span>
+            <span>
+              <small>2</small>
+              <strong>Activity</strong>
+            </span>
+          </div>
+
+          <span className={styles.journeyArrow}>
+            <ArrowRight size={14} />
+          </span>
+
+          <div className={styles.journeyStep}>
+            <span className={`${styles.journeyIcon} ${styles.journeyReward}`}>
+              <Gift size={14} />
+            </span>
+            <span>
+              <small>3</small>
+              <strong>Reward</strong>
+            </span>
+          </div>
         </div>
 
-        {/* Decorative VE element */}
-        <div className={styles.veOrb} aria-hidden="true">
+        {/* Floating reward tokens */}
+        <div className={`${styles.floatToken} ${styles.tokenOne}`} aria-hidden="true">
           V
         </div>
+        <div className={`${styles.floatToken} ${styles.tokenTwo}`} aria-hidden="true">
+          V
+        </div>
+
+        {/* Small reward cue remains inside the journey card rather than adding
+            another competing floating panel. */}
       </div>
     </RewardBannerShell>
   );
